@@ -1,18 +1,20 @@
 <?php
 
-namespace app\modules\fct\controllers;
+namespace app\controllers;
 
 use Yii;
-use app\modules\fct\models\Fct;
-use app\modules\fct\models\FctSearch;
+use app\models\Users;
+use app\models\UsersSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\helpers\BaseFileHelper;
+use yii\web\UploadedFile;
 
 /**
- * FctController implements the CRUD actions for Fct model.
+ * UsersController implements the CRUD actions for Users model.
  */
-class FctController extends Controller
+class UsersController extends Controller
 {
     /**
      * @inheritdoc
@@ -30,12 +32,12 @@ class FctController extends Controller
     }
 
     /**
-     * Lists all Fct models.
+     * Lists all Users models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new FctSearch();
+        $searchModel = new UsersSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -43,9 +45,21 @@ class FctController extends Controller
             'dataProvider' => $dataProvider,
         ]);
     }
+    
+    public function actionIndexuser()
+    {
+        $searchModel = new UsersSearch();
+        $searchModel->id = Yii::$app->user->identity->id;
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+
+        return $this->render('indexuser', [
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+        ]);
+    }
 
     /**
-     * Displays a single Fct model.
+     * Displays a single Users model.
      * @param integer $id
      * @return mixed
      */
@@ -57,13 +71,13 @@ class FctController extends Controller
     }
 
     /**
-     * Creates a new Fct model.
+     * Creates a new Users model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new Fct();
+        $model = new Users();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
@@ -75,7 +89,7 @@ class FctController extends Controller
     }
 
     /**
-     * Updates an existing Fct model.
+     * Updates an existing Users model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -84,8 +98,14 @@ class FctController extends Controller
     {
         $model = $this->findModel($id);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        if ($model->load(Yii::$app->request->post())) {
+            $file = UploadedFile::getInstance($model,'avatar_img');
+             if(isset($file->size)&& $file->size!=0){
+                $model->avatar = $file->name;
+                $file->saveAs('avatars/'.$file->name); 
+                }
+                $model->save();
+            return $this->redirect(['indexuser']);
         } else {
             return $this->render('update', [
                 'model' => $model,
@@ -94,7 +114,7 @@ class FctController extends Controller
     }
 
     /**
-     * Deletes an existing Fct model.
+     * Deletes an existing Users model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -107,15 +127,15 @@ class FctController extends Controller
     }
 
     /**
-     * Finds the Fct model based on its primary key value.
+     * Finds the Users model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return Fct the loaded model
+     * @return Users the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Fct::findOne($id)) !== null) {
+        if (($model = Users::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');

@@ -1,19 +1,43 @@
+<?php
+
+use yii\bootstrap\Nav;
+//use yii\bootstrap\NavBar;
+use yii\helpers\Url;
+use dektrium\user\models\User;
+use yii\helpers\Html;
+?>
+
+
 <aside class="main-sidebar">
-
     <section class="sidebar">
+        <?php if(!Yii::$app->user->isGuest){ ?> 
+        <div class="pull-left image">
+                <?= Html::img('avatars/' . Yii::$app->user->identity->avatar,
+                        ['class' => 'img-circle', 'width' => '40px;'])
+                ?>                
 
-        <!-- Sidebar user panel -->
-        <div class="user-panel">
-            <div class="pull-left image">
-                <img src="<?= $directoryAsset ?>/img/user2-160x160.jpg" class="img-circle" alt="User Image"/>
             </div>
-            <div class="pull-left info">
-                <p>Alexander Pierce</p>
+        <?php } ?>
+        <br>
+         <?=
+        Nav::widget(
+                [
+                    'encodeLabels' => false,
+                    'options' => ['class' => 'sidebar-menu'],
+                    'items' => [
+                        '<li class="header"></li>',
+                        Yii::$app->user->isGuest ?
+                                ['label' => '<i class="glyphicon glyphicon-log-in"></i> เข้าสู่ระบบ', 'url' => ['/user/security/login']] :
+                                ['label' => 'ผู้ใช้งาน (' . Yii::$app->user->identity->username . ')', 'items' => [
+                                ['label' => 'ข้อมูลส่วนตัว', 'url' => ['/users/indexuser']],
 
-                <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
-            </div>
-        </div>
-
+                                ['label' => 'ออก', 'url' => ['/user/security/logout'], 'linkOptions' => ['data-method' => 'post']],
+                            ]],
+                    ],
+                ]
+        );
+        ?>
+        <hr>
         
 
     </section>

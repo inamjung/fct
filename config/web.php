@@ -28,6 +28,9 @@ $config = [
             'identityClass' => 'dektrium\user\models\User',
             'enableAutoLogin' => true,
         ],
+        'authManager'=>[
+            'class'=>'dektrium\rbac\components\DbManager'
+        ],
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
@@ -71,10 +74,6 @@ $config = [
         'gridview'=>[
             'class'=>'\kartik\grid\Module'            
         ],
-//        'admin' => [
-//            'class' => 'mdm\admin\Module',
-//            'layout' => 'left-menu',
-//        ],
         'user' => [
             'class' => 'dektrium\user\Module',
             'enableUnconfirmedLogin' => true,
@@ -82,9 +81,11 @@ $config = [
             'cost' => 12,
             'admins' => ['admin']
         ],
-//        'rbac' => [
-//            'class' => 'dektrium\rbac\Module',
-//        ],
+        'rbac' => 'dektrium\rbac\RbacWebModule',
+        'admin' => [
+            'class' => 'mdm\admin\Module',
+            'layout' => 'left-menu',
+        ],    
         
     ],
     'as access' => [
@@ -93,8 +94,10 @@ $config = [
             'site/*',            
             'admin/*',
             'user/*',
+            'users/*',
             'rbac/*',
             'gii/*',
+            'fct/*',
             'setting/*',            
             
             'some-controller/some-action',           

@@ -4,13 +4,13 @@ use yii\helpers\Html;
 use yii\widgets\DetailView;
 
 /* @var $this yii\web\View */
-/* @var $model app\modules\fct\models\Fcttype */
+/* @var $model app\models\Users */
 
 $this->title = $model->name;
-$this->params['breadcrumbs'][] = ['label' => 'Fcttypes', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Users', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="fcttype-view">
+<div class="users-view">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
@@ -29,7 +29,27 @@ $this->params['breadcrumbs'][] = $this->title;
         'model' => $model,
         'attributes' => [
             'id',
+            'username',
+            'email:email',
+            'password_hash',
+            'auth_key',
+            'confirmation_token',
+            'confirmation_sent_at',
+            'confirmed_at',
+            'unconfirmed_email:email',
+            'recovery_token',
+            'recovery_sent_at',
+            'blocked_at',
+            'registered_from',
+            'logged_in_from',
+            'logged_in_at',
+            'created_at',
+            'updated_at',
+            'registration_ip',
+            'fcthosin_id',
             'name',
+            'avatar',
+            'pos',
         ],
     ]) ?>
 

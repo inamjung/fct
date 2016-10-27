@@ -4,13 +4,13 @@ use yii\helpers\Html;
 
 
 /* @var $this yii\web\View */
-/* @var $model app\modules\fct\models\Fct */
+/* @var $model app\models\Users */
 
-$this->title = 'Create Fct';
-$this->params['breadcrumbs'][] = ['label' => 'Fcts', 'url' => ['index']];
+$this->title = 'Create Users';
+$this->params['breadcrumbs'][] = ['label' => 'Users', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="fct-create">
+<div class="users-create">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
