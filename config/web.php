@@ -4,9 +4,18 @@ $params = require(__DIR__ . '/params.php');
 
 $config = [
     'id' => 'basic',
+    'language'=>'th_TH',
+    'name'=>'<img style="height:40px; margin-top:1px;" src="./img/fct.png">FCT-MAEMOH',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'components' => [
+        'view'=>[
+            'theme'=>[
+                'pathMap'=>[
+                    '@app/views'=>'@app/themes/lte'
+                ]
+            ]
+        ],
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => 'bm5rHpzE6LRDVDkWy02tM4byNU-W9evY',
@@ -78,20 +87,19 @@ $config = [
 //        ],
         
     ],
-//    'as access' => [
-//        'class' => 'mdm\admin\components\AccessControl',
-//        'allowActions' => [
-//            'site/*',
-//            /*
-//            'admin/*',
-//            'user/*',
-//            'rbac/*',
-//            'gii/*',
-//            'setting/*',            
-//            */
-//            'some-controller/some-action',           
-//        ]
-//    ],
+    'as access' => [
+        'class' => 'mdm\admin\components\AccessControl',
+        'allowActions' => [
+            'site/*',            
+            'admin/*',
+            'user/*',
+            'rbac/*',
+            'gii/*',
+            'setting/*',            
+            
+            'some-controller/some-action',           
+        ]
+    ],
     'params' => $params,
 ];
 
