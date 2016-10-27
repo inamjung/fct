@@ -98,6 +98,7 @@ $config = [
             'rbac/*',
             'gii/*',
             'fct/*',
+            'fcthhc/*',
             'setting/*',            
             
             'some-controller/some-action',           
