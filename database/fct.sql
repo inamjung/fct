@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50525
 File Encoding         : 65001
 
-Date: 2016-10-28 10:14:20
+Date: 2016-10-31 21:02:08
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -157,10 +157,10 @@ INSERT INTO `departments` VALUES ('5', '1', 'คลังยา');
 -- ----------------------------
 DROP TABLE IF EXISTS `fct`;
 CREATE TABLE `fct` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `fcttype_id` int(11) DEFAULT NULL,
+  `id` int(255) NOT NULL AUTO_INCREMENT,
+  `fcttype_id` int(11) DEFAULT NULL COMMENT 'ประเภทผู้ป่วย',
   `pass` varchar(10) DEFAULT NULL,
-  `colour_id` int(11) DEFAULT NULL,
+  `colour_id` int(11) DEFAULT NULL COMMENT 'ระดับ',
   `hn` varchar(9) DEFAULT NULL,
   `an` varchar(10) DEFAULT NULL,
   `ptname` varchar(50) DEFAULT NULL COMMENT 'ผู้ป่วย',
@@ -182,9 +182,9 @@ CREATE TABLE `fct` (
   `ordate` date DEFAULT NULL,
   `disease` varchar(50) DEFAULT NULL,
   `receive` varchar(50) DEFAULT NULL,
-  `address` varchar(200) DEFAULT NULL,
+  `address` varchar(200) DEFAULT NULL COMMENT 'ที่อยู่',
   `ptcate` varchar(50) DEFAULT NULL,
-  `phone` varchar(10) DEFAULT NULL,
+  `phone` varchar(15) DEFAULT NULL,
   `hossub` varchar(100) DEFAULT NULL,
   `tra` varchar(100) DEFAULT NULL,
   `retng` varchar(100) DEFAULT NULL,
@@ -226,24 +226,32 @@ CREATE TABLE `fct` (
   `doctorapp2` varchar(50) DEFAULT NULL,
   `appdate3` date DEFAULT NULL,
   `doctorapp3` varchar(50) DEFAULT NULL,
-  `senddate` date DEFAULT NULL,
+  `senddate` date DEFAULT NULL COMMENT 'วันที่ส่งเยี่ยม',
   `windpipe` varchar(100) DEFAULT NULL,
   `insulin` varchar(100) DEFAULT NULL,
   `equip` varchar(100) DEFAULT NULL,
-  `depart` varchar(50) DEFAULT NULL,
-  `hosin` varchar(100) DEFAULT NULL,
+  `depart` varchar(50) DEFAULT NULL COMMENT 'แผนกที่ส่ง',
+  `hosin` varchar(100) DEFAULT NULL COMMENT 'รพ.สต',
   `officer` varchar(50) DEFAULT NULL,
   `confirm` varchar(10) DEFAULT NULL,
   `confirmfct` varchar(10) DEFAULT NULL,
-  `cid` varchar(13) DEFAULT NULL,
+  `cid` varchar(13) DEFAULT NULL COMMENT 'CID',
   `send` smallint(2) DEFAULT NULL COMMENT 'ส่งเยี่ยม',
   `okcase` smallint(2) DEFAULT NULL COMMENT 'รับเคส',
+  `birthday` date DEFAULT NULL COMMENT 'วันเกิด',
+  `tmbpart` varchar(2) DEFAULT NULL COMMENT 'ตำบล',
+  `sex` varchar(1) DEFAULT NULL COMMENT 'เพศ',
+  `bloodgrp` varchar(30) DEFAULT NULL COMMENT 'กรุ๊ปเลือด',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=525 DEFAULT CHARSET=tis620;
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=tis620;
 
 -- ----------------------------
 -- Records of fct
 -- ----------------------------
+INSERT INTO `fct` VALUES ('1', null, null, null, '000056441', null, 'น.ส.ไอน้ำ เรืองโพน', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, '43 หมู่ที่ 03', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, '3430300510561', '0', '0', '1974-07-18', '02', '2', 'O');
+INSERT INTO `fct` VALUES ('2', null, null, null, '000035959', null, 'นางบุญเที่ยง ศรีกงพาน', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, '124', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, '3430300716959', '0', '0', '1951-05-12', '01', '2', 'ไม่ทราบหมู่เลือด');
+INSERT INTO `fct` VALUES ('3', null, null, null, '000056441', null, 'น.ส.ไอน้ำ เรืองโพน', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, '43 หมู่ 3 ต.ชุมภูพร อ.ศรีวิไล จ.บึงกาฬ', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, '3430300510561', '0', '0', '1974-07-18', '02', '2', 'O');
+INSERT INTO `fct` VALUES ('4', null, null, null, '000060712', null, 'นายชาญณรงค์ นามกว้าง', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, '115 หมู่ 2 ต.ศรีชมภู อ.พรเจริญ จ.บึงกาฬ', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, '1430400110151', '0', '0', '1990-11-13', '01', '1', 'AB');
 
 -- ----------------------------
 -- Table structure for fctcolour
@@ -301,7 +309,7 @@ DROP TABLE IF EXISTS `fcthhc`;
 CREATE TABLE `fcthhc` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `fct_id` varchar(11) DEFAULT NULL,
-  `fctdate` date DEFAULT NULL,
+  `fctdate` date DEFAULT NULL COMMENT 'วันที่ส่งเยี่ยม',
   `home` varchar(2) DEFAULT NULL,
   `homept` varchar(50) DEFAULT NULL,
   `t` varchar(5) DEFAULT NULL,
@@ -420,11 +428,15 @@ CREATE TABLE `fcthhc` (
   `lrl10` varchar(10) DEFAULT NULL,
   `lrl11` varchar(10) DEFAULT NULL,
   `lrl09` varchar(100) DEFAULT NULL,
-  `cid` varchar(13) DEFAULT NULL,
+  `cid` varchar(13) DEFAULT NULL COMMENT 'CID',
   `status` enum('เยี่ยมแล้ว','ยังไม่เยี่ยม') DEFAULT NULL,
   `fcthosin_id` int(11) DEFAULT NULL COMMENT 'พื้นที่',
+  `birthday` date DEFAULT NULL COMMENT 'วันเกิด',
+  `tmbpart` varchar(2) DEFAULT NULL COMMENT 'ตำบล',
+  `sex` varchar(1) DEFAULT NULL COMMENT 'เพศ',
+  `bloodgrp` varchar(30) DEFAULT NULL COMMENT 'กรุ๊ปเลือด',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=368 DEFAULT CHARSET=tis620;
+) ENGINE=MyISAM DEFAULT CHARSET=tis620;
 
 -- ----------------------------
 -- Records of fcthhc
@@ -504,6 +516,103 @@ INSERT INTO `fcttype` VALUES ('25', 'ติดบ้าน');
 INSERT INTO `fcttype` VALUES ('26', 'อุบัติเหตุ');
 INSERT INTO `fcttype` VALUES ('27', 'โรคหัวใจ');
 INSERT INTO `fcttype` VALUES ('28', 'ระบบทางเดินปัสสาวะ');
+
+-- ----------------------------
+-- Table structure for fct_copy
+-- ----------------------------
+DROP TABLE IF EXISTS `fct_copy`;
+CREATE TABLE `fct_copy` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `fcttype_id` int(11) DEFAULT NULL,
+  `pass` varchar(10) DEFAULT NULL,
+  `colour_id` int(11) DEFAULT NULL,
+  `hn` varchar(9) DEFAULT NULL,
+  `an` varchar(10) DEFAULT NULL,
+  `ptname` varchar(50) DEFAULT NULL COMMENT 'ผู้ป่วย',
+  `ptage` varchar(3) DEFAULT NULL COMMENT 'อายุ',
+  `diage` varchar(100) DEFAULT NULL COMMENT 'โรค',
+  `pps` varchar(5) DEFAULT NULL,
+  `pain` varchar(5) DEFAULT NULL,
+  `painnote` varchar(100) DEFAULT NULL,
+  `cc` varchar(200) DEFAULT NULL,
+  `pi` varchar(250) DEFAULT NULL,
+  `bt` varchar(5) DEFAULT NULL,
+  `pr` varchar(5) DEFAULT NULL,
+  `rr` varchar(5) DEFAULT NULL,
+  `bp` varchar(7) DEFAULT NULL,
+  `drugallergy` varchar(100) DEFAULT NULL,
+  `admit` date DEFAULT NULL,
+  `dc` date DEFAULT NULL,
+  `or` varchar(100) DEFAULT NULL,
+  `ordate` date DEFAULT NULL,
+  `disease` varchar(50) DEFAULT NULL,
+  `receive` varchar(50) DEFAULT NULL,
+  `address` varchar(200) DEFAULT NULL,
+  `ptcate` varchar(50) DEFAULT NULL,
+  `phone` varchar(10) DEFAULT NULL,
+  `hossub` varchar(100) DEFAULT NULL,
+  `tra` varchar(100) DEFAULT NULL,
+  `retng` varchar(100) DEFAULT NULL,
+  `retfo` varchar(100) DEFAULT NULL,
+  `colobag` varchar(100) DEFAULT NULL,
+  `lesion` varchar(100) DEFAULT NULL,
+  `lesioncare` varchar(100) DEFAULT NULL,
+  `recov` varchar(100) DEFAULT NULL,
+  `recovcare` varchar(100) DEFAULT NULL,
+  `oxygen` varchar(100) DEFAULT NULL,
+  `lr01` varchar(100) DEFAULT NULL,
+  `lr02` varchar(200) DEFAULT NULL,
+  `lr03` varchar(100) DEFAULT NULL,
+  `lr04` varchar(200) DEFAULT NULL,
+  `lr05` varchar(100) DEFAULT NULL,
+  `lr06` varchar(200) DEFAULT NULL,
+  `lr07` varchar(10) DEFAULT NULL,
+  `lr08` varchar(10) DEFAULT NULL,
+  `lr09` varchar(10) DEFAULT NULL,
+  `lr10` varchar(200) DEFAULT NULL,
+  `lrl01` varchar(200) DEFAULT NULL,
+  `lrl02` varchar(10) DEFAULT NULL,
+  `lrl03` varchar(10) DEFAULT NULL,
+  `lrl04` varchar(10) DEFAULT NULL,
+  `lrl05` varchar(10) DEFAULT NULL,
+  `lrl06` varchar(10) DEFAULT NULL,
+  `lrl07` varchar(100) DEFAULT NULL,
+  `lrl08` varchar(100) DEFAULT NULL,
+  `lr` varchar(100) DEFAULT NULL,
+  `lrl09` varchar(100) DEFAULT NULL,
+  `lrl10` varchar(10) DEFAULT NULL,
+  `lrl11` varchar(10) DEFAULT NULL,
+  `lrl12` varchar(10) DEFAULT NULL,
+  `lrl13` varchar(10) DEFAULT NULL,
+  `other` varchar(100) DEFAULT NULL,
+  `appdate` date DEFAULT NULL,
+  `doctorapp` varchar(50) DEFAULT NULL,
+  `appdate2` date DEFAULT NULL,
+  `doctorapp2` varchar(50) DEFAULT NULL,
+  `appdate3` date DEFAULT NULL,
+  `doctorapp3` varchar(50) DEFAULT NULL,
+  `senddate` date DEFAULT NULL,
+  `windpipe` varchar(100) DEFAULT NULL,
+  `insulin` varchar(100) DEFAULT NULL,
+  `equip` varchar(100) DEFAULT NULL,
+  `depart` varchar(50) DEFAULT NULL,
+  `hosin` varchar(100) DEFAULT NULL,
+  `officer` varchar(50) DEFAULT NULL,
+  `confirm` varchar(10) DEFAULT NULL,
+  `confirmfct` varchar(10) DEFAULT NULL,
+  `cid` varchar(13) DEFAULT NULL,
+  `send` smallint(2) DEFAULT NULL COMMENT 'ส่งเยี่ยม',
+  `okcase` smallint(2) DEFAULT NULL COMMENT 'รับเคส',
+  `birthday` date DEFAULT NULL,
+  `tmbpart` varchar(2) DEFAULT NULL,
+  `sex` varchar(1) DEFAULT NULL,
+  `bloodgrp` varchar(2) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=525 DEFAULT CHARSET=tis620;
+
+-- ----------------------------
+-- Records of fct_copy
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for groups
@@ -1108,6 +1217,6 @@ CREATE TABLE `user` (
 -- ----------------------------
 -- Records of user
 -- ----------------------------
-INSERT INTO `user` VALUES ('1', 'admin', 'admin@localhost.com', '$2y$12$dPJB3nYzwapkDWV/M/j8NOIL54PWhA6L3ZB.D./V4tyEp5YVHcRUe', 'gscRoe1lTkPJmxrcuvWccAP3SpBSgx9y', null, null, null, null, null, null, null, null, null, null, '1477563186', '1477563186', '::1', null, null, null, null, null);
+INSERT INTO `user` VALUES ('1', 'admin', 'admin@localhost.com', '$2y$12$dPJB3nYzwapkDWV/M/j8NOIL54PWhA6L3ZB.D./V4tyEp5YVHcRUe', 'gscRoe1lTkPJmxrcuvWccAP3SpBSgx9y', null, null, null, null, null, null, null, null, null, null, '1477563186', '1477563186', '::1', null, 'ผู้ดูแลระบบ', 'risk.png', '', '');
 INSERT INTO `user` VALUES ('2', 'user', 'user@localhost.com', '$2y$12$OdbHVyUxftQ4sWbU2/b5vecd14EQiDOQtGLY0mlbIoYNg5N7g9wIm', 'sZXdlEkovbpGRuTUai-48qtKRg0wG_xD', null, null, null, null, null, null, null, null, null, null, '1477564929', '1477564929', '::1', null, null, null, null, null);
 INSERT INTO `user` VALUES ('3', 'viewer', 'viewer@localhost.com', '$2y$12$JzwBl6l5vOHx7AR1Cuz/E.LQekOFxuH/PTdOKDOePtrQp84h4doBa', 'VRGs5thRauimpQrCdDsjXUNZsW8CRaSB', null, null, null, null, null, null, null, null, null, null, '1477564995', '1477564995', '::1', null, null, null, null, null);
