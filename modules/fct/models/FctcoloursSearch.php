@@ -5,12 +5,12 @@ namespace app\modules\fct\models;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use app\modules\fct\models\Fcthosin;
+use app\modules\fct\models\Fctcolour;
 
 /**
- * FcthosinSearch represents the model behind the search form about `app\modules\fct\models\Fcthosin`.
+ * FctcoloursSearch represents the model behind the search form about `app\modules\fct\models\Fctcolour`.
  */
-class FcthosinSearch extends Fcthosin
+class FctcoloursSearch extends Fctcolour
 {
     /**
      * @inheritdoc
@@ -19,7 +19,7 @@ class FcthosinSearch extends Fcthosin
     {
         return [
             [['id'], 'integer'],
-            [['name', 'group'], 'safe'],
+            [['name'], 'safe'],
         ];
     }
 
@@ -41,7 +41,7 @@ class FcthosinSearch extends Fcthosin
      */
     public function search($params)
     {
-        $query = Fcthosin::find();
+        $query = Fctcolour::find();
 
         // add conditions that should always apply here
 
@@ -62,8 +62,7 @@ class FcthosinSearch extends Fcthosin
             'id' => $this->id,
         ]);
 
-        $query->andFilterWhere(['like', 'name', $this->name])
-            ->andFilterWhere(['like', 'group', $this->group]);
+        $query->andFilterWhere(['like', 'name', $this->name]);
 
         return $dataProvider;
     }

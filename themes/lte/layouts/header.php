@@ -1,6 +1,7 @@
 <?php
 use yii\helpers\Html;
-
+use yii\bootstrap\Nav;
+use yii\helpers\Url;
 /* @var $this \yii\web\View */
 /* @var $content string */
 ?>
@@ -14,12 +15,59 @@ use yii\helpers\Html;
         <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
             <span class="sr-only">Toggle navigation</span>
         </a>
+        <?php
+            echo Nav::widget([
+                'options' => ['class' => 'navbar-nav navbar-right',
+                    'encodeLabels'=>false
+                    ],
+                'items' => [  
+                    ['label' => ' เข้าสู่ระบบ', 'url' => ['/user/security/login'], 'visible' => Yii::$app->user->isGuest],
+                    ['label' => ' สมัครใช้งาน', 'url' => ['/user/registration/register'], 'visible' => Yii::$app->user->isGuest],
+                ],
+            ]);        
+        ?>
 
         <div class="navbar-custom-menu">
 
             <ul class="nav navbar-nav">
+                <?php if(!Yii::$app->user->isGuest){ ?>
+                <li class="dropdown user user-menu">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">           
+                        <i class="glyphicon glyphicon-user"></i>                           
 
-                
+                        <span class="hidden-xs">
+                            <?php echo Yii::$app->user->identity->username;?>
+                        </span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <!-- User image -->
+                        <li class="user-header">
+                            <div> <?= Html::img('avatars/' . Yii::$app->user->identity->avatar, 
+                            ['class' => 'img-circle','width' => '120px;']) ?>
+                            </div>
+                            <p>
+                                <?php echo Yii::$app->user->identity->username;?>
+                            </p>
+
+                        </li>
+                        <!-- Menu Body -->
+                        
+                        <!-- Menu Footer-->
+                        <li class="user-footer">
+                            <div class="pull-left">
+                                <a href="<?php echo Url::to(['/users/indexuser']); ?>" class="btn btn-default btn-flat">ข้อมูลส่วนตัว</a>
+                            </div>
+                            <div class="pull-right">
+                                <?= Html::a(
+                                    'ออกจากระบบ',
+                                    ['/site/logout'],
+                                    ['data-method' => 'post', 'class' => 'btn btn-default btn-flat']
+                                ) ?>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+                <?php } ?>
             </ul>
         </div>
     </nav>

@@ -100,6 +100,7 @@ $config = [
             'fct/*',
             'fcthhc/*',
             'setting/*',            
+            'patient/*',
             
             'some-controller/some-action',           
         ]

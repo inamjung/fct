@@ -80,6 +80,18 @@ class FctController extends Controller
      * @param integer $id
      * @return mixed
      */
+//    public function actionUpdate($id)
+//    {
+//        $model = $this->findModel($id);
+//
+//        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+//            return $this->redirect(['view', 'id' => $model->id]);
+//        } else {
+//            return $this->renderAjax('update', [
+//                'model' => $model,
+//            ]);
+//        }
+//    }
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
@@ -92,6 +104,7 @@ class FctController extends Controller
             ]);
         }
     }
+
 
     /**
      * Deletes an existing Fct model.

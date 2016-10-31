@@ -4,7 +4,7 @@ namespace app\modules\fct\controllers;
 
 use Yii;
 use app\modules\fct\models\Fcthosin;
-use app\modules\fct\models\FcthosinSearch;
+use app\modules\fct\models\FcthosinsSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -35,7 +35,7 @@ class FcthosinController extends Controller
      */
     public function actionIndex()
     {
-        $searchModel = new FcthosinSearch();
+        $searchModel = new FcthosinsSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [

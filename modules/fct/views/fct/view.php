@@ -109,6 +109,10 @@ $this->params['breadcrumbs'][] = $this->title;
             'cid',
             'send',
             'okcase',
+            'birthday',
+            'tmbpart',
+            'sex',
+            'bloodgrp',
         ],
     ]) ?>
 

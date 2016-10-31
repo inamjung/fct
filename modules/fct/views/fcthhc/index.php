@@ -148,6 +148,10 @@ $this->params['breadcrumbs'][] = $this->title;
             // 'cid',
             // 'status',
             // 'fcthosin_id',
+            // 'birthday',
+            // 'tmbpart',
+            // 'sex',
+            // 'bloodgrp',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

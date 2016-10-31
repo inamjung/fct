@@ -88,6 +88,10 @@ use Yii;
  * @property string $cid
  * @property integer $send
  * @property integer $okcase
+ * @property string $birthday
+ * @property string $tmbpart
+ * @property string $sex
+ * @property string $bloodgrp
  */
 class Fct extends \yii\db\ActiveRecord
 {
@@ -106,8 +110,8 @@ class Fct extends \yii\db\ActiveRecord
     {
         return [
             [['fcttype_id', 'colour_id', 'send', 'okcase'], 'integer'],
-            [['admit', 'dc', 'ordate', 'appdate', 'appdate2', 'appdate3', 'senddate'], 'safe'],
-            [['pass', 'an', 'phone', 'lr07', 'lr08', 'lr09', 'lrl02', 'lrl03', 'lrl04', 'lrl05', 'lrl06', 'lrl10', 'lrl11', 'lrl12', 'lrl13', 'confirm', 'confirmfct'], 'string', 'max' => 10],
+            [['admit', 'dc', 'ordate', 'appdate', 'appdate2', 'appdate3', 'senddate', 'birthday'], 'safe'],
+            [['pass', 'an', 'lr07', 'lr08', 'lr09', 'lrl02', 'lrl03', 'lrl04', 'lrl05', 'lrl06', 'lrl10', 'lrl11', 'lrl12', 'lrl13', 'confirm', 'confirmfct'], 'string', 'max' => 10],
             [['hn'], 'string', 'max' => 9],
             [['ptname', 'disease', 'receive', 'ptcate', 'doctorapp', 'doctorapp2', 'doctorapp3', 'depart', 'officer'], 'string', 'max' => 50],
             [['ptage'], 'string', 'max' => 3],
@@ -116,7 +120,11 @@ class Fct extends \yii\db\ActiveRecord
             [['cc', 'address', 'lr02', 'lr04', 'lr06', 'lr10', 'lrl01'], 'string', 'max' => 200],
             [['pi'], 'string', 'max' => 250],
             [['bp'], 'string', 'max' => 7],
+            [['phone'], 'string', 'max' => 15],
             [['cid'], 'string', 'max' => 13],
+            [['tmbpart'], 'string', 'max' => 2],
+            [['sex'], 'string', 'max' => 1],
+            [['bloodgrp'], 'string', 'max' => 30],
         ];
     }
 
@@ -127,9 +135,9 @@ class Fct extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'fcttype_id' => 'Fcttype ID',
+            'fcttype_id' => 'ประเภทผู้ป่วย',
             'pass' => 'Pass',
-            'colour_id' => 'Colour ID',
+            'colour_id' => 'ระดับ',
             'hn' => 'Hn',
             'an' => 'An',
             'ptname' => 'ผู้ป่วย',
@@ -151,7 +159,7 @@ class Fct extends \yii\db\ActiveRecord
             'ordate' => 'Ordate',
             'disease' => 'Disease',
             'receive' => 'Receive',
-            'address' => 'Address',
+            'address' => 'ที่อยู่',
             'ptcate' => 'Ptcate',
             'phone' => 'Phone',
             'hossub' => 'Hossub',
@@ -195,18 +203,22 @@ class Fct extends \yii\db\ActiveRecord
             'doctorapp2' => 'Doctorapp2',
             'appdate3' => 'Appdate3',
             'doctorapp3' => 'Doctorapp3',
-            'senddate' => 'Senddate',
+            'senddate' => 'วันที่ส่งเยี่ยม',
             'windpipe' => 'Windpipe',
             'insulin' => 'Insulin',
             'equip' => 'Equip',
-            'depart' => 'Depart',
-            'hosin' => 'Hosin',
+            'depart' => 'แผนกที่ส่ง',
+            'hosin' => 'รพ.สต',
             'officer' => 'Officer',
             'confirm' => 'Confirm',
             'confirmfct' => 'Confirmfct',
-            'cid' => 'Cid',
+            'cid' => 'CID',
             'send' => 'ส่งเยี่ยม',
             'okcase' => 'รับเคส',
+            'birthday' => 'วันเกิด',
+            'tmbpart' => 'ตำบล',
+            'sex' => 'เพศ',
+            'bloodgrp' => 'กรุ๊ปเลือด',
         ];
     }
 }
