@@ -16,33 +16,41 @@ use kartik\checkbox\CheckboxX;
     <div class="label label-info"> ข้อมูลผู้ป่วย</div>
     <div class="row">
         <div class="col-xs-3 col-sm-3 col-md-3">
-            <?= $form->field($model, 'ptname')->textInput() ?>
+            <?= $form->field($model, 'ptname')->textInput(['readonly'=>true]) ?>
         </div>
         <div class="col-xs-2 col-sm-2 col-md-2">
-            <?= $form->field($model, 'cid')->textInput() ?>
+            <?= $form->field($model, 'cid')->textInput(['readonly'=>true]) ?>
         </div>
         <div class="col-xs-2 col-sm-2 col-md-2">
-             <?= $form->field($model, 'bloodgrp')->textInput() ?>
+             <?= $form->field($model, 'bloodgrp')->textInput(['readonly'=>true]) ?>
         </div>
         <div class="col-xs-3 col-sm-3 col-md-3">
-            <?= $form->field($model, 'address')->textInput() ?>
+            <?= $form->field($model, 'address')->textInput(['readonly'=>true]) ?>
         </div>  
         <div class="col-xs-2 col-sm-2 col-md-2">
-            <?= $form->field($model, 'phone')->textInput() ?>
+            <?= $form->field($model, 'phone')->textInput(['readonly'=>true]) ?>
         </div>
     </div>
     <div class="row">
-        <div class="col-xs-3 col-sm-3 col-md-3">
-            <?= $form->field($model, 'birthday')->textInput() ?>
+        <div class="col-xs-3 col-sm-3 col-md-3">            
+            <?=$form->field($model,'birthday')->widget(\yii\jui\DatePicker::classname(),[
+                    'language' => 'th',
+                    'dateFormat' => 'yyyy-MM-dd',
+                    'clientOptions' => [
+                        'changeMonth' => true,
+                        'changeYear' => true,
+                     ],
+                      'options'=>['class'=>'form-control',
+                          'disabled'=>true
+                     ],
+                ]);
+            ?>
         </div>
-        <div class="col-xs-3 col-sm-3 col-md-3">
-           <?= $form->field($model, 'drugallergy')->label('ประวัติการแพ้ยา')->textInput(['maxlength' => true]) ?>
-        </div>
-        <div class="col-xs-3 col-sm-3 col-md-3">
-             <?= $form->field($model, 'bloodgrp')->textInput() ?>
-        </div>
-        <div class="col-xs-3 col-sm-3 col-md-3">
-           <?= $form->field($model, 'tmbpart')->textInput(['maxlength' => true]) ?>
+        <div class="col-xs-2 col-sm-2 col-md-2">
+           <?= $form->field($model, 'drugallergy')->label('ประวัติการแพ้ยา')->textInput(['readonly'=>true,'maxlength' => true]) ?>
+        </div>        
+        <div class="col-xs-2 col-sm-2 col-md-2">
+           <?= $form->field($model, 'tmbpart')->textInput(['readonly'=>true,'maxlength' => true]) ?>
         </div>              
     </div>
     <hr>
@@ -51,10 +59,20 @@ use kartik\checkbox\CheckboxX;
         <div class="col-xs-3 col-sm-3 col-md-3">
             <?= $form->field($model, 'or')->textInput(['maxlength' => true]) ?>
         </div>
-        <div class="col-xs-3 col-sm-3 col-md-3">
-              <?= $form->field($model, 'ordate')->textInput() ?>
+        <div class="col-xs-2 col-sm-2 col-md-2">              
+            <?=$form->field($model,'ordate')->widget(\yii\jui\DatePicker::classname(),[
+                    'language' => 'th',
+                    'dateFormat' => 'yyyy-MM-dd',
+                    'clientOptions' => [
+                        'changeMonth' => true,
+                        'changeYear' => true,
+                     ],
+                      'options'=>['class'=>'form-control'
+                     ],
+                ]);
+            ?>
         </div>
-        <div class="col-xs-3 col-sm-3 col-md-3">
+        <div class="col-xs-2 col-sm-2 col-md-2">
         <?= $form->field($model, 'disease')->textInput(['maxlength' => true]) ?>
         </div>
         <div class="col-xs-3 col-sm-3 col-md-3">
@@ -63,10 +81,20 @@ use kartik\checkbox\CheckboxX;
     </div>
     <hr>
     <div class="label label-warning"> ส่งเยี่ยม</div>
-    <div class="row">
-        <div class="col-xs-3 col-sm-3 col-md-3">
-            <?= $form->field($model, 'senddate')->textInput() ?>
-        </div>
+    
+    
+    <div class="panel panel-warning">
+    <div class="panel-heading" role="tab" id="headingOne">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          <h4><i class="glyphicon glyphicon-plus"></i> คลิกบันทึก เกี่ยวกับโรค</h4>
+        </a>
+      </h4>
+    </div>
+    <div id="collapseOne" class="accordion-body collapse" role="tabpanel" aria-labelledby="headingOne">
+        <div class="panel-body">
+          
+            <div class="row">        
         <div class="col-xs-3 col-sm-3 col-md-3">
              <?= $form->field($model, 'fcttype_id')->textInput() ?>
         </div>
@@ -165,10 +193,25 @@ use kartik\checkbox\CheckboxX;
         <div class="col-xs-3 col-sm-3 col-md-3">
             <?= $form->field($model, 'oxygen')->textInput(['maxlength' => true]) ?>
         </div>        
+    </div>            
+        </div>
     </div>
+        </div>
     <hr>
     <div class="label label-warning"> LR</div>
-    <div class="row">        
+    
+      <div class="panel panel-danger">
+    <div class="panel-heading" role="tab" id="headingOne">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          <h4><i class="glyphicon glyphicon-plus"></i> คลิกบันทึก LR</h4>
+        </a>
+      </h4>
+    </div>
+    <div id="collapseOne" class="accordion-body collapse" role="tabpanel" aria-labelledby="headingOne">
+        <div class="panel-body">
+           
+            <div class="row">        
         <div class="col-xs-3 col-sm-3 col-md-3">
             <?= $form->field($model, 'lr01')->textInput(['maxlength' => true]) ?>
         </div>
@@ -257,19 +300,46 @@ use kartik\checkbox\CheckboxX;
            <?= $form->field($model, 'lrl13')->textInput(['maxlength' => true]) ?>
         </div>        
     </div>
+            
+        </div>
+    </div>
+    </div>
+    
+    
+    
     
     <div class="row">        
         <div class="col-xs-3 col-sm-3 col-md-3">
             <?= $form->field($model, 'other')->textInput(['maxlength' => true]) ?>
         </div>
-        <div class="col-xs-3 col-sm-3 col-md-3">
-            <?= $form->field($model, 'appdate')->textInput() ?>
+        <div class="col-xs-3 col-sm-3 col-md-3">           
+            <?=$form->field($model,'appdate')->widget(\yii\jui\DatePicker::classname(),[
+                    'language' => 'th',
+                    'dateFormat' => 'yyyy-MM-dd',
+                    'clientOptions' => [
+                        'changeMonth' => true,
+                        'changeYear' => true,
+                     ],
+                      'options'=>['class'=>'form-control'
+                     ],
+                ]);
+            ?>
         </div>
         <div class="col-xs-3 col-sm-3 col-md-3">
         <?= $form->field($model, 'doctorapp')->textInput(['maxlength' => true]) ?>
         </div>
         <div class="col-xs-3 col-sm-3 col-md-3">
-           <?= $form->field($model, 'appdate2')->textInput() ?>
+           <?=$form->field($model,'appdate2')->widget(\yii\jui\DatePicker::classname(),[
+                    'language' => 'th',
+                    'dateFormat' => 'yyyy-MM-dd',
+                    'clientOptions' => [
+                        'changeMonth' => true,
+                        'changeYear' => true,
+                     ],
+                      'options'=>['class'=>'form-control'
+                     ],
+                ]);
+            ?>
         </div>        
     </div>
     
@@ -278,7 +348,17 @@ use kartik\checkbox\CheckboxX;
             <?= $form->field($model, 'doctorapp2')->textInput(['maxlength' => true]) ?>
         </div>
         <div class="col-xs-3 col-sm-3 col-md-3">
-            <?= $form->field($model, 'appdate3')->textInput() ?>
+            <?=$form->field($model,'appdate3')->widget(\yii\jui\DatePicker::classname(),[
+                    'language' => 'th',
+                    'dateFormat' => 'yyyy-MM-dd',
+                    'clientOptions' => [
+                        'changeMonth' => true,
+                        'changeYear' => true,
+                     ],
+                      'options'=>['class'=>'form-control'
+                     ],
+                ]);
+            ?>
         </div>
         <div class="col-xs-3 col-sm-3 col-md-3">
         <?= $form->field($model, 'doctorapp3')->textInput(['maxlength' => true]) ?>
@@ -299,6 +379,19 @@ use kartik\checkbox\CheckboxX;
     <hr>
     <div class="label label-warning"> ส่งเยี่ยม</div>
      <div class="row">
+         <div class="col-xs-3 col-sm-3 col-md-3">            
+            <?=$form->field($model,'senddate')->widget(\yii\jui\DatePicker::classname(),[
+                    'language' => 'th',
+                    'dateFormat' => 'yyyy-MM-dd',
+                    'clientOptions' => [
+                        'changeMonth' => true,
+                        'changeYear' => true,
+                     ],
+                      'options'=>['class'=>'form-control'
+                     ],
+                ]);
+            ?>
+        </div>
         <div class="col-xs-3 col-sm-3 col-md-3">
         <?= $form->field($model, 'depart')->widget(\kartik\widgets\Select2::className(),[
             'data'=> yii\helpers\ArrayHelper::map(\app\modules\fct\models\Fctdepart::find()->all(), 'id', 'name'),
@@ -321,9 +414,9 @@ use kartik\checkbox\CheckboxX;
             ]
         ]) ?>
         </div> 
-         <div class="col-xs-3 col-sm-3 col-md-3">
+<!--         <div class="col-xs-3 col-sm-3 col-md-3">
             <?= $form->field($model, 'officer')->textInput(['maxlength' => true]) ?>
-        </div>
+        </div>-->
     </div>    
     
     <?php                           
