@@ -83,7 +83,7 @@ use yii\bootstrap\Nav;
                 </a>
                 <ul class="treeview-menu">
 
-                    <li><a href="<?php echo Url::to(['fct/fct/index']); ?>"><i class="fa fa-circle text-yellow"></i> 
+                    <li><a href="<?php echo Url::to(['/fct/fct/index']); ?>"><i class="fa fa-circle text-yellow"></i> 
                             <span>
                                 บันทึกการส่งเยี่ยม</span><small class="label pull-right bg-aqua"></small>
                         </a>
@@ -91,6 +91,33 @@ use yii\bootstrap\Nav;
 
                 </ul>
                 
+    <!--เมนูใหม่-->             
+                <ul class="sidebar-menu">
+            <!--        //เมนูการตั้งค่าให้ยุบ-ย่อได้-->            
+            <li class="treeview active">
+                <a href="#">
+                    <i class="glyphicon glyphicon-save"></i> <span>รับเยี่ยม</span>
+                    <i class="fa pull-right fa-angle-down"></i>
+                </a>
+                <ul class="treeview-menu">
+                    
+                    <li><a href="<?php echo Url::to(['/fct/fct/indexcase']); ?>"><i class="fa fa-circle text-red"></i> 
+                            <span>
+                                ผู้ป่วยที่ส่งเยี่ยม</span><small class="label pull-right bg-aqua">
+                                <?php echo \app\modules\fct\models\Fct::find()->Where(['okcase'=>'0'])                                                                                    
+                                                                                    ->andWhere(['send'=>'1'])                                                                                   
+                                                                                    ->count(); ?>
+                            </small>
+                        </a>
+                    </li> 
+
+                    <li><a href="<?php echo Url::to(['/fct/fct/indexcaseok']); ?>"><i class="fa fa-circle text-yellow"></i> 
+                            <span>
+                                บันทึกการเยี่ยม</span><small class="label pull-right bg-aqua"></small>
+                        </a>
+                    </li>                    
+
+                </ul>
                 
                 
         </ul>

@@ -154,8 +154,7 @@ class Fcthhc extends \yii\db\ActiveRecord
         return [
             [['fctdate', 'datenext', 'datedc', 'birthday'], 'safe'],
             [['status'], 'string'],
-            [['fcthosin_id'], 'integer'],
-            [['fct_id'], 'string', 'max' => 11],
+            [['fct_id'], 'integer'],           
             [['home', 'timeu', 'tmbpart'], 'string', 'max' => 2],
             [['homept', 'eat'], 'string', 'max' => 50],
             [['t', 'pr', 'rr'], 'string', 'max' => 5],
@@ -163,7 +162,7 @@ class Fcthhc extends \yii\db\ActiveRecord
             [['feel', 'self', 'sore', 'fctname1', 'fctname2', 'fctname3', 'fctname4', 'fctname5'], 'string', 'max' => 20],
             [['stool', 'urin', 'commu', 'lesion', 'insulin'], 'string', 'max' => 15],
             [['mental', 'fall', 'heart', 'social', 'bored', 'depress', 'foley', 'ng', 'pcn', 'tra', 'wound', 'windpipe', 'phy', 'pra', 'diet', 'env', 'ser', 'comp', 'times', 'deg10', 'lr07', 'lr08', 'lr09', 'lr10', 'lrl02', 'lrl03', 'lrl04', 'lrl05', 'lrl06', 'lrl07', 'lrl10', 'lrl11'], 'string', 'max' => 10],
-            [['hearta', 'heartnote', 'sociala', 'socialnote', 'other2', 'deg04', 'deg15', 'deg14', 'deg13', 'deg12', 'deg11', 'deg09', 'deg08', 'deg07', 'deg06', 'deg05', 'deg03', 'deg02', 'deg01', 'fctname6', 'departfct', 'lr01', 'lr03', 'lr05', 'lrl08', 'lr', 'lrl09'], 'string', 'max' => 100],
+            [['hearta', 'heartnote', 'sociala', 'socialnote', 'other2', 'deg04', 'deg15', 'deg14', 'deg13', 'deg12', 'deg11', 'deg09', 'deg08', 'deg07', 'deg06', 'deg05', 'deg03', 'deg02', 'deg01', 'fctname6', 'departfct', 'lr01', 'lr03', 'lr05', 'lrl08', 'lr', 'lrl09','fcthosin_id'], 'string', 'max' => 100],
             [['borednote', 'depressnote', 'foleynote', 'ngnote', 'pcnnote', 'tranote', 'woundnote', 'insulinnote', 'windpipenote', 'phynote', 'pranote', 'dietnote', 'envnote', 'sernote', 'compnote', 'other', 'notefct', 'lr02', 'lr04', 'lr06', 'lrl01'], 'string', 'max' => 200],
             [['tr01', 'tr02', 'tr03', 'tr15', 'tr14', 'tr13', 'tr12', 'tr11', 'tr10', 'tr09', 'tr08', 'tr07', 'tr06', 'tr05', 'tr04', 'bloodgrp'], 'string', 'max' => 30],
             [['cid'], 'string', 'max' => 13],

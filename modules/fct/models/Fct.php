@@ -109,9 +109,9 @@ class Fct extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['fcttype_id', 'colour_id', 'send', 'okcase'], 'integer'],
+            [['fcttype_id', 'colour_id', 'send', 'okcase', 'confirm', 'confirmfct'], 'integer'],
             [['admit', 'dc', 'ordate', 'appdate', 'appdate2', 'appdate3', 'senddate', 'birthday'], 'safe'],
-            [['pass', 'an', 'lr07', 'lr08', 'lr09', 'lrl02', 'lrl03', 'lrl04', 'lrl05', 'lrl06', 'lrl10', 'lrl11', 'lrl12', 'lrl13', 'confirm', 'confirmfct'], 'string', 'max' => 10],
+            [['pass', 'an', 'lr07', 'lr08', 'lr09', 'lrl02', 'lrl03', 'lrl04', 'lrl05', 'lrl06', 'lrl10', 'lrl11', 'lrl12', 'lrl13'], 'string', 'max' => 10],
             [['hn'], 'string', 'max' => 9],
             [['ptname', 'disease', 'receive', 'ptcate', 'doctorapp', 'doctorapp2', 'doctorapp3', 'depart', 'officer'], 'string', 'max' => 50],
             [['ptage'], 'string', 'max' => 3],

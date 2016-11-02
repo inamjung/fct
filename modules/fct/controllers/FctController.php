@@ -8,7 +8,9 @@ use app\modules\fct\models\FctSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-
+use app\modules\fct\models\Fcthhc;
+use yii\helpers\Url;
+use yii\data\ArrayDataProvider;
 /**
  * FctController implements the CRUD actions for Fct model.
  */
@@ -44,6 +46,31 @@ class FctController extends Controller
         ]);
     }
 
+    public function actionIndexcase()
+    {
+        $searchModel = new FctSearch([]);
+        $searchModel->okcase='0';
+        $searchModel-> send='1';
+       
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+
+        return $this->render('indexcase', [
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+        ]);
+    }
+    public function actionIndexcaseok()
+    {
+        $searchModel = new FctSearch(['okcase'=>1]);
+        $searchModel-> send=1;
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+
+        return $this->render('indexcaseok', [
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+        ]);
+    }
+    
     /**
      * Displays a single Fct model.
      * @param integer $id
@@ -100,6 +127,25 @@ class FctController extends Controller
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('update', [
+                'model' => $model,
+            ]);
+        }
+    }
+    public function actionUpdatecase($id)
+    {
+        $model = $this->findModel($id);
+        $fcthc = new Fcthhc;
+
+        if ($model->load(Yii::$app->request->post())) {
+            $fcthc->fct_id = $model->id;
+            $fcthc->cid = $model->cid;
+            $fcthc->fcthosin_id = $model->hosin;
+            
+            $fcthc->save();                    
+            $model->save();
+            return $this->redirect(['view', 'id' => $model->id]);
+        } else {
+            return $this->render('updatecase', [
                 'model' => $model,
             ]);
         }

@@ -119,8 +119,10 @@ class PatientController extends Controller
             $fcthos->sex = $model->sex;
             $fcthos->bloodgrp = $model->bloodgrp;
             $fcthos->tmbpart = $model->tmbpart;
-            $fcthos->address = $model->patientaddr;
             $fcthos->address = $model->informaddr;
+            $fcthos->disease = $model->clinic;
+            $fcthos->drugallergy = $model->drugallergy;
+            $fcthos->phone = $model->informtel;
             $fcthos->ptname = $model->patientname;
             $fcthos->send = '0';
             $fcthos->okcase = '0';
