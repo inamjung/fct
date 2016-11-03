@@ -271,6 +271,10 @@ use yii\widgets\ActiveForm;
 
     <?php // echo $form->field($model, 'bloodgrp') ?>
 
+    <?php // echo $form->field($model, 'fcttype_id') ?>
+
+    <?php // echo $form->field($model, 'fctcolour_id') ?>
+
     <div class="form-group">
         <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>
         <?= Html::resetButton('Reset', ['class' => 'btn btn-default']) ?>

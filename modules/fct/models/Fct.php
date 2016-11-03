@@ -9,7 +9,7 @@ use Yii;
  *
  * @property integer $id
  * @property integer $fcttype_id
- * @property string $pass
+ * @property integer $pass
  * @property integer $colour_id
  * @property string $hn
  * @property string $an
@@ -83,8 +83,8 @@ use Yii;
  * @property string $depart
  * @property string $hosin
  * @property string $officer
- * @property string $confirm
- * @property string $confirmfct
+ * @property integer $confirm
+ * @property integer $confirmfct
  * @property string $cid
  * @property integer $send
  * @property integer $okcase
@@ -109,10 +109,10 @@ class Fct extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['fcttype_id', 'colour_id', 'send', 'okcase', 'confirm', 'confirmfct'], 'integer'],
+            [['fcttype_id', 'pass', 'colour_id', 'confirm', 'confirmfct', 'send', 'okcase'], 'integer'],
             [['admit', 'dc', 'ordate', 'appdate', 'appdate2', 'appdate3', 'senddate', 'birthday'], 'safe'],
-            [['pass', 'an', 'lr07', 'lr08', 'lr09', 'lrl02', 'lrl03', 'lrl04', 'lrl05', 'lrl06', 'lrl10', 'lrl11', 'lrl12', 'lrl13'], 'string', 'max' => 10],
             [['hn'], 'string', 'max' => 9],
+            [['an', 'lr07', 'lr08', 'lr09', 'lrl02', 'lrl03', 'lrl04', 'lrl05', 'lrl06', 'lrl10', 'lrl11', 'lrl12', 'lrl13'], 'string', 'max' => 10],
             [['ptname', 'disease', 'receive', 'ptcate', 'doctorapp', 'doctorapp2', 'doctorapp3', 'depart', 'officer'], 'string', 'max' => 50],
             [['ptage'], 'string', 'max' => 3],
             [['diage', 'painnote', 'drugallergy', 'or', 'hossub', 'tra', 'retng', 'retfo', 'colobag', 'lesion', 'lesioncare', 'recov', 'recovcare', 'oxygen', 'lr01', 'lr03', 'lr05', 'lrl07', 'lrl08', 'lr', 'lrl09', 'other', 'windpipe', 'insulin', 'equip', 'hosin'], 'string', 'max' => 100],

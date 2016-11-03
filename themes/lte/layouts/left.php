@@ -87,7 +87,12 @@ use yii\bootstrap\Nav;
                             <span>
                                 บันทึกการส่งเยี่ยม</span><small class="label pull-right bg-aqua"></small>
                         </a>
-                    </li>                    
+                    </li> 
+                    <li><a href="<?php echo Url::to(['/fct/fct/index']); ?>"><i class="fa fa-circle text-green"></i> 
+                            <span>
+                                ผลการเยี่ยม</span><small class="label pull-right bg-aqua"></small>
+                        </a>
+                    </li> 
 
                 </ul>
                 
@@ -111,7 +116,7 @@ use yii\bootstrap\Nav;
                         </a>
                     </li> 
 
-                    <li><a href="<?php echo Url::to(['/fct/fct/indexcaseok']); ?>"><i class="fa fa-circle text-yellow"></i> 
+                    <li><a href="<?php echo Url::to(['/fct/fcthhc/indexfct']); ?>"><i class="fa fa-circle text-yellow"></i> 
                             <span>
                                 บันทึกการเยี่ยม</span><small class="label pull-right bg-aqua"></small>
                         </a>

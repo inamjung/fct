@@ -107,10 +107,10 @@ use yii\widgets\DetailView;
                         ?>
                     </div>
                     <div class="col-xs-3 col-sm-3 col-md-3">
-<?= $form->field($model, 'pass')->label('การเข้าเยี่ยม')->radioList(['อนุญาต' => 'อนุญาต', 'ไม่อนุญาต' => 'ไม่อนุญาต']) ?>
+<?= $form->field($model, 'pass')->label('การเข้าเยี่ยม')->radioList(yii\helpers\ArrayHelper::map(\app\modules\fct\models\Fctpass::find()->all(), 'id','name' )) ?>
                     </div>
                     <div class="col-xs-3 col-sm-3 col-md-3">
-<?= $form->field($model, 'colour_id')->label('ความเร่งด่วน')->radioList(['1' => 'เขียว', '2' => 'เหลือง', '3' => 'แดง']) ?>
+<?= $form->field($model, 'colour_id')->label('ความเร่งด่วน')->radioList(yii\helpers\ArrayHelper::map(app\modules\fct\models\Fctcolour::find()->all(),'id' ,'name' )) ?>
                     </div>        
                 </div>    
 

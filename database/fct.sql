@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50525
 File Encoding         : 65001
 
-Date: 2016-10-31 21:02:08
+Date: 2016-11-03 08:25:05
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -233,8 +233,8 @@ CREATE TABLE `fct` (
   `depart` varchar(50) DEFAULT NULL COMMENT 'แผนกที่ส่ง',
   `hosin` varchar(100) DEFAULT NULL COMMENT 'รพ.สต',
   `officer` varchar(50) DEFAULT NULL,
-  `confirm` varchar(10) DEFAULT NULL,
-  `confirmfct` varchar(10) DEFAULT NULL,
+  `confirm` smallint(2) DEFAULT NULL,
+  `confirmfct` smallint(2) DEFAULT NULL,
   `cid` varchar(13) DEFAULT NULL COMMENT 'CID',
   `send` smallint(2) DEFAULT NULL COMMENT 'ส่งเยี่ยม',
   `okcase` smallint(2) DEFAULT NULL COMMENT 'รับเคส',
@@ -243,7 +243,7 @@ CREATE TABLE `fct` (
   `sex` varchar(1) DEFAULT NULL COMMENT 'เพศ',
   `bloodgrp` varchar(30) DEFAULT NULL COMMENT 'กรุ๊ปเลือด',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=tis620;
+) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=tis620;
 
 -- ----------------------------
 -- Records of fct
@@ -252,6 +252,9 @@ INSERT INTO `fct` VALUES ('1', null, null, null, '000056441', null, 'น.ส.ไ
 INSERT INTO `fct` VALUES ('2', null, null, null, '000035959', null, 'นางบุญเที่ยง ศรีกงพาน', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, '124', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, '3430300716959', '0', '0', '1951-05-12', '01', '2', 'ไม่ทราบหมู่เลือด');
 INSERT INTO `fct` VALUES ('3', null, null, null, '000056441', null, 'น.ส.ไอน้ำ เรืองโพน', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, '43 หมู่ 3 ต.ชุมภูพร อ.ศรีวิไล จ.บึงกาฬ', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, '3430300510561', '0', '0', '1974-07-18', '02', '2', 'O');
 INSERT INTO `fct` VALUES ('4', null, null, null, '000060712', null, 'นายชาญณรงค์ นามกว้าง', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, '115 หมู่ 2 ต.ศรีชมภู อ.พรเจริญ จ.บึงกาฬ', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, '1430400110151', '0', '0', '1990-11-13', '01', '1', 'AB');
+INSERT INTO `fct` VALUES ('5', null, null, null, '000035959', null, 'นางบุญเที่ยง ศรีกงพาน', null, null, null, null, null, null, null, null, null, null, null, 'ไม่ทราบประวัติการแพ้ยา', null, null, null, null, '', null, '124 หมู่ที่ 12', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, '3430300716959', '0', '0', '1951-05-12', '01', '2', 'ไม่ทราบหมู่เลือด');
+INSERT INTO `fct` VALUES ('6', null, null, null, '000056441', null, 'น.ส.ไอน้ำ เรืองโพน', null, null, null, null, null, null, null, null, null, null, null, 'ไม่ทราบประวัติการแพ้ยา', null, null, null, null, '\"\"', null, '43 หมู่ที่ 03', null, '091-3638928', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, '3430300510561', '0', '0', '1974-07-18', '02', '2', 'O');
+INSERT INTO `fct` VALUES ('7', '2', 'อนุญาต', '2', '000056441', null, 'น.ส.ไอน้ำ เรืองโพน', null, '', '5', '5', '55', '', '', '5', '5', '5', '5', 'ไม่ทราบประวัติการแพ้ยา', '2016-10-01', '2016-10-05', 'ัำห', '2016-10-19', '\"\"', '', '43 หมู่ 3 ต.ชุมภูพร อ.ศรีวิไล จ.บึงกาฬ', '5', '091-3638928', null, '5', '5', '', '5', '5', '5', '5', '5', '5', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, '', null, '', null, null, null, null, '2016-11-02', '5', '5', '', '28', '04889', '', null, null, '3430300510561', '1', '1', '1974-07-18', '02', '2', 'O');
 
 -- ----------------------------
 -- Table structure for fctcolour
@@ -308,7 +311,7 @@ INSERT INTO `fctdepart` VALUES ('30', 'รพ.ศูนย์ลำปาง', '
 DROP TABLE IF EXISTS `fcthhc`;
 CREATE TABLE `fcthhc` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `fct_id` varchar(11) DEFAULT NULL,
+  `fct_id` int(11) DEFAULT NULL,
   `fctdate` date DEFAULT NULL COMMENT 'วันที่ส่งเยี่ยม',
   `home` varchar(2) DEFAULT NULL,
   `homept` varchar(50) DEFAULT NULL,
@@ -430,17 +433,20 @@ CREATE TABLE `fcthhc` (
   `lrl09` varchar(100) DEFAULT NULL,
   `cid` varchar(13) DEFAULT NULL COMMENT 'CID',
   `status` enum('เยี่ยมแล้ว','ยังไม่เยี่ยม') DEFAULT NULL,
-  `fcthosin_id` int(11) DEFAULT NULL COMMENT 'พื้นที่',
+  `fcthosin_id` varchar(100) DEFAULT NULL COMMENT 'พื้นที่',
   `birthday` date DEFAULT NULL COMMENT 'วันเกิด',
   `tmbpart` varchar(2) DEFAULT NULL COMMENT 'ตำบล',
   `sex` varchar(1) DEFAULT NULL COMMENT 'เพศ',
   `bloodgrp` varchar(30) DEFAULT NULL COMMENT 'กรุ๊ปเลือด',
+  `fcttype_id` int(11) DEFAULT NULL,
+  `fctcolour_id` int(10) unsigned zerofill DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=tis620;
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=tis620;
 
 -- ----------------------------
 -- Records of fcthhc
 -- ----------------------------
+INSERT INTO `fcthhc` VALUES ('1', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, '3430300510561', null, null, null, null, null, null, null, null);
 
 -- ----------------------------
 -- Table structure for fcthosin

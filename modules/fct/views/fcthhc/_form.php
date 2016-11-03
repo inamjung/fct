@@ -12,13 +12,13 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'fct_id')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'fct_id')->textInput() ?>
 
     <?= $form->field($model, 'fctdate')->textInput() ?>
 
     <?= $form->field($model, 'home')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'homept')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'homept')->textInput() ?>
 
     <?= $form->field($model, 't')->textInput(['maxlength' => true]) ?>
 
@@ -256,7 +256,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'status')->dropDownList([ 'เยี่ยมแล้ว' => 'เยี่ยมแล้ว', 'ยังไม่เยี่ยม' => 'ยังไม่เยี่ยม', ], ['prompt' => '']) ?>
 
-    <?= $form->field($model, 'fcthosin_id')->textInput() ?>
+    <?= $form->field($model, 'fcthosin_id')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'birthday')->textInput() ?>
 
@@ -265,6 +265,10 @@ use yii\widgets\ActiveForm;
     <?= $form->field($model, 'sex')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'bloodgrp')->textInput(['maxlength' => true]) ?>
+
+    <?= $form->field($model, 'fcttype_id')->textInput() ?>
+
+    <?= $form->field($model, 'fctcolour_id')->textInput() ?>
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>

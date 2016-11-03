@@ -38,6 +38,7 @@ class FctController extends Controller
     public function actionIndex()
     {
         $searchModel = new FctSearch();
+        $searchModel-> send=0;
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -48,15 +49,16 @@ class FctController extends Controller
 
     public function actionIndexcase()
     {
-        $searchModel = new FctSearch([]);
-        $searchModel->okcase='0';
-        $searchModel-> send='1';
-       
+        $searchModel = new FctSearch();
+         $searchModel-> okcase='0';
+        $searchModel-> send=1;
+        
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+       
 
         return $this->render('indexcase', [
             'searchModel' => $searchModel,
-            'dataProvider' => $dataProvider,
+            'dataProvider' => $dataProvider,            
         ]);
     }
     public function actionIndexcaseok()
@@ -140,6 +142,8 @@ class FctController extends Controller
             $fcthc->fct_id = $model->id;
             $fcthc->cid = $model->cid;
             $fcthc->fcthosin_id = $model->hosin;
+           
+            
             
             $fcthc->save();                    
             $model->save();

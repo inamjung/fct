@@ -156,6 +156,8 @@ $this->params['breadcrumbs'][] = $this->title;
             'tmbpart',
             'sex',
             'bloodgrp',
+            'fcttype_id',
+            'fctcolour_id',
         ],
     ]) ?>
 

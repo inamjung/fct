@@ -24,8 +24,8 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'id',
-            'fct_id',
+            //'id',
+//            'fct_id',
             'fctdate',
             'home',
             'homept',
@@ -145,13 +145,15 @@ $this->params['breadcrumbs'][] = $this->title;
             // 'lrl10',
             // 'lrl11',
             // 'lrl09',
-            // 'cid',
-            // 'status',
+             'cid',
+             'status',
             // 'fcthosin_id',
             // 'birthday',
             // 'tmbpart',
             // 'sex',
             // 'bloodgrp',
+             'fcttype_id',
+             'fctcolour_id',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

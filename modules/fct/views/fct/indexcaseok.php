@@ -4,6 +4,7 @@ use yii\helpers\Html;
 use kartik\grid\GridView;
 use yii\widgets\ActiveForm;
 use yii\bootstrap\Modal;
+use yii\widgets\Pjax;
 
 /* @var $this yii\web\View */
 /* @var $searchModel app\modules\fct\models\FctSearch */
@@ -23,6 +24,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <div class="panel panel-success">
         <div class="panel-heading"> รายชื่อผู้ป่วย</div>
         <div class="panel-body">
+            <?php Pjax::begin(['id' => 'fct_id']); ?>
             <?=
             GridView::widget([
                 'dataProvider' => $dataProvider,
@@ -139,7 +141,7 @@ $this->params['breadcrumbs'][] = $this->title;
 //                        return Html::a('<i class="glyphicon glyphicon-search"></i>',$url,['class'=>'btn btn-default']);
 //                    },
                             'update' => function($url, $model, $key) {
-                                return Html::a('<i class="glyphicon glyphicon-pencil"></i> ', ['/fct/fcthhc/update', 'fct_id' => $model->id], [
+                                return Html::a('<i class="glyphicon glyphicon-pencil"></i> ', ['/fct/fcthhc/update', 'id' => $model->id], [
                                             'class' => 'activity-update-link btn btn-info',
                                             'title' => 'บันทึก',
 //                                            'data-toggle' => 'modal',
@@ -163,6 +165,7 @@ $this->params['breadcrumbs'][] = $this->title;
                         ],
                     ]);
                     ?>
+            <?php Pjax::end() ?>
         </div>
     </div>
 </div>
@@ -177,42 +180,14 @@ $this->params['breadcrumbs'][] = $this->title;
                     ?>
                     <?php $this->registerJs('
         function init_click_handlers(){
-            $("#activity-create-link").click(function(e) {
-                    $.get(
-                        "?r=service/create",
-                        function (data)
-                        {
-                            $("#activity-modal").find(".modal-body").html(data);
-                            $(".modal-body").html(data);
-                            $(".modal-title").html("เพิ่มข้อมูลสมาชิก");
-                            $("#activity-modal").modal("show");
-                        }
-                    );
-                });
-            $(".activity-view-link").click(function(e) {
-                    var fID = $(this).closest("tr").data("key");
-                    var $td = $(this).closest("tr").children("td");
-                     var sr = $td.eq(1).text();
-                    $.get(
-                        "?r=pctclinic/pct-clinic-visit/indivhosconfirm",
-                        {
-                            hn: sr
-                        },
-                        function (data)
-                        {
-                            $("#activity-modal").find(".modal-body").html(data);
-                            $(".modal-body").html(data);
-                            $(".modal-title").html("");
-                            $("#activity-modal").modal("show");
-                        }
-                    );
-                });
+           
+            
             $(".activity-update-link").click(function(e) {
                     var fID = $(this).closest("tr").data("key");
                     $.get(
-                        "?r=fct/fct/update",
+                        "?r=fct/fcthhc/update",
                         {
-                           id: fID
+                           fct_id: fID
                         },
                         function (data)
                         {

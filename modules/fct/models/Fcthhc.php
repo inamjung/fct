@@ -8,10 +8,10 @@ use Yii;
  * This is the model class for table "fcthhc".
  *
  * @property integer $id
- * @property string $fct_id
+ * @property integer $fct_id
  * @property string $fctdate
  * @property string $home
- * @property string $homept
+ * @property integer $homept
  * @property string $t
  * @property string $pr
  * @property string $rr
@@ -130,11 +130,13 @@ use Yii;
  * @property string $lrl09
  * @property string $cid
  * @property string $status
- * @property integer $fcthosin_id
+ * @property string $fcthosin_id
  * @property string $birthday
  * @property string $tmbpart
  * @property string $sex
  * @property string $bloodgrp
+ * @property integer $fcttype_id
+ * @property integer $fctcolour_id
  */
 class Fcthhc extends \yii\db\ActiveRecord
 {
@@ -152,17 +154,17 @@ class Fcthhc extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
+            [['fct_id', 'homept', 'fcttype_id', 'fctcolour_id'], 'integer'],
             [['fctdate', 'datenext', 'datedc', 'birthday'], 'safe'],
             [['status'], 'string'],
-            [['fct_id'], 'integer'],           
             [['home', 'timeu', 'tmbpart'], 'string', 'max' => 2],
-            [['homept', 'eat'], 'string', 'max' => 50],
             [['t', 'pr', 'rr'], 'string', 'max' => 5],
             [['bp'], 'string', 'max' => 7],
             [['feel', 'self', 'sore', 'fctname1', 'fctname2', 'fctname3', 'fctname4', 'fctname5'], 'string', 'max' => 20],
+            [['eat'], 'string', 'max' => 50],
             [['stool', 'urin', 'commu', 'lesion', 'insulin'], 'string', 'max' => 15],
             [['mental', 'fall', 'heart', 'social', 'bored', 'depress', 'foley', 'ng', 'pcn', 'tra', 'wound', 'windpipe', 'phy', 'pra', 'diet', 'env', 'ser', 'comp', 'times', 'deg10', 'lr07', 'lr08', 'lr09', 'lr10', 'lrl02', 'lrl03', 'lrl04', 'lrl05', 'lrl06', 'lrl07', 'lrl10', 'lrl11'], 'string', 'max' => 10],
-            [['hearta', 'heartnote', 'sociala', 'socialnote', 'other2', 'deg04', 'deg15', 'deg14', 'deg13', 'deg12', 'deg11', 'deg09', 'deg08', 'deg07', 'deg06', 'deg05', 'deg03', 'deg02', 'deg01', 'fctname6', 'departfct', 'lr01', 'lr03', 'lr05', 'lrl08', 'lr', 'lrl09','fcthosin_id'], 'string', 'max' => 100],
+            [['hearta', 'heartnote', 'sociala', 'socialnote', 'other2', 'deg04', 'deg15', 'deg14', 'deg13', 'deg12', 'deg11', 'deg09', 'deg08', 'deg07', 'deg06', 'deg05', 'deg03', 'deg02', 'deg01', 'fctname6', 'departfct', 'lr01', 'lr03', 'lr05', 'lrl08', 'lr', 'lrl09', 'fcthosin_id'], 'string', 'max' => 100],
             [['borednote', 'depressnote', 'foleynote', 'ngnote', 'pcnnote', 'tranote', 'woundnote', 'insulinnote', 'windpipenote', 'phynote', 'pranote', 'dietnote', 'envnote', 'sernote', 'compnote', 'other', 'notefct', 'lr02', 'lr04', 'lr06', 'lrl01'], 'string', 'max' => 200],
             [['tr01', 'tr02', 'tr03', 'tr15', 'tr14', 'tr13', 'tr12', 'tr11', 'tr10', 'tr09', 'tr08', 'tr07', 'tr06', 'tr05', 'tr04', 'bloodgrp'], 'string', 'max' => 30],
             [['cid'], 'string', 'max' => 13],
@@ -178,7 +180,7 @@ class Fcthhc extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'fct_id' => 'Fct ID',
-            'fctdate' => 'วันที่ส่งเยี่ยม',
+            'fctdate' => 'Fctdate',
             'home' => 'Home',
             'homept' => 'Homept',
             't' => 'T',
@@ -297,13 +299,15 @@ class Fcthhc extends \yii\db\ActiveRecord
             'lrl10' => 'Lrl10',
             'lrl11' => 'Lrl11',
             'lrl09' => 'Lrl09',
-            'cid' => 'CID',
+            'cid' => 'Cid',
             'status' => 'Status',
-            'fcthosin_id' => 'พื้นที่',
-            'birthday' => 'วันเกิด',
-            'tmbpart' => 'ตำบล',
-            'sex' => 'เพศ',
-            'bloodgrp' => 'กรุ๊ปเลือด',
+            'fcthosin_id' => 'Fcthosin ID',
+            'birthday' => 'Birthday',
+            'tmbpart' => 'Tmbpart',
+            'sex' => 'Sex',
+            'bloodgrp' => 'Bloodgrp',
+            'fcttype_id' => 'Fcttype ID',
+            'fctcolour_id' => 'Fctcolour ID',
         ];
     }
 }

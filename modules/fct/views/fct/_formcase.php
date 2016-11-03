@@ -13,18 +13,13 @@ use kartik\checkbox\CheckboxX;
 
 <div class="fct-form">
     <div class="well">
-        <?php $form = ActiveForm::begin(); ?>    
+    <?php $form = ActiveForm::begin(); ?>    
 
     <?php
     echo $form->field($model, 'okcase', ['labelOptions' => ['style' => 'color:red;']])->widget(CheckboxX::classname(), [
         'pluginOptions' => ['threeState' => false],
     ])->label('รับเยี่ยมผู้ป่วย');
     ?>
-
-
-
-
-
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'บันทึก' : '<i class="glyphicon glyphicon-ok"></i> บันทึก', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
