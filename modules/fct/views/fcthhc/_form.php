@@ -59,8 +59,6 @@ use kartik\checkbox\CheckboxX;
                 //'disabled' => true
             ],
     ]) ?>
-    
-    
 
     <?= $form->field($model, 'home')->label('จำนวนสมาชิกในบ้าน/คน')->textInput(['maxlength' => true]) ?>
 
