@@ -12,10 +12,12 @@ $this->params['breadcrumbs'][] = 'Update';
 ?>
 <div class="fcthhc-update">
 
-    <h1><?= Html::encode($this->title) ?></h1>
-
-    <?= $this->render('_form', [
+    <div class="panel panel-primary">
+        <div class="panel-heading"> บันทึกข้อมูลการเยี่ยม</div>
+        <div class="panel-body">
+            <?= $this->render('_form', [
         'model' => $model,
     ]) ?>
-
+        </div>
+    </div>
 </div>

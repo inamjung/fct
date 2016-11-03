@@ -88,7 +88,7 @@ use yii\bootstrap\Nav;
                                 บันทึกการส่งเยี่ยม</span><small class="label pull-right bg-aqua"></small>
                         </a>
                     </li> 
-                    <li><a href="<?php echo Url::to(['/fct/fct/index']); ?>"><i class="fa fa-circle text-green"></i> 
+                    <li><a href="<?php echo Url::to(['/fct/fcthhc/indexhhc']); ?>"><i class="fa fa-circle text-green"></i> 
                             <span>
                                 ผลการเยี่ยม</span><small class="label pull-right bg-aqua"></small>
                         </a>

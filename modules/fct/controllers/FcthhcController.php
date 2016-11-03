@@ -43,16 +43,16 @@ class FcthhcController extends Controller
             'dataProvider' => $dataProvider,
         ]);
     }
-//    public function actionIndexfct()
-//    {
-//        $searchModel = new FcthhcSearch(['status'=>'ยังไม่เยี่ยม']);
-//        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-//
-//        return $this->render('indexfct', [
-//            'searchModel' => $searchModel,
-//            'dataProvider' => $dataProvider,
-//        ]);
-//    }
+public function actionIndexhhc()
+    {
+        $searchModel = new FcthhcSearch(['status'=>'เยี่ยมแล้ว']);
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+
+        return $this->render('indexhhc', [
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+        ]);
+    }
     public function actionIndexfct()
     {
         $searchModel1 = new FcthhcSearch(['status'=>'ยังไม่เยี่ยม']);

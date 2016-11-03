@@ -25,6 +25,8 @@ $this->params['breadcrumbs'][] = $this->title;
 GridView::widget([
     'dataProvider' => $dataProvider1,
     'formatter' => ['class' => 'yii\i18n\Formatter', 'nullDisplay' => '-'],
+    'hover'=>true,
+    'striped'=>false,
     //'filterModel' => $searchModel1,
     'columns' => [
         ['class' => 'yii\grid\SerialColumn'],
@@ -168,7 +170,7 @@ GridView::widget([
             
             
             
-            <div class="panel panel-primary">
+        <div class="panel panel-primary">
         <div class="panel-heading"></div>
         <div class="panel-body">
             
@@ -176,6 +178,8 @@ GridView::widget([
             <?php
         echo GridView::widget([
         'dataProvider' => $dataProvider2,
+        'hover'=>true,
+        'striped'=>false,
         //'filterModel' => $searchModel2,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
