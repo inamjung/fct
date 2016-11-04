@@ -221,4 +221,16 @@ class Fct extends \yii\db\ActiveRecord
             'bloodgrp' => 'กรุ๊ปเลือด',
         ];
     }
+    public function getFcthhc(){
+        return $this->hasMany(Fcthhc::className(), ['fct_id'=>'id']);
+    }
+    public function getType(){
+        return $this->hasOne(Fcttype::className(), ['id'=>'fcttype_id']);
+    }
+    public function getColour(){
+        return $this->hasOne(Fctcolour::className(), ['id'=>'colour_id']);
+    }
+    public function getPass1(){
+        return $this->hasOne(Fctpass::className(), ['id'=>'pass']);
+    }
 }

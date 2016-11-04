@@ -310,4 +310,7 @@ class Fcthhc extends \yii\db\ActiveRecord
             'fctcolour_id' => 'Fctcolour ID',
         ];
     }
+    public function getHhcfct(){
+        return $this->hasOne(Fct::className(), ['id'=>'fct_id']);
+    }
 }

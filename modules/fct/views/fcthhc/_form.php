@@ -28,12 +28,48 @@ use kartik\checkbox\CheckboxX;
                                 'attribute' => 'cid'
                             ],
                             [
+                                'label' => 'ชื่อ-สกุล',
+                                'attribute' => 'cid',
+                                'value'=> $model->hhcfct->ptname,
+                            ],
+                            [
+                                'label' => 'ที่อยู่',
+                                'attribute' => 'fcttype_id',
+                                'value'=> $model->hhcfct->address,
+                            ],
+                            
+                            
+                        ],
+                    ])
+                    ?>
+                </div>
+            </div>
+        </div>
+        
+        
+        <div class="col-xs-4 col-sm-4 col-md-4">
+            <div class="panel panel-info">
+                <div class="panel-heading"> ข้อมูลการส่งเยี่ยม</div>
+                <div class="panel-body">
+                    <?=
+                    DetailView::widget([
+                        'model' => $model,
+                        'formatter' => ['class' => 'yii\i18n\Formatter', 'nullDisplay' => '-'],                        
+                        'attributes' => [                            
+                            [
                                 'label' => 'ประเภท',
-                                'attribute' => 'fcttype_id'
+                                'attribute' => 'fcttype_id',
+                                'value'=> $model->hhcfct->type->name,
                             ],
                             [
                                 'label' => 'ความเร่งด่วน',
                                 'attribute' => 'fctcolour_id',
+                                'value'=> $model->hhcfct->colour->name,
+                            ],
+                            [
+                                'label' => 'การอนุญาต',
+                                'attribute' => 'cid',
+                                'value'=> $model->hhcfct->pass1->name,
                             ],
                             
                         ],
@@ -42,13 +78,15 @@ use kartik\checkbox\CheckboxX;
                 </div>
             </div>
         </div>
+        
     </div>
     
 
     <?php $form = ActiveForm::begin(); ?>
     
-
-    <?= $form->field($model, 'fctdate')->label('วันที่เข้าเยี่ยม')->widget(\yii\jui\DatePicker::className(),[
+    <div class="row">
+        <div class="col-xs-3 col-sm-3 col-md-3">
+             <?= $form->field($model, 'fctdate')->label('วันที่เข้าเยี่ยม')->widget(\yii\jui\DatePicker::className(),[
         'language'=>'th',
         'dateFormat'=>'yyyy-mm-dd',
         'clientOptions' => [
@@ -59,6 +97,20 @@ use kartik\checkbox\CheckboxX;
                 //'disabled' => true
             ],
     ]) ?>
+        </div>
+    </div>
+    <div class="row">    
+        <div class="col-xs-3 col-sm-3 col-md-3">
+            
+        </div>
+        <div class="col-xs-3 col-sm-3 col-md-3">
+            
+        </div>
+        <div class="col-xs-3 col-sm-3 col-md-3">
+            
+        </div>
+    </div>
+   
 
     <?= $form->field($model, 'home')->label('จำนวนสมาชิกในบ้าน/คน')->textInput(['maxlength' => true]) ?>
 
