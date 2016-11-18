@@ -79,12 +79,12 @@ use kartik\checkbox\CheckboxX;
                                 'attribute' => 'senddate'
                             ],
                             [
-                                'label' => 'การอนุญาต',
-                                'attribute' => 'pass'
+                                'label' => 'การให้เยี่ยม',
+                                'attribute' => 'pass1.name'
                             ],
                             [
                                 'label' => 'ความเร่งด่วน',
-                                'attribute' => 'colour_id',
+                                'attribute' => 'colourfct.name',
                             ],
                             [
                                 'label' => 'โรคประจำตัว',
@@ -92,7 +92,7 @@ use kartik\checkbox\CheckboxX;
                             ],
                             [
                                 'label' => 'ส่งจาก',
-                                'attribute' => 'depart',
+                                'attribute' => 'dep.name',
                             ],
                         ],
                     ])

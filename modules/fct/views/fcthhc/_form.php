@@ -64,7 +64,7 @@ use kartik\checkbox\CheckboxX;
                             [
                                 'label' => 'ความเร่งด่วน',
                                 'attribute' => 'fctcolour_id',
-                                'value'=> $model->hhcfct->colour->name,
+                                'value'=> $model->hhcfct->colourfct->name,
                             ],
                             [
                                 'label' => 'การอนุญาต',

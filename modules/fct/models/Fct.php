@@ -227,10 +227,17 @@ class Fct extends \yii\db\ActiveRecord
     public function getType(){
         return $this->hasOne(Fcttype::className(), ['id'=>'fcttype_id']);
     }
-    public function getColour(){
-        return $this->hasOne(Fctcolour::className(), ['id'=>'colour_id']);
-    }
+//    public function getColour1(){
+//        return $this->hasOne(Fctcolour::className(), ['id'=>'colour_id']);
+//    }
     public function getPass1(){
         return $this->hasOne(Fctpass::className(), ['id'=>'pass']);
     }
+    public function getColourfct(){
+        return $this->hasOne(Fctcolour::className(), ['id'=>'colour_id']);
+    }
+    public function getDep(){
+        return $this->hasOne(Fctdepart::className(), ['id'=>'depart']);
+    }
+            
 }
