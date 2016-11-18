@@ -300,7 +300,7 @@ class Fcthhc extends \yii\db\ActiveRecord
             'lrl11' => 'Lrl11',
             'lrl09' => 'Lrl09',
             'cid' => 'Cid',
-            'status' => 'Status',
+            'status' => 'สถานะ',
             'fcthosin_id' => 'Fcthosin ID',
             'birthday' => 'Birthday',
             'tmbpart' => 'Tmbpart',
