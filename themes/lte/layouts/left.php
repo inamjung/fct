@@ -33,7 +33,7 @@ use yii\bootstrap\Nav;
             <!--        //เมนูการตั้งค่าให้ยุบ-ย่อได้-->            
             <li class="treeview active">
                 <a href="#">
-                    <i class="glyphicon glyphicon-cog"></i> <span>ตั้งค่าระบบ</span>
+                    <i class="glyphicon glyphicon-cog"></i> <span>ตั้งค่าระบบ ( แม่ข่าย )</span>
                     <i class="fa pull-right fa-angle-down"></i>
                 </a>
                 <ul class="treeview-menu">
@@ -56,7 +56,7 @@ use yii\bootstrap\Nav;
             <!--        //เมนูการตั้งค่าให้ยุบ-ย่อได้-->            
             <li class="treeview active">
                 <a href="#">
-                    <i class="glyphicon glyphicon-new-window"></i> <span>นำเข้าข้อมูล FCT</span>
+                    <i class="glyphicon glyphicon-new-window"></i> <span>นำเข้าข้อมูล FCT ( แม่ข่าย )</span>
                     <i class="fa pull-right fa-angle-down"></i>
                 </a>
                 <ul class="treeview-menu">
@@ -78,14 +78,19 @@ use yii\bootstrap\Nav;
             <!--        //เมนูการตั้งค่าให้ยุบ-ย่อได้-->            
             <li class="treeview active">
                 <a href="#">
-                    <i class="glyphicon glyphicon-save"></i> <span>ส่งเยี่ยม</span>
+                    <i class="glyphicon glyphicon-save"></i> <span>ส่งเยี่ยม ( แม่ข่าย )</span>
                     <i class="fa pull-right fa-angle-down"></i>
                 </a>
                 <ul class="treeview-menu">
 
                     <li><a href="<?php echo Url::to(['/fct/fct/index']); ?>"><i class="fa fa-circle text-yellow"></i> 
                             <span>
-                                บันทึกการส่งเยี่ยม</span><small class="label pull-right bg-aqua"></small>
+                                บันทึกส่งเยี่ยม</span><small class="label pull-right bg-orange-active">
+                                
+                                     <?php echo \app\modules\fct\models\Fct::find()->Where(['send'=>'0'])                                                                                    
+                                                                                    //->andWhere(['send'=>'1'])                                                                                    
+                                                                                    ->count(); ?>
+                            </small>
                         </a>
                     </li> 
                     <li><a href="<?php echo Url::to(['/fct/fct/indexall']); ?>"><i class="fa fa-circle text-green"></i> 
@@ -93,7 +98,6 @@ use yii\bootstrap\Nav;
                                 ผลการเยี่ยม</span><small class="label pull-right bg-aqua"></small>
                         </a>
                     </li> 
-
                 </ul>
                 
     <!--เมนูใหม่-->             
@@ -101,14 +105,14 @@ use yii\bootstrap\Nav;
             <!--        //เมนูการตั้งค่าให้ยุบ-ย่อได้-->            
             <li class="treeview active">
                 <a href="#">
-                    <i class="glyphicon glyphicon-save"></i> <span>รับเยี่ยม</span>
+                    <i class="glyphicon glyphicon-save"></i> <span>รับเยี่ยม ( รพ.สต )</span>
                     <i class="fa pull-right fa-angle-down"></i>
                 </a>
                 <ul class="treeview-menu">
                     
-                    <li><a href="<?php echo Url::to(['/fct/fct/indexcase']); ?>"><i class="fa fa-circle text-red"></i> 
+                    <li><a href="<?php echo Url::to(['/fct/fct/indexcase']); ?>"><i class="fa fa-circle text-blue"></i> 
                             <span>
-                                ผู้ป่วยที่ส่งเยี่ยม</span><small class="label pull-right bg-aqua">
+                                รับผู้ป่วยที่ส่งเยี่ยม</span><small class="label pull-right bg-aqua">
                                 <?php echo \app\modules\fct\models\Fct::find()->Where(['okcase'=>'0'])                                                                                    
                                                                                     ->andWhere(['send'=>'1'])                                                                                   
                                                                                     ->count(); ?>
@@ -116,9 +120,14 @@ use yii\bootstrap\Nav;
                         </a>
                     </li> 
 
-                    <li><a href="<?php echo Url::to(['/fct/fcthhc/indexfct']); ?>"><i class="fa fa-circle text-yellow"></i> 
+                    <li><a href="<?php echo Url::to(['/fct/fcthhc/indexfct']); ?>"><i class="fa fa-circle text-red"></i> 
                             <span>
-                                บันทึกการเยี่ยม</span><small class="label pull-right bg-aqua"></small>
+                                บันทึกผลเยี่ยม</span><small class="label pull-right bg-red-gradient">
+                                
+                                    <?php echo \app\modules\fct\models\Fcthhc::find()->Where(['status'=>'ยังไม่เยี่ยม'])                                                                                    
+                                                                                    //->andWhere(['send'=>'1'])                                                                                    
+                                                                                    ->count(); ?>
+                            </small>
                         </a>
                     </li> 
                     <li><a href="<?php echo Url::to(['/fct/fcthhc/indexfctok']); ?>"><i class="fa fa-circle text-yellow"></i> 

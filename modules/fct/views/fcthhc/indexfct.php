@@ -32,7 +32,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     ['class' => 'yii\grid\SerialColumn'],
                     //'id',
 //            'fct_id',
-                    'fctdate',
+                    //'fctdate',
                     [
                         'label' => 'ชื่อ-สกุล',
                         'attribute' => 'cid',

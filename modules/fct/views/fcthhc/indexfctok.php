@@ -20,7 +20,7 @@ $this->title = 'Fcthhcs';
     <?= Html::a('Create Fcthhc', ['create'], ['class' => 'btn btn-success']) ?>
     </p>-->
     <div class="panel panel-primary">
-        <div class="panel-heading"></div>
+        <div class="panel-heading"><h4>รายชื่อผู้ป่วยที่ บันทึกผลการเยี่ยมแล้ว</h4></div>
         <div class="panel-body">
             <?=
             GridView::widget([
