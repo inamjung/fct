@@ -5,7 +5,7 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\modules\fct\models\Fcthhcdetail */
 
-$this->title = 'Update Fcthhcdetail: ' . $model->id;
+$this->title = 'ผู้ป่วย: ' . $model->fctmain->ptname;
 $this->params['breadcrumbs'][] = ['label' => 'Fcthhcdetails', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->id, 'url' => ['view', 'id' => $model->id]];
 $this->params['breadcrumbs'][] = 'Update';

@@ -21,7 +21,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= Html::a('Create Fct', ['create'], ['class' => 'btn btn-success']) ?>
     </p>-->
     <div class="panel panel-success">
-        <div class="panel-heading"> รายชื่อผู้ป่วย</div>
+        <div class="panel-heading"> <h4>รายชื่อผู้ป่วย รอ รับเคส ( รพ.สต ยังไม่รับเคส )</h4></div>
         <div class="panel-body">
             <?=
             GridView::widget([

@@ -123,7 +123,7 @@ public function actionIndexhhc()
 
         if ($model->load(Yii::$app->request->post())&& $model->save()) {
           
-            return $this->redirect(['view', 'id' => $model->id]);
+            return $this->redirect(['indexfct']);
         } else {
             return $this->render('update', [
                 'model' => $model,

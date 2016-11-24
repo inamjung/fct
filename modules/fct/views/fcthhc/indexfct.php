@@ -19,7 +19,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= Html::a('Create Fcthhc', ['create'], ['class' => 'btn btn-success']) ?>
     </p>-->
     <div class="panel panel-warning">
-        <div class="panel-heading"></div>
+        <div class="panel-heading"><h4>รายชื่อผู้ป่วย รอ บันทึกผลการเยี่ยม ( รพ.สต รับเคสแล้ว รอบันทึกผลเยี่ยม )</h4></div>
         <div class="panel-body">
             <?=
             GridView::widget([
@@ -181,7 +181,17 @@ $this->params['breadcrumbs'][] = $this->title;
                     // 'bloodgrp',
 //                    'fcttype_id',
 //                    'fctcolour_id',
-                    ['class' => 'yii\grid\ActionColumn'],
+                  [
+                                'attribute' => 'บันทึกผลเยี่ยม',
+                                'format' => 'raw',
+                                'value' => function($data) {
+                                    $path = ('index.php?r=/fct/fcthhc/update&id=' . $data->id);
+                                    //return Html::a('Add Product', $path, array('target' => '_blank'));
+                                    return Html::a(' <i class="glyphicon glyphicon-edit"> </i>', $path, [ 'data-pjax' => 0, 'class' => 'btn btn-warning btn-sm', 'title' => Yii::t('kvgrid', 'คลิกดูข้อมูล')]);
+                                },
+                                        'contentOptions' => ['style' => 'width: 50px;text-align:center']
+                                    ],
+                    //['class' => 'yii\grid\ActionColumn'],
                 ],
             ]);
             ?>

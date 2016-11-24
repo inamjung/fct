@@ -46,6 +46,16 @@ class FctController extends Controller
             'dataProvider' => $dataProvider,
         ]);
     }
+     public function actionIndexall()
+    {
+        $searchModel = new FctSearch();        
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+
+        return $this->render('indexall', [
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+        ]);
+    }
 
     public function actionIndexcase()
     {
@@ -126,7 +136,7 @@ class FctController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            return $this->redirect(['index']);
         } else {
             return $this->render('update', [
                 'model' => $model,
@@ -147,7 +157,7 @@ class FctController extends Controller
             
             $fcthc->save();                    
             $model->save();
-            return $this->redirect(['view', 'id' => $model->id]);
+            return $this->redirect(['indexcase']);
         } else {
             return $this->render('updatecase', [
                 'model' => $model,

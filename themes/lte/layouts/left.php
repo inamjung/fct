@@ -88,7 +88,7 @@ use yii\bootstrap\Nav;
                                 บันทึกการส่งเยี่ยม</span><small class="label pull-right bg-aqua"></small>
                         </a>
                     </li> 
-                    <li><a href="<?php echo Url::to(['/fct/fct/index']); ?>"><i class="fa fa-circle text-green"></i> 
+                    <li><a href="<?php echo Url::to(['/fct/fct/indexall']); ?>"><i class="fa fa-circle text-green"></i> 
                             <span>
                                 ผลการเยี่ยม</span><small class="label pull-right bg-aqua"></small>
                         </a>
@@ -123,7 +123,7 @@ use yii\bootstrap\Nav;
                     </li> 
                     <li><a href="<?php echo Url::to(['/fct/fcthhc/indexfctok']); ?>"><i class="fa fa-circle text-yellow"></i> 
                             <span>
-                                เยี่ยมแล้ว</span><small class="label pull-right bg-aqua"></small>
+                                ค้นหา / เยี่ยมใหม่</span><small class="label pull-right bg-aqua"></small>
                         </a>
                     </li>
 

@@ -16,7 +16,7 @@ use kartik\checkbox\CheckboxX;
     <div class="row">
         <div class="col-xs-4 col-sm-4 col-md-4">
             <div class="panel panel-info">
-                <div class="panel-heading"> ข้อมูลการส่งเยี่ยม</div>
+                <div class="panel-heading"> ข้อมูลการเยี่ยม</div>
                 <div class="panel-body">
                     <?=
                     DetailView::widget([
@@ -78,14 +78,38 @@ use kartik\checkbox\CheckboxX;
                 </div>
             </div>
         </div>
-        
+        <div class="col-xs-4 col-sm-4 col-md-4">
+            <div class="panel panel-info">
+                <div class="panel-heading"> </div>
+                <div class="panel-body">
+                    <?=
+                    DetailView::widget([
+                        'model' => $model,
+                        'formatter' => ['class' => 'yii\i18n\Formatter', 'nullDisplay' => '-'],                        
+                        'attributes' => [                            
+                            [
+                                'label' => 'จำนวนสมาชิกในบ้าน/คน',
+                                'attribute' => 'home',                                
+                            ],
+                            [
+                                'label' => 'ผู้ดูแล',
+                                'attribute' => 'homept',                                
+                            ],                            
+                            
+                        ],
+                    ])
+                    ?>
+                </div>
+            </div>
+        </div>
     </div>
     
 
     <?php $form = ActiveForm::begin(); ?>
     
-    <div class="row">
-        <div class="col-sm-offset-2 col-sm-4">
+    <div class="row">       
+        
+        <div class="col-xs-2 col-sm-2 col-md-2">
              <?= $form->field($model, 'fctdate')->label('วันที่เข้าเยี่ยม')->widget(\yii\jui\DatePicker::className(),[
         'language'=>'th',
         'dateFormat'=>'yyyy-MM-dd',
@@ -97,25 +121,18 @@ use kartik\checkbox\CheckboxX;
                 //'disabled' => true
             ],
     ]) ?>
-        </div>
+        </div>        
+   
         <div class="col-xs-2 col-sm-2 col-md-2">
-            <?= $form->field($model, 'home')->label('จำนวนสมาชิกในบ้าน/คน')->textInput(['maxlength' => true]) ?>
-        </div>
-        <div class="col-xs-4 col-sm-4 col-md-4">
-            <?= $form->field($model, 'homept')->label('ผู้ดูแล')->textInput() ?>
-        </div>
-    </div>
-    <div class="row">    
-        <div class="col-xs-3 col-sm-3 col-md-3">
             <?= $form->field($model, 't')->label('อุณหภูมิร่างกาย/T')->textInput(['maxlength' => true]) ?>
         </div>
-        <div class="col-xs-3 col-sm-3 col-md-3">
+        <div class="col-xs-2 col-sm-2 col-md-2">
             <?= $form->field($model, 'pr')->label('PR(ครั้ง/นาที)')->textInput(['maxlength' => true]) ?>
         </div>
-        <div class="col-xs-3 col-sm-3 col-md-3">
+        <div class="col-xs-2 col-sm-2 col-md-2">
             <?= $form->field($model, 'rr')->label('RR(ครั้ง/นาที)')->textInput(['maxlength' => true]) ?>
         </div>
-        <div class="col-xs-3 col-sm-3 col-md-3">
+        <div class="col-xs-2 col-sm-2 col-md-2">
              <?= $form->field($model, 'bp')->label('BP(mmHg)')->textInput(['maxlength' => true]) ?>
         </div>        
     </div>

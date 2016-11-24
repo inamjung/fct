@@ -20,8 +20,8 @@ $this->params['breadcrumbs'][] = $this->title;
 <!--    <p>
     <?= Html::a('Create Fct', ['create'], ['class' => 'btn btn-success']) ?>
     </p>-->
-    <div class="panel panel-primary">
-        <div class="panel-heading"> รายชื่อผู้ป่วยรอส่งเยี่ยม</div>
+    <div class="panel panel-info">
+        <div class="panel-heading"> ติดตาม / รายชื่อผู้ป่วยทั้งหมดที่มีใน FCT</div>
         <div class="panel-body">
             <?=
             GridView::widget([
@@ -122,14 +122,14 @@ $this->params['breadcrumbs'][] = $this->title;
                     //'tmbpart',
                     'phone',
                     //'bloodgrp',                   
-//                    [
-//                        'class' => 'kartik\grid\BooleanColumn',
-//                        'attribute' => 'send',
-//                    ],       
-//                    [
-//                        'class' => 'kartik\grid\BooleanColumn',
-//                        'attribute' => 'okcase',
-//                    ],
+                    [
+                        'class' => 'kartik\grid\BooleanColumn',
+                        'attribute' => 'send',
+                    ],       
+                    [
+                        'class' => 'kartik\grid\BooleanColumn',
+                        'attribute' => 'okcase',
+                    ],
                     [
                         'class' => 'yii\grid\ActionColumn',
                         'options' => ['style' => 'width:100px;'],
