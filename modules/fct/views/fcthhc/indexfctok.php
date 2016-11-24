@@ -190,7 +190,7 @@ $this->title = 'Fcthhcs';
                     // 'lrl11',
                     // 'lrl09',
                     //'cid',
-                    'status',
+                    //'status',
                     // 'fcthosin_id',
                     // 'birthday',
                     // 'tmbpart',

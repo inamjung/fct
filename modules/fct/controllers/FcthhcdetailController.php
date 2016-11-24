@@ -85,7 +85,7 @@ class FcthhcdetailController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            return $this->redirect(['/fct/fcthhc/indexfctok']);
         } else {
             return $this->render('update', [
                 'model' => $model,
