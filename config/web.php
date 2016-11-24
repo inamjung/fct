@@ -5,7 +5,7 @@ $params = require(__DIR__ . '/params.php');
 $config = [
     'id' => 'basic',
     'language'=>'th_TH',
-    'name'=>'<img style="height:40px; margin-top:1px;" src="./img/fct.png">FCT-MAEMOH',
+    'name'=>'ระบบเยี่ยมบ้าน',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'components' => [
