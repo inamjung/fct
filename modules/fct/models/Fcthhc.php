@@ -154,7 +154,7 @@ class Fcthhc extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['home','fct_id',  'fcttype_id', 'fctcolour_id'], 'integer'],
+            [['home','fct_id',  'fcttype_id', 'fctcolour_id','hhclot'], 'integer'],
             [['fctdate', 'datenext', 'datedc', 'birthday'], 'safe'],
             [['status'], 'string'],
             [[ 'timeu', 'tmbpart'], 'string', 'max' => 2],
@@ -308,6 +308,7 @@ class Fcthhc extends \yii\db\ActiveRecord
             'bloodgrp' => 'Bloodgrp',
             'fcttype_id' => 'Fcttype ID',
             'fctcolour_id' => 'Fctcolour ID',
+            'hhclot'=>'ครั้งที่เยี่ยม'
         ];
     }
     public function getHhcfct(){

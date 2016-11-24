@@ -46,7 +46,7 @@ $this->params['breadcrumbs'][] = $this->title;
                         'attribute' => 'sex',
                         'format' => 'html',
                         'value' => function($model, $key, $index, $column) {
-                            return $model->sex == 1 ? "<span style=\"color:green;\">ชาย</span>" : "<span style=\"color:red;\">หญิง</span>";
+                            return $model->sex == 1 ? "ชาย" : "หญิง";
                         }
                     ],
                     // 'ptage',

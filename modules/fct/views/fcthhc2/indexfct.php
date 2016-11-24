@@ -23,7 +23,7 @@ $this->params['breadcrumbs'][] = $this->title;
         <div class="panel-body">
             <?=
             GridView::widget([
-                'dataProvider' => $dataProvider,
+                'dataProvider' => $dataProvider1,
                 'formatter' => ['class' => 'yii\i18n\Formatter', 'nullDisplay' => '-'],
                 'hover' => true,
                 'striped' => false,
@@ -33,29 +33,28 @@ $this->params['breadcrumbs'][] = $this->title;
                     //'id',
 //            'fct_id',
                     'fctdate',
+                    
+                    
                     [
                         'label' => 'ชื่อ-สกุล',
                         'attribute' => 'cid',
-                        'value' => function($model) {
-                            return $model->hhcfct->ptname;
-                        }
+                        'value' => 'hhcfct.ptname',
+                        
                     ],
-                    [
+                           [
                         'label' => 'ประเภทผู้ป่วย',
                         'attribute' => 'fcttype_id',
-                        'value' => function($model) {
+                        'value' => function(){
                             return $model->hhcfct->type->name;
-                        }
+                        }                        
                     ],
-                    [
-                        'label' => 'ความเร่งด่วน',
+                            [
+                        'label' => 'ระดับ',
                         'attribute' => 'fctcolour_id',
-                        'value' => function($model) {
-                            return $model->hhcfct->colourfct->name;
-                        }
+                       
                     ],
-//        'home',
-//        'homept',
+//                    'home',
+//                    'homept',
                     // 't',
                     // 'pr',
                     // 'rr',
@@ -179,8 +178,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     // 'tmbpart',
                     // 'sex',
                     // 'bloodgrp',
-//                    'fcttype_id',
-//                    'fctcolour_id',
+                    
                     ['class' => 'yii\grid\ActionColumn'],
                 ],
             ]);
@@ -189,6 +187,33 @@ $this->params['breadcrumbs'][] = $this->title;
     </div>
 </div>
 
+
+
+<div class="panel panel-primary">
+    <div class="panel-heading"></div>
+    <div class="panel-body">
+
+
+        <?php
+        echo GridView::widget([
+            'dataProvider' => $dataProvider2,
+            'hover' => true,
+            'striped' => false,
+            //'filterModel' => $searchModel2,
+            'columns' => [
+                ['class' => 'yii\grid\SerialColumn'],
+                'cid',
+                [
+                                'label' => 'ชื่อ-สกุล',
+                                'attribute' => 'cid',
+                                'value' => 'hhcfct.ptname',
+                            ],
+                'status',
+            ],
+        ]);
+        ?>
+    </div>
+</div>
 </div>
 
 </div>

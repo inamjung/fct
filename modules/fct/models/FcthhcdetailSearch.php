@@ -47,6 +47,11 @@ class FcthhcdetailSearch extends Fcthhcdetail
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
+            'sort'=>[
+                'defaultOrder'=>[
+                    'id'=>'sort_desc'
+                ]
+            ]
         ]);
 
         $this->load($params);

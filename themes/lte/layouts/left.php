@@ -61,7 +61,7 @@ use yii\bootstrap\Nav;
                 </a>
                 <ul class="treeview-menu">
 
-                    <li><a href="<?php echo Url::to(['patient/indexfct']); ?>"><i class="fa fa-circle text-red"></i> 
+                    <li><a href="<?php echo Url::to(['/fct/patient/indexfct']); ?>"><i class="fa fa-circle text-red"></i> 
                             <span>
                                 รับผู้ป่วยเข้าระบบ FCT</span><small class="label pull-right bg-aqua"></small>
                         </a>
@@ -88,7 +88,7 @@ use yii\bootstrap\Nav;
                                 บันทึกการส่งเยี่ยม</span><small class="label pull-right bg-aqua"></small>
                         </a>
                     </li> 
-                    <li><a href="<?php echo Url::to(['/fct/fcthhc/indexhhc']); ?>"><i class="fa fa-circle text-green"></i> 
+                    <li><a href="<?php echo Url::to(['/fct/fct/index']); ?>"><i class="fa fa-circle text-green"></i> 
                             <span>
                                 ผลการเยี่ยม</span><small class="label pull-right bg-aqua"></small>
                         </a>
@@ -120,7 +120,12 @@ use yii\bootstrap\Nav;
                             <span>
                                 บันทึกการเยี่ยม</span><small class="label pull-right bg-aqua"></small>
                         </a>
-                    </li>                    
+                    </li> 
+                    <li><a href="<?php echo Url::to(['/fct/fcthhc/indexfctok']); ?>"><i class="fa fa-circle text-yellow"></i> 
+                            <span>
+                                เยี่ยมแล้ว</span><small class="label pull-right bg-aqua"></small>
+                        </a>
+                    </li>
 
                 </ul>
                 

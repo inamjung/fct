@@ -56,6 +56,9 @@ use yii\widgets\DetailView;
         </div>
    </div>     
         <div class="row">
+            <div class="col-xs-3 col-sm-3 col-md-3">
+<?= $form->field($model, 'drugallergy')->label('ประวัติการแพ้ยา')->textInput(['readonly' => true, 'maxlength' => true]) ?>
+        </div>
 
         <div class="col-xs-3 col-sm-3 col-md-3">
                         <?=
@@ -140,11 +143,9 @@ use yii\widgets\DetailView;
 <?= $form->field($model, 'painnote')->label('การจัดการกับความปวด')->textInput(['maxlength' => true]) ?>
                         </div>                        
                     </div>
-    <div class="row">
-        <div class="col-xs-2 col-sm-2 col-md-2">
-<?= $form->field($model, 'drugallergy')->label('ประวัติการแพ้ยา')->textInput(['readonly' => true, 'maxlength' => true]) ?>
-        </div>
-    </div>      
+    
+        
+         
     
     <div class="row">        
         <div class="col-xs-3 col-sm-3 col-md-3">

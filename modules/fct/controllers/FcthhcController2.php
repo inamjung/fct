@@ -8,9 +8,7 @@ use app\modules\fct\models\FcthhcSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-use app\modules\fct\models\Fcthhcdetail;
-use yii\data\ArrayDataProvider;
-use yii\helpers\Url;
+
 /**
  * FcthhcController implements the CRUD actions for Fcthhc model.
  */
@@ -45,7 +43,7 @@ class FcthhcController extends Controller
             'dataProvider' => $dataProvider,
         ]);
     }
-public function actionIndexhhc()
+    public function actionIndexhhc()
     {
         $searchModel = new FcthhcSearch(['status'=>'เยี่ยมแล้ว']);
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
@@ -57,27 +55,17 @@ public function actionIndexhhc()
     }
     public function actionIndexfct()
     {
-        $searchModel = new FcthhcSearch(['status'=>'ยังไม่เยี่ยม']);
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        $searchModel1 = new FcthhcSearch(['status'=>'ยังไม่เยี่ยม']);
+        $dataProvider1 = $searchModel1->search(Yii::$app->request->queryParams);
         
-//        $searchModel2 = new FcthhcSearch(['status'=>'เยี่ยมแล้ว']);
-//        $dataProvider2 = $searchModel2->search(Yii::$app->request->queryParams);
+        $searchModel2 = new FcthhcSearch(['status'=>'เยี่ยมแล้ว']);
+        $dataProvider2 = $searchModel2->search(Yii::$app->request->queryParams);
 
         return $this->render('indexfct', [
-            'searchModel' => $searchModel,
-            'dataProvider' => $dataProvider,
-//            'searchModel2' => $searchModel2,
-//            'dataProvider2' => $dataProvider2,
-        ]);
-    }
-    public function actionIndexfctok()
-    {
-        $searchModel = new FcthhcSearch(['status'=>'เยี่ยมแล้ว']);
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-
-        return $this->render('indexfctok', [
-            'searchModel' => $searchModel,
-            'dataProvider' => $dataProvider,
+            'searchModel1' => $searchModel1,
+            'dataProvider1' => $dataProvider1,
+            'searchModel2' => $searchModel2,
+            'dataProvider2' => $dataProvider2,
         ]);
     }
 
@@ -119,33 +107,12 @@ public function actionIndexhhc()
      */
     public function actionUpdate($id)
     {
-        $model = $this->findModel($id);       
+        $model = $this->findModel($id);
 
-        if ($model->load(Yii::$app->request->post())&& $model->save()) {
-          
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('update', [
-                'model' => $model,
-            ]);
-        }
-    }
-    public function actionUpdatedetail($id)
-    {
-        $model = $this->findModel($id);
-        $fcthhcdel = new Fcthhcdetail;
-
-        if ($model->load(Yii::$app->request->post())) {
-            
-            $fcthhcdel->fcthhc_id = $model->id;
-            $fcthhcdel->fct_id = $model->fct_id;
-            $fcthhcdel->fcthosin_id = $model->fcthosin_id;
-            
-            $fcthhcdel->save();
-            $model->save();
-            return $this->redirect(['view', 'id' => $model->id]);
-        } else {
-            return $this->render('updatedetail', [
                 'model' => $model,
             ]);
         }

@@ -2,13 +2,14 @@
 
 use yii\helpers\Html;
 use kartik\grid\GridView;
+use app\modules\fct\models\FcthhcdetailSearch;
 
 /* @var $this yii\web\View */
 /* @var $searchModel app\modules\fct\models\FcthhcSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
 $this->title = 'Fcthhcs';
-$this->params['breadcrumbs'][] = $this->title;
+//$this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="fcthhc-index">
 
@@ -18,7 +19,7 @@ $this->params['breadcrumbs'][] = $this->title;
 <!--    <p>
     <?= Html::a('Create Fcthhc', ['create'], ['class' => 'btn btn-success']) ?>
     </p>-->
-    <div class="panel panel-warning">
+    <div class="panel panel-primary">
         <div class="panel-heading"></div>
         <div class="panel-body">
             <?=
@@ -32,6 +33,22 @@ $this->params['breadcrumbs'][] = $this->title;
                     ['class' => 'yii\grid\SerialColumn'],
                     //'id',
 //            'fct_id',
+                    [
+                'class' => 'kartik\grid\ExpandRowColumn',
+                'value'=> function($model, $key, $index, $column){
+                    return GridView::ROW_COLLAPSED;                    
+                },
+                'detail'=> function($model, $key, $index, $column){
+                    $searchModel = new FcthhcdetailSearch();
+                    $searchModel ->fcthhc_id = $model->id;
+                    $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+                    
+                    return Yii::$app->controller->renderPartial('_detail',[
+                        'searchModel'=> $searchModel,
+                        'dataProvider'=> $dataProvider,
+                    ]);
+                 }
+                ],
                     'fctdate',
                     [
                         'label' => 'ชื่อ-สกุล',
@@ -181,14 +198,41 @@ $this->params['breadcrumbs'][] = $this->title;
                     // 'bloodgrp',
 //                    'fcttype_id',
 //                    'fctcolour_id',
-                    ['class' => 'yii\grid\ActionColumn'],
+                    [
+                        'class' => 'yii\grid\ActionColumn',
+                        'options' => ['style' => 'width:100px;'],
+                        'template' => '<div class="btn-group btn-group-sm" role="group" aria-label="...">{update}</div>',
+                        'buttons' => [
+//                    'view'=>function($url,$model,$key){
+//                        return Html::a('<i class="glyphicon glyphicon-search"></i>',$url,['class'=>'btn btn-default']);
+//                    },
+                            'update' => function($url, $model, $key) {
+                                return Html::a('<i class="glyphicon glyphicon-pencil"></i> ', ['fcthhc/updatedetail', 'id' => $model->id], [
+                                            'class' => 'activity-update-link btn btn-info',
+                                            'title' => 'บันทึกเยี่ยม',
+//                                            'data-toggle' => 'modal',
+//                                            'data-target' => '#activity-modal',
+//                                            'data-id' => $key,
+//                                            'data-pjax' => '0',
+                                ]);
+                            },
+//
+//                    'delete'=>function($url,$model,$key){
+//                         return Html::a('<i class="glyphicon glyphicon-trash"></i>', $url,[
+//                                'title' => Yii::t('yii', 'Delete'),
+//                                'data-confirm' => Yii::t('yii', 'คุณต้องการลบไฟล์นี้?'),
+//                                'data-method' => 'post',
+//                                'data-pjax' => '0',
+//                                'class'=>'btn btn-default'
+//                                ]);
+//                    }
+                                ]
+                            ],
                 ],
             ]);
             ?>
         </div>
     </div>
 </div>
-
 </div>
-
 </div>

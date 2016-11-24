@@ -13,49 +13,25 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="fcthhc-index">
 
 <!--    <h1><?= Html::encode($this->title) ?></h1>-->
-    <?php // echo $this->render('_search', ['model' => $searchModel]);  ?>
+    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
-<!--    <p>
-    <?= Html::a('Create Fcthhc', ['create'], ['class' => 'btn btn-success']) ?>
-    </p>-->
     <div class="panel panel-warning">
-        <div class="panel-heading"></div>
+        <div class="panel-heading"> ผลการเยี่ยม</div>
         <div class="panel-body">
             <?=
             GridView::widget([
                 'dataProvider' => $dataProvider,
+                //'filterModel' => $searchModel,
                 'formatter' => ['class' => 'yii\i18n\Formatter', 'nullDisplay' => '-'],
                 'hover' => true,
                 'striped' => false,
-                //'filterModel' => $searchModel1,
                 'columns' => [
                     ['class' => 'yii\grid\SerialColumn'],
                     //'id',
 //            'fct_id',
                     'fctdate',
-                    [
-                        'label' => 'ชื่อ-สกุล',
-                        'attribute' => 'cid',
-                        'value' => function($model) {
-                            return $model->hhcfct->ptname;
-                        }
-                    ],
-                    [
-                        'label' => 'ประเภทผู้ป่วย',
-                        'attribute' => 'fcttype_id',
-                        'value' => function($model) {
-                            return $model->hhcfct->type->name;
-                        }
-                    ],
-                    [
-                        'label' => 'ความเร่งด่วน',
-                        'attribute' => 'fctcolour_id',
-                        'value' => function($model) {
-                            return $model->hhcfct->colourfct->name;
-                        }
-                    ],
-//        'home',
-//        'homept',
+                    'home',
+                    'homept',
                     // 't',
                     // 'pr',
                     // 'rr',
@@ -172,23 +148,19 @@ $this->params['breadcrumbs'][] = $this->title;
                     // 'lrl10',
                     // 'lrl11',
                     // 'lrl09',
-                    //'cid',
+                    'cid',
                     'status',
                     // 'fcthosin_id',
                     // 'birthday',
                     // 'tmbpart',
                     // 'sex',
                     // 'bloodgrp',
-//                    'fcttype_id',
-//                    'fctcolour_id',
+                    'fcttype_id',
+                    'fctcolour_id',
                     ['class' => 'yii\grid\ActionColumn'],
                 ],
             ]);
             ?>
         </div>
     </div>
-</div>
-
-</div>
-
 </div>

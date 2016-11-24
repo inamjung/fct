@@ -9,7 +9,7 @@ use yii\bootstrap\Modal;
 /* @var $searchModel app\modules\fct\models\FctSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'ผู้ป่วยในระบบ FCT';
+$this->title = 'ผู้ป่วยในระบบ FCT-รอรับเยี่ยม';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="fct-index">
@@ -34,7 +34,15 @@ $this->params['breadcrumbs'][] = $this->title;
                     ['class' => 'yii\grid\SerialColumn'],
                     //'id',
                     //'fcttype_id',
+                    [
+                        'attribute'=>'fcttype_id',
+                        'value'=>'type.name'
+                    ],
                     //'pass',
+                    [
+                        'attribute'=>'colour_id',
+                        'value'=>'colourfct.name'
+                    ],
                     //'colour_id',
                     'senddate',
                     'cid',
@@ -46,7 +54,7 @@ $this->params['breadcrumbs'][] = $this->title;
                         'attribute' => 'sex',
                         'format' => 'html',
                         'value' => function($model, $key, $index, $column) {
-                            return $model->sex == 1 ? "<span style=\"color:green;\">ชาย</span>" : "<span style=\"color:red;\">หญิง</span>";
+                            return $model->sex == 1 ? "ชาย" : "หญิง";
                         }
                     ],
                     // 'ptage',

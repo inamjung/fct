@@ -85,10 +85,14 @@ use kartik\checkbox\CheckboxX;
     <?php $form = ActiveForm::begin(); ?>
     
     <div class="row">
-        <div class="col-sm-offset-2 col-sm-4">
+        
+              <div class="col-sm-offset-2 col-sm-1">
+            <?= $form->field($model, 'hhclot')->label('เยี่ยมครั้งที่')->textInput(['maxlength' => true]) ?>
+        </div>
+         <div class="col-xs-3 col-sm-3 col-md-3">
              <?= $form->field($model, 'fctdate')->label('วันที่เข้าเยี่ยม')->widget(\yii\jui\DatePicker::className(),[
         'language'=>'th',
-        'dateFormat'=>'yyyy-mm-dd',
+        'dateFormat'=>'yyyy-MM-dd',
         'clientOptions' => [
                 'changeMonth' => true,
                 'changeYear' => true,
@@ -452,7 +456,7 @@ use kartik\checkbox\CheckboxX;
                 <div class="col-xs-2 col-sm-2 col-md-2">
                     <?= $form->field($model, 'datenext')->label('เยี่ยมครั้งถัดไป')->widget(\yii\jui\DatePicker::className(),[
         'language'=>'th',
-        'dateFormat'=>'yyyy-mm-dd',
+        'dateFormat'=>'yyyy-MM-dd',
         'clientOptions'=>[
             'changeMonth'=>true,
             'changeYear'=>true
@@ -479,7 +483,7 @@ use kartik\checkbox\CheckboxX;
                 <div class="col-xs-2 col-sm-2 col-md-2">
                 <?= $form->field($model, 'datedc')->label('วันที่จำหน่าย')->widget(\yii\jui\DatePicker::className(),[
         'language'=>'th',
-        'dateFormat'=>'yyyy-mm-dd',
+        'dateFormat'=>'yyyy-MM-dd',
         'clientOptions'=>[
             'changeMonth'=>true,
             'changeYear'=>TRUE
