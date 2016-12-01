@@ -11,19 +11,19 @@ use yii\widgets\ActiveForm;
 <div class="fcthhc-search">
 
     <?php $form = ActiveForm::begin([
-        'action' => ['index'],
+        'action' => ['indexfctok'],
         'method' => 'get',
     ]); ?>
 
-    <?= $form->field($model, 'id') ?>
+    <?= $form->field($model, 'cid')->label('ระบุเลขบัตรประชาชน เพื่อส่งเยี่ยมซ้ำ') ?>
 
-    <?= $form->field($model, 'fct_id') ?>
+    <?php // echo $form->field($model, 'fct_id') ?>
 
-    <?= $form->field($model, 'fctdate') ?>
+    <?php // echo $form->field($model, 'fctdate') ?>
 
-    <?= $form->field($model, 'home') ?>
+    <?php // echo $form->field($model, 'home') ?>
 
-    <?= $form->field($model, 'homept') ?>
+    <?php // echo $form->field($model, 'homept') ?>
 
     <?php // echo $form->field($model, 't') ?>
 

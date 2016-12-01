@@ -130,20 +130,23 @@ public function actionIndexhhc()
             ]);
         }
     }
+    
+    
+    
     public function actionUpdatedetail($id)
     {
         $model = $this->findModel($id);
-        $fcthhcdel = new Fcthhcdetail;
+        $hhcdetail = new Fcthhcdetail;
 
         if ($model->load(Yii::$app->request->post())) {
+            $hhcdetail->cid = $model->cid;
+            $hhcdetail->fcthhc_id = $model->id;
+            $hhcdetail->fct_id = $model->fct_id;
+            $hhcdetail->fcthosin_id = $model->fcthosin_id;
             
-            $fcthhcdel->fcthhc_id = $model->id;
-            $fcthhcdel->fct_id = $model->fct_id;
-            $fcthhcdel->fcthosin_id = $model->fcthosin_id;
-            
-            $fcthhcdel->save();
+           $hhcdetail->save();
             $model->save();
-            return $this->redirect(['view', 'id' => $model->id]);
+            return $this->redirect(['indexfctok']);
         } else {
             return $this->render('updatedetail', [
                 'model' => $model,

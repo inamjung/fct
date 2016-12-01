@@ -28,11 +28,11 @@ $form = ActiveForm::begin(['method' => 'get',
                 <input type="text" name="cid"  class="form-control" placeholder="...ระบุเลขประชาชน..">
             </div> 
             <div class="col-xs-2 col-sm-2 col-md-2">
-            <button class='btn btn-danger'>ประมวลผล</button>
-        </div>
+                <button class='btn btn-danger'>ประมวลผล</button>
+            </div>
         </div>
 
-</form>
+    </form>
 </div>
 
 <?php ActiveForm::end(); ?>
@@ -48,49 +48,40 @@ if (count($datas) == 0) {
     <div class="panel-body">
         <?php Pjax::begin(['id' => 'patientfct_pjax_id']); ?>
         <?php
-$gridColumns = [
-    //['class' => 'kartik\grid\SerialColumn'],
+        $gridColumns = [
+            //['class' => 'kartik\grid\SerialColumn'],
 
-    [
-        'label' => 'CID',
-        'attribute' => 'cid',       
-        'contentOptions' => ['class' => 'text-left'],
-    ],
-    [
-        'label' => 'ชื่อ-สุุล',
-        'attribute' => 'ptname',        
-        'contentOptions' => ['class' => 'text-left'],
-    ],
-    
-    [
-        'label' => 'โรคประจำตัว',
-        'attribute' => 'clinic',       
-        'contentOptions' => ['class' => 'text-left'],
-    ],
-    [
-        'label' => 'ประวัติแพ้ยา',
-        'attribute' => 'drugallergy',        
-        'contentOptions' => ['class' => 'text-left'],
-    ],        
-                
-    [
-        'label' => 'CID',
-        'attribute' => 'cid',
-        'format' => 'raw',
-        'value' => function($model, $key, $widget)use($cid,$hos_guid) {
-            return Html::a(Html::encode($model['cid']), [
-                        'patient/update/',
-                        'id' => $model['hos_guid'],
-                       
-                         ],
-                    [
-                        'data-toggle' => "modal",
-                        'data-target' => "#patientfct",                             
-                    ]
+            [
+                'label' => 'CID',
+                'attribute' => 'cid',
+                'format' => 'raw',
+                'value' => function($model, $key, $widget)use($cid, $hos_guid) {
+                    return Html::a(Html::encode($model['cid']), [
+                                'patient/update/',
+                                'id' => $model['hos_guid'],
+                                    ], [
+                                'data-toggle' => "modal",
+                                'data-target' => "#patientfct",
+                                    ]
                     );
-        },
-                'contentOptions' => ['class' => 'text-center'],
-            ],
+                },
+                        'contentOptions' => ['class' => 'text-center'],
+                    ],
+                    [
+                        'label' => 'ชื่อ-สุุล',
+                        'attribute' => 'ptname',
+                        'contentOptions' => ['class' => 'text-left'],
+                    ],
+                    [
+                        'label' => 'โรคประจำตัว',
+                        'attribute' => 'clinic',
+                        'contentOptions' => ['class' => 'text-left'],
+                    ],
+                    [
+                        'label' => 'ประวัติแพ้ยา',
+                        'attribute' => 'drugallergy',
+                        'contentOptions' => ['class' => 'text-left'],
+                    ],
 //    [
 //                        'attribute' => 'ส่งต่อ',
 //                        'format' => 'raw',
@@ -106,25 +97,25 @@ $gridColumns = [
 //                        },
 //                                'contentOptions' => ['style' => 'width: 50px;text-align:center']
 //                            ],
-        ];
-        echo GridView::widget([
-            'dataProvider' => $dataProvider,
-            'formatter' => ['class' => 'yii\i18n\Formatter', 'nullDisplay' => '-'],
-            'columns' => $gridColumns,
-            'responsive' => true,
-            'hover' => true,
-            'striped' => false,
-            'floatHeader' => FALSE,            
-            'toolbar' => [
-                '{export}' => false,
-                '{toggleData}' => false
-            ],
-            'panel' => [],
-        ]);
-        ?>
-        <?php Pjax::end() ?>
-    </div>
-</div>
+                ];
+                echo GridView::widget([
+                    'dataProvider' => $dataProvider,
+                    'formatter' => ['class' => 'yii\i18n\Formatter', 'nullDisplay' => '-'],
+                    'columns' => $gridColumns,
+                    'responsive' => true,
+                    'hover' => true,
+                    'striped' => false,
+                    'floatHeader' => FALSE,
+                    'toolbar' => [
+                        '{export}' => false,
+                        '{toggleData}' => false
+                    ],
+                    'panel' => [],
+                ]);
+                ?>
+                <?php Pjax::end() ?>
+            </div>
+        </div>
 
 
 
@@ -132,18 +123,18 @@ $gridColumns = [
 
         </div>
         <!--///-->
-     <?php
-Modal::begin([
-    'id' => 'patientfct',
-    'header' => '<h4 class="modal-title"></h4>',
-    'size' => 'modal-lg',
-    'footer' => '<a href="#" class="btn btn-primary" data-dismiss="modal">ปิด</a>',
-]);
-Modal::end();
-?>
+        <?php
+        Modal::begin([
+            'id' => 'patientfct',
+            'header' => '<h4 class="modal-title"></h4>',
+            'size' => 'modal-lg',
+            'footer' => '<a href="#" class="btn btn-primary" data-dismiss="modal">ปิด</a>',
+        ]);
+        Modal::end();
+        ?>
 
-<?php
-    $this->registerJs("
+        <?php
+        $this->registerJs("
     $('#patientfct').on('show.bs.modal', function (event) {
         var button = $(event.relatedTarget)
         var modal = $(this)
@@ -157,5 +148,4 @@ Modal::end();
             });
         })
 ");
-?>  
-       
+        ?>  
