@@ -8,19 +8,14 @@ use app\modules\fct\models\FcthhcdetailSearch;
 /* @var $searchModel app\modules\fct\models\FcthhcSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'ผู้ป่วยที่เยี่ยมแล้ว';
+$this->title = 'ผู้ป้วยที่เยี่ยมแล้ว';
 //$this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="fcthhc-index">
 
 <!--    <h1><?= Html::encode($this->title) ?></h1>-->
-    <div class="panel panel-default">
-        <div class="panel-heading"></div>
-        <div class="panel-body">
-            <?php  echo $this->render('_search', ['model' => $searchModel]);  ?>
-        </div>  
-    </div>
-    
+    <?php  echo $this->render('_search', ['model' => $searchModel]);  ?>
+
 <!--    <p>
     <?= Html::a('Create Fcthhc', ['create'], ['class' => 'btn btn-success']) ?>
     </p>-->
@@ -76,7 +71,7 @@ $this->title = 'ผู้ป่วยที่เยี่ยมแล้ว';
                                     return $model->hhcfct->colourfct->name;
                                 }
                             ],
-                                    'status',
+                                    //'status',
                                     [
                                 'label' => 'ผลเยี่ยมครั้งนี้',
                                 'attribute' => 'other',                                

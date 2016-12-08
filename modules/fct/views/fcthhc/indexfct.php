@@ -7,7 +7,7 @@ use kartik\grid\GridView;
 /* @var $searchModel app\modules\fct\models\FcthhcSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Fcthhcs';
+$this->title = 'บันทึกผลการเยี่ยม';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="fcthhc-index">

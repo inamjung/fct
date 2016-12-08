@@ -15,7 +15,13 @@ use yii\widgets\ActiveForm;
         'method' => 'get',
     ]); ?>
 
-    <?= $form->field($model, 'cid')->label('ระบุเลขบัตรประชาชน เพื่อส่งเยี่ยมซ้ำ') ?>
+    <div class="panel panel-default">
+        <div class="panel-heading"> ค้นหาผู้ป่วยเพื่อเยี่ยมซ้ำ</div>
+        <div class="panel-body">
+            <?= $form->field($model, 'cid')->label('ระบุ CID ในการค้นหา') ?>
+        </div>
+    </div>
+    
 
     <?php // echo $form->field($model, 'fct_id') ?>
 

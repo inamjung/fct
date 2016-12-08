@@ -136,18 +136,6 @@ use kartik\checkbox\CheckboxX;
              <?= $form->field($model, 'bp')->label('BP(mmHg)')->textInput(['maxlength' => true]) ?>
         </div>        
     </div>
-    
-    <div class="panel panel-info">
-        <div class="panel-heading" role="tab" id="headingOne">
-            <h4 class="panel-title">
-                <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                    <h4><i class="glyphicon glyphicon-plus"></i> บันทึกผลการเยี่ยมประเมินผู้ป่วย</h4>
-                </a>
-            </h4>
-        </div>
-        <div id="collapseOne" class="accordion-body collapse" role="tabpanel" aria-labelledby="headingOne">
-            <div class="panel-body">
-    
     <div class="box box-primary">
         <div class="box-header"></div>
         <div class="box-body">
@@ -205,7 +193,8 @@ use kartik\checkbox\CheckboxX;
     <?= $form->field($model, 'sociala')->label('มีปัญหา(ระบุ)')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'socialnote')->label('การแก้ไขปัญหา')->textInput(['maxlength' => true]) ?>
-                </div>                
+                </div>
+                
             </div>
         </div>
     </div>
@@ -227,23 +216,7 @@ use kartik\checkbox\CheckboxX;
                 </div>
             </div>            
         </div>
-    </div>            
-                
     </div>
-    </div>
-    </div>            
-                
-    <div class="panel panel-danger">
-        <div class="panel-heading" role="tab" id="headingOne">
-            <h4 class="panel-title">
-                <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne2" aria-expanded="true" aria-controls="collapseOne">
-                    <h4><i class="glyphicon glyphicon-plus"></i> บันทึกผลการเยี่ยมประเมินอุปกรณ์</h4>
-                </a>
-            </h4>
-        </div>
-        <div id="collapseOne2" class="accordion-body collapse" role="tabpanel" aria-labelledby="headingOne">
-            <div class="panel-body">
-                
     <div class="box box-info">
         <div class="box-header"></div>
         <div class="box-body">
@@ -323,21 +296,6 @@ use kartik\checkbox\CheckboxX;
             </div>
         </div>
     </div>
-           </div>
-        </div>
-    </div>
-    
-    <div class="panel panel-success">
-        <div class="panel-heading" role="tab" id="headingOne">
-            <h4 class="panel-title">
-                <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne3" aria-expanded="true" aria-controls="collapseOne">
-                    <h4><i class="glyphicon glyphicon-plus"></i> บันทึกผลการเยี่ยมประเมินอวัยวะ
-                </a>
-            </h4>
-        </div>
-        <div id="collapseOne3" class="accordion-body collapse" role="tabpanel" aria-labelledby="headingOne">
-            <div class="panel-body">
-    
     <div class="box box-warning">
         <div class="box-header"></div>
         <div class="box-body">
@@ -412,25 +370,13 @@ use kartik\checkbox\CheckboxX;
                 <div class="col-xs-3 col-sm-3 col-md-3">
                 
             	</div>
-            </div>            
+            </div>
+            
         </div>
     </div>
-             </div>            
-        </div>
-    </div>
-    
     
       <?php //echo $form->field($model, 'lr')->textInput(['maxlength' => true]) ?>    
-    <div class="panel panel-primary">
-        <div class="panel-heading" role="tab" id="headingOne">
-            <h4 class="panel-title">
-                <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne4" aria-expanded="true" aria-controls="collapseOne">
-                    <h4><i class="glyphicon glyphicon-plus"></i> บันทึกผลการเยี่ยมประเมินหลังคลอด / และทารก
-                </a>
-            </h4>
-        </div>
-        <div id="collapseOne4" class="accordion-body collapse" role="tabpanel" aria-labelledby="headingOne">
-            <div class="panel-body">
+    
     <div class="box box-danger">
         <div class="box-header"></div>
         <div class="box-body">
@@ -509,10 +455,6 @@ use kartik\checkbox\CheckboxX;
             </div> 
         </div>
     </div>
-           </div> 
-        </div>
-    </div>              
-                
     <div class="box box-success">
         <div class="box-header"></div>
         <div class="box-body">

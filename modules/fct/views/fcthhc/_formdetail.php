@@ -11,7 +11,7 @@ use kartik\checkbox\CheckboxX;
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
-<div class="fcthhc-form">
+<div class="fcthhc-formdetail">
     
     <div class="row">
         <div class="col-xs-4 col-sm-4 col-md-4">
@@ -78,37 +78,76 @@ use kartik\checkbox\CheckboxX;
                 </div>
             </div>
         </div>
+        <div class="col-xs-4 col-sm-4 col-md-4">
+            <div class="panel panel-info">
+                <div class="panel-heading"> ข้อมูลการเยี่ยม</div>
+                <div class="panel-body">
+                    <?=
+                    DetailView::widget([
+                        'model' => $model,
+                        'formatter' => ['class' => 'yii\i18n\Formatter', 'nullDisplay' => '-'],                        
+                        'attributes' => [    
+                             [
+                                'label' => 'เยี่ยมครั้งที่',
+                                'attribute' => 'hhclot',
+                               
+                            ],
+                             [
+                                'label' => 'วันที่เข้าเยี่ยม',
+                                'attribute' => 'fctdate',
+                               
+                            ],
+                            [
+                                'label' => 'จำนวนสมาชิกในบ้าน/คน',
+                                'attribute' => 'home',
+                               
+                            ],
+                            [
+                                'label' => 'ผู้ดูแล',
+                                'attribute' => 'homept',                                
+                            ],
+                            [
+                                'label' => 'อุณหภูมิร่างกาย/T',
+                                'attribute' => 't',
+                               
+                            ],
+                            [
+                                'label' => 'PR(ครั้ง/นาที',
+                                'attribute' => 'pr',                                
+                            ],
+                            [
+                                'label' => 'RR(ครั้ง/นาที',
+                                'attribute' => 'rr',
+                               
+                            ],
+                            [
+                                'label' => 'BP(mmHg)',
+                                'attribute' => 'bp',                                
+                            ],
+                            
+                            
+                        ],
+                    ])
+                    ?>
+                </div>
+            </div>
+        </div>
         
     </div>
     
 
     <?php $form = ActiveForm::begin(); ?>
     
-    
-    
-    <?php //echo $form->field($model, 'fctname1')->label('ผู้เข้าเยี่ยม')->checkboxList([ 'ทีมFCTอำเภอ' => 'ทีมFCTอำเภอ','ทีมFCTรพ.สต' => 'ทีมFCTรพ.สต','ทีม อสม.' => 'ทีม อสม.','ทีม มอค.' => 'ทีม มอค.','หน่วยงานภายนอก' => 'หน่วยงานภายนอก']) ?>
-
-    <?php //echo $form->field($model, 'fctname2')->textInput(['maxlength' => true]) ?>
-
-    <?php //echo $form->field($model, 'fctname3')->textInput(['maxlength' => true]) ?>
-
-    <?php //echo $form->field($model, 'fctname4')->textInput(['maxlength' => true]) ?>
-
-    <?php //echo $form->field($model, 'fctname5')->textInput(['maxlength' => true]) ?>
-
-    <?php //echo $form->field($model, 'fctname6')->textInput(['maxlength' => true]) ?>
-
     <div class="row" style="display: none">
+        
         <?= $form->field($model, 'status')->radioList([ 'เยี่ยมแล้ว' => 'เยี่ยมแล้ว', 'ยังไม่เยี่ยม' => 'ยังไม่เยี่ยม', ], ['prompt' => '']) ?>    
     </div>
-    
-
-
+   
 
     
 
     <div class="form-group">
-        <?= Html::submitButton($model->isNewRecord ? 'บันทึก' : ' <i class="glyphicon glyphicon-ok"></i> ส่งเยี่ยมซ้ำ', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+        <?= Html::submitButton($model->isNewRecord ? 'บันทึก' : '<i class="glyphicon glyphicon-ok"></i> ส่งเยี่ยม', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-success']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

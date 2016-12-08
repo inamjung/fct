@@ -133,11 +133,11 @@ $this->params['breadcrumbs'][] = $this->title;
                     [
                         'class' => 'yii\grid\ActionColumn',
                         'options' => ['style' => 'width:100px;'],
-                        'template' => '<div class="btn-group btn-group-sm" role="group" aria-label="...">{update}</div>',
+                        'template' => '<div class="btn-group btn-group-sm" role="group" aria-label="...">{update}{view}</div>',
                         'buttons' => [
-//                    'view'=>function($url,$model,$key){
-//                        return Html::a('<i class="glyphicon glyphicon-search"></i>',$url,['class'=>'btn btn-default']);
-//                    },
+                    'view'=>function($url,$model,$key){
+                        return Html::a('<i class="glyphicon glyphicon-search"></i>',['/fct/fct/me'],['class'=>'btn btn-default']);
+                    },
                             'update' => function($url, $model, $key) {
                                 return Html::a('<i class="glyphicon glyphicon-pencil"></i> ', ['fct/update', 'id' => $model->id], [
                                             'class' => 'activity-update-link btn btn-info',

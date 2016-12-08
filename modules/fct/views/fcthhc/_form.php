@@ -84,6 +84,7 @@ use kartik\checkbox\CheckboxX;
 
     <?php $form = ActiveForm::begin(); ?>
     
+    
     <div class="row">
         
         <div class="col-sm-offset-2 col-sm-1" style="display: none">
@@ -123,6 +124,16 @@ use kartik\checkbox\CheckboxX;
              <?= $form->field($model, 'bp')->label('BP(mmHg)')->textInput(['maxlength' => true]) ?>
         </div>        
     </div>
+    <div class="panel panel-info">
+        <div class="panel-heading" role="tab" id="headingOne">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    <h4><i class="glyphicon glyphicon-plus"></i> บันทึกผลการเยี่ยมประเมินผู้ป่วย</h4>
+                </a>
+            </h4>
+        </div>
+        <div id="collapseOne" class="accordion-body collapse" role="tabpanel" aria-labelledby="headingOne">
+            <div class="panel-body">
     <div class="box box-primary">
         <div class="box-header"></div>
         <div class="box-body">
@@ -204,6 +215,21 @@ use kartik\checkbox\CheckboxX;
             </div>            
         </div>
     </div>
+              </div>            
+        </div>
+    </div>
+    
+    <div class="panel panel-danger">
+        <div class="panel-heading" role="tab" id="headingOne">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne2" aria-expanded="true" aria-controls="collapseOne">
+                    <h4><i class="glyphicon glyphicon-plus"></i> บันทึกผลการเยี่ยมประเมินอุปกรณ์</h4>
+                </a>
+            </h4>
+        </div>
+        <div id="collapseOne2" class="accordion-body collapse" role="tabpanel" aria-labelledby="headingOne">
+            <div class="panel-body">
+                
     <div class="box box-info">
         <div class="box-header"></div>
         <div class="box-body">
@@ -283,6 +309,19 @@ use kartik\checkbox\CheckboxX;
             </div>
         </div>
     </div>
+              </div>
+        </div>
+    </div>
+    <div class="panel panel-success">
+        <div class="panel-heading" role="tab" id="headingOne">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne3" aria-expanded="true" aria-controls="collapseOne">
+                    <h4><i class="glyphicon glyphicon-plus"></i> บันทึกผลการเยี่ยมประเมินอวัยวะ
+                </a>
+            </h4>
+        </div>
+        <div id="collapseOne3" class="accordion-body collapse" role="tabpanel" aria-labelledby="headingOne">
+            <div class="panel-body">
     <div class="box box-warning">
         <div class="box-header"></div>
         <div class="box-body">
@@ -357,13 +396,24 @@ use kartik\checkbox\CheckboxX;
                 <div class="col-xs-3 col-sm-3 col-md-3">
                 
             	</div>
-            </div>
-            
+            </div>            
         </div>
     </div>
+             </div>            
+        </div>
+    </div>            
     
       <?php //echo $form->field($model, 'lr')->textInput(['maxlength' => true]) ?>    
-    
+    <div class="panel panel-primary">
+        <div class="panel-heading" role="tab" id="headingOne">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne4" aria-expanded="true" aria-controls="collapseOne">
+                    <h4><i class="glyphicon glyphicon-plus"></i> บันทึกผลการเยี่ยมประเมินหลังคลอด / และทารก
+                </a>
+            </h4>
+        </div>
+        <div id="collapseOne4" class="accordion-body collapse" role="tabpanel" aria-labelledby="headingOne">
+            <div class="panel-body">
     <div class="box box-danger">
         <div class="box-header"></div>
         <div class="box-body">
@@ -442,6 +492,9 @@ use kartik\checkbox\CheckboxX;
             </div> 
         </div>
     </div>
+             </div> 
+        </div>
+    </div>            
     <div class="box box-success">
         <div class="box-header"></div>
         <div class="box-body">
@@ -470,7 +523,7 @@ use kartik\checkbox\CheckboxX;
         </div>
         <div class="row">
                 <div class="col-xs-8 col-sm-8 col-md-8">
-                <?= $form->field($model, 'other')->label('สรุปการเยี่ยม')->radioList([ 'ปกติ' => 'ปกติ','ทุเลา' => 'ทุเลา','ทรุด' => 'ทรุด','ตาย' => 'ตาย','ไม่สมัครใจให้เยี่ยม' => 'ไม่สมัครใจให้เยี่ยม','readmit' => 'ReAdmit','ไม่พบผู้ป่วย' => 'ไม่พบผู้ป่วย','ย้ายที่อยู่' => 'ย้ายที่อยู่']) ?>
+                <?= $form->field($model, 'other')->label('สรุปการเยี่ยม')->radioList([ 'ปกติ' => 'ปกติ','ทุเลา' => 'ทุเลา','ทรุด' => 'ทรุด','ตาย' => 'ตาย','ไม่สมัครใจให้เยี่ยม' => 'ไม่สมัครใจให้เยี่ยม','readmit' => 'ReAdmit','ไม่พบผู้ป่วย' => 'ไม่พบผู้ป่วย','ย้ายที่อยู่' => 'ย้ายที่อยู่','สิ้นสุดการเยี่ยม'=>'สิ้นสุดการเยี่ยม']) ?>
                 </div>
              <div class="col-xs-4 col-sm-4 col-md-4">
                 <?= $form->field($model, 'other2')->label('ที่อยู่ใหม่ที่ย้ายไป')->textInput(['maxlength' => true]) ?>

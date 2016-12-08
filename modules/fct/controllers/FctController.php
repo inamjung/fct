@@ -35,6 +35,20 @@ class FctController extends Controller
      * Lists all Fct models.
      * @return mixed
      */
+    public function actionTabsData() {
+    $html = $this->renderPartial('tabContent');
+    return Json::encode($html);
+}
+
+    public function actionMe()
+    {
+        $model = new FctSearch();
+        $dataProvider = $model->search(Yii::$app->request->queryParams);
+       return $this->render('tab', [
+                    'model' => $model,
+//                    'active' => $active
+        ]);
+    }
     public function actionIndex()
     {
         $searchModel = new FctSearch();
@@ -56,7 +70,7 @@ class FctController extends Controller
             'dataProvider' => $dataProvider,
         ]);
     }
-
+   
     public function actionIndexcase()
     {
         $searchModel = new FctSearch();

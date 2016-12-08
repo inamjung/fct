@@ -13,7 +13,18 @@ use kartik\checkbox\CheckboxX;
 
 <div class="fct-form">
     <div class="well">
-    <?php $form = ActiveForm::begin(); ?>    
+    <?php $form = ActiveForm::begin(['id' => 'form2']); ?>  
+        <?= DetailView::widget([
+                        'model' => $model,
+                        'formatter' => ['class' => 'yii\i18n\Formatter', 'nullDisplay' => '-'],
+                        'attributes' => [
+                            [
+                                'label' => '',
+                                'attribute' => 'fcthosin.name'
+                            ],
+                              ],
+                    ])
+                    ?>
 
     <?php
     echo $form->field($model, 'okcase', ['labelOptions' => ['style' => 'color:red;']])->widget(CheckboxX::classname(), [
@@ -100,11 +111,5 @@ use kartik\checkbox\CheckboxX;
                 </div>
             </div>
         </div>
-
     </div>
-
-
-
-    
-
 </div>

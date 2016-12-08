@@ -132,7 +132,7 @@ use yii\bootstrap\Nav;
                     </li> 
                     <li><a href="<?php echo Url::to(['/fct/fcthhc/indexfctok']); ?>"><i class="fa fa-circle text-yellow"></i> 
                             <span>
-                                ค้นหา / เยี่ยมใหม่</span><small class="label pull-right bg-aqua"></small>
+                                ค้นหา / ส่งเยี่ยมซ้ำ</span><small class="label pull-right bg-aqua"></small>
                         </a>
                     </li>
 

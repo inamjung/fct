@@ -124,6 +124,7 @@ class PatientController extends Controller
             $fcthos->drugallergy = $model->drugallergy;
             $fcthos->phone = $model->informtel;
             $fcthos->ptname = $model->patientname;
+            $fcthos->pttype = $model->pttype;
             $fcthos->send = '0';
             $fcthos->okcase = '0';
             
