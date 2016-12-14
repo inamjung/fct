@@ -21,8 +21,8 @@ use yii\widgets\DetailView;
     ?>
     
         
- <ul class="nav nav-tabs">
-  <li class="active"><a href="#home" data-toggle="tab">ข้อมูลผู้ป่วย</a></li>
+ <ul class="nav nav-pills">
+     <li class="active" style="text-success"><a href="#home" data-toggle="tab"> ข้อมูลผู้ป่วย</a></li>
   <li><a href="#profile0" data-toggle="tab">บันทึกข้อมูลที่ต้องการให้เยี่ยม</a></li>
   <li><a href="#profile1" data-toggle="tab">ปัญหาผู้ป่วย</a></li>
 <!--  <li class="disabled"><a>Disabled</a></li>

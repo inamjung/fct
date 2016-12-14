@@ -109,6 +109,7 @@ class Fct extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
+            [['fcttype_id','pass', 'colour_id', 'depart','senddate', 'hosin'], 'required'],
             [['fcttype_id', 'pass', 'colour_id', 'confirm', 'confirmfct', 'send', 'okcase'], 'integer'],
             [['admit', 'dc', 'ordate', 'appdate', 'appdate2', 'appdate3', 'senddate', 'birthday'], 'safe'],
             [['hn'], 'string', 'max' => 9],
