@@ -103,11 +103,6 @@ use kartik\checkbox\CheckboxX;
         </div>
     </div>
 
-
-
-
-
-
 <?php //echo $form->field($model, 'lr')->textInput(['maxlength' => true])  ?>    
                 
     

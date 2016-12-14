@@ -154,6 +154,7 @@ class Fcthhc extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
+            [['other', 'fctdate'], 'required'],
             [['home','fct_id',  'fcttype_id', 'fctcolour_id','hhclot'], 'integer'],
             [['fctdate', 'datenext', 'datedc', 'birthday'], 'safe'],
             [['status'], 'string'],
