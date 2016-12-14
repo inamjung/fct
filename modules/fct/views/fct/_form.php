@@ -137,8 +137,57 @@ use yii\widgets\DetailView;
 <?= $form->field($model, 'pi')->label('PI')->textInput(['readonly' => true,'maxlength' => true]) ?>
         </div>
             </div>
-        </div>        
- <div class="panel panel-info">
+        </div>
+        
+ <ul class="nav nav-tabs">
+  <li class="active"><a href="#home" data-toggle="tab">Home</a></li>
+  <li><a href="#profile" data-toggle="tab">Profile</a></li>
+  <li class="disabled"><a>Disabled</a></li>
+  <li class="dropdown">
+    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+      Dropdown <span class="caret"></span>
+    </a>
+    <ul class="dropdown-menu">
+      <li><a href="#dropdown1" data-toggle="tab">Action</a></li>
+      <li class="divider"></li>
+      <li><a href="#dropdown2" data-toggle="tab">Another action</a></li>
+    </ul>
+  </li>
+</ul>
+<div id="myTabContent" class="tab-content">
+  <div class="tab-pane fade active in" id="home">
+    tab1
+    <?php
+    echo $this->render('tab1',[
+        'model' => $model,
+        'form' => $form
+    ]);    
+    ?>
+  </div>
+  <div class="tab-pane fade" id="profile">
+    tab2
+    <?php
+    echo $this->render('tab2',[
+        'model' => $model,
+        'form' => $form
+    ]);    
+    ?>
+  
+  </div>
+  <div class="tab-pane fade" id="dropdown1">
+    <p>Etsy mixtape wayfarers, ethical wes anderson tofu before they sold out mcsweeney's organic lomo retro fanny pack lo-fi farm-to-table readymade. Messenger bag gentrify pitchfork tattooed craft beer, iphone skateboard locavore carles etsy salvia banksy hoodie helvetica. DIY synth PBR banksy irony. Leggings gentrify squid 8-bit cred pitchfork.</p>
+  </div>
+  <div class="tab-pane fade" id="dropdown2">
+    <p>Trust fund seitan letterpress, keytar raw denim keffiyeh etsy art party before they sold out master cleanse gluten-free squid scenester freegan cosby sweater. Fanny pack portland seitan DIY, art party locavore wolf cliche high life echo park Austin. Cred vinyl keffiyeh DIY salvia PBR, banh mi before they sold out farm-to-table VHS viral locavore cosby sweater.</p>
+  </div>
+</div>
+        
+        
+        
+        
+        
+        
+<!-- <div class="panel panel-info">
         <div class="panel-heading" role="tab" id="headingOne">
             <h4 class="panel-title">
                 <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne2" aria-expanded="true" aria-controls="collapseOne">
@@ -149,90 +198,13 @@ use yii\widgets\DetailView;
         <div id="collapseOne2" class="accordion-body collapse" role="tabpanel" aria-labelledby="headingOne">
             <div class="panel-body">
                 
-        <div class="box box-primary">
-        <div class="box-header"></div>
-        <div class="box-body">
-            <h4><div class="label label-success">บันทึกข้อมูลที่ต้องการให้เยี่ยม</div></h4><p>
-            <div class="row">
-            <div class="col-xs-3 col-sm-3 col-md-3">
-                <div class="panel panel-info">
-                    <div class="panel-heading"> </div>
-                    <div class="panel-body">
-                        <?=
-                        $form->field($model, 'fcttype_id')->widget(\kartik\widgets\Select2::className(), [
-                            'data' => yii\helpers\ArrayHelper::map(app\modules\fct\models\Fcttype::find()->all(), 'id', 'name'),
-                            'options' => [
-                                'placeholder' => '<--เลือกประเภท-->'
-                            ],
-                            'pluginOptions' => [
-                                'allowClear' => true
-                            ]
-                        ])
-                        ?>
-                        <?= $form->field($model, 'pass')->label('การเข้าเยี่ยม')->radioList(yii\helpers\ArrayHelper::map(\app\modules\fct\models\Fctpass::find()->all(), 'id', 'name')) ?>
-                        <?= $form->field($model, 'colour_id')->label('ความเร่งด่วน')->radioList(yii\helpers\ArrayHelper::map(app\modules\fct\models\Fctcolour::find()->all(), 'id', 'name')) ?>
-                    </div>
-                </div>
-            </div>    
-            <div class="col-xs-3 col-sm-3 col-md-3">
-                <div class="panel panel-info">
-                    <div class="panel-heading"> </div>
-                    <div class="panel-body">
-                        <?= $form->field($model, 'pps')->label('PPS Scale(%)')->textInput(['maxlength' => true]) ?>
-                        <?= $form->field($model, 'bt')->label('BT(C)')->textInput(['maxlength' => true]) ?>
-                        <?= $form->field($model, 'pr')->label('PR(min)')->textInput(['maxlength' => true]) ?>
-                        
-                    </div>
-                </div>
-            </div>
-            <div class="col-xs-3 col-sm-3 col-md-3">
-                <div class="panel panel-info">
-                    <div class="panel-heading"> </div>
-                    <div class="panel-body"> 
-                        <?= $form->field($model, 'rr')->label('RR(min)')->textInput(['maxlength' => true]) ?>
-                        <?= $form->field($model, 'bp')->label('BP(mmHg)')->textInput(['maxlength' => true]) ?>
-                        <?= $form->field($model, 'pain')->label('Pain Scale')->textInput(['maxlength' => true]) ?>                       
-
-                    </div>
-                </div>
-            </div>
-            <div class="col-xs-3 col-sm-3 col-md-3">
-                <div class="panel panel-info">
-                    <div class="panel-heading"> </div>
-                    <div class="panel-body">
-                        <?= $form->field($model, 'painnote')->label('การจัดการกับความปวด')->textInput(['maxlength' => true]) ?>
-                        <?= $form->field($model, 'or')->label('การผ่าตัด')->textInput(['maxlength' => true]) ?>
-                        <?=
-                        $form->field($model, 'ordate')->label('วันที่ผ่าตัด')->widget(\yii\jui\DatePicker::classname(), [
-                            'language' => 'th',
-                            'dateFormat' => 'yyyy-MM-dd',
-                            'clientOptions' => [
-                                'changeMonth' => true,
-                                'changeYear' => true,
-                            ],
-                            'options' => ['class' => 'form-control'
-                            ],
-                        ]);
-                        ?>
-     
-                    </div>
-                </div>
-            </div>    
-        </div>
-            <div class="row">
-                <div class="col-xs-12 col-sm-12 col-md-12">
-                    <?= $form->field($model, 'receive')->label('ยาที่ได้รับล่าสุด')->textarea(['row' => 6]) ?> 
-                </div>
-            </div>
-            
-        </div>            
-        </div>
+        
             </div>   
             </div>
-</div>
+</div>-->
         
     
-  <div class="panel panel-warning">
+<!--  <div class="panel panel-warning">
         <div class="panel-heading" role="tab" id="headingOne">
             <h4 class="panel-title">
                 <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
@@ -242,135 +214,10 @@ use yii\widgets\DetailView;
         </div>
         <div id="collapseOne" class="accordion-body collapse" role="tabpanel" aria-labelledby="headingOne">
             <div class="panel-body">
-                <div class="box box-primary">
-                    <div class="box-header"></div>
-                    <div class="box-body">
-
-                        <h4><div class="label label-warning"> บันทึกการส่งเยี่ยม / ปัญหาผู้ป่วย</div></h4><p>
-                
-                <div class="row">
-                   <div class="col-xs-3 col-sm-3 col-md-3">
-                        <?= $form->field($model, 'tra')->label('Tracheostomy tube')->radioList(['มี'=>'แนะนำการดูแล','ไม่มี'=>'ไม่มี']) ?> 
-                    </div>
-                    <div class="col-xs-3 col-sm-3 col-md-3">
-                        <?= $form->field($model, 'retng')->label('Retained NG tube')->radioList(['มี'=>'แนะนำการดูแล','ไม่มี'=>'ไม่มี']) ?>
-                    </div>
-                    <div class="col-xs-3 col-sm-3 col-md-3">
-                        <?= $form->field($model, 'ptcate')->label('Retained Foleys cath')->radioList(['มี'=>'แนะนำการดูแล','ไม่มี'=>'ไม่มี']) ?>
-                    </div>
-                    <div class="col-xs-3 col-sm-3 col-md-3">
-                        <?= $form->field($model, 'colobag')->label('Colostomy bag')->radioList(['มี'=>'แนะนำการดูแล','ไม่มี'=>'ไม่มี']) ?>  
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-xs-3 col-sm-3 col-md-3">
-                        <?= $form->field($model, 'insulin')->label('การฉีดยาอินซูลิน')->radioList(['มี'=>'แนะนำการดูแล','ไม่มี'=>'ไม่มี']) ?>
-                    </div>
-                    <div class="col-xs-3 col-sm-3 col-md-3">
-                        <?= $form->field($model, 'windpipe')->label('การพ่นยาขยายหลอดลม')->radioList(['มี'=>'แนะนำการดูแล','ไม่มี'=>'ไม่มี']) ?>
-                    </div>
-                    <div class="col-xs-3 col-sm-3 col-md-3">
-                        <?= $form->field($model, 'lesion')->label('แผลที่มี')->radioList(['มี'=>'แนะนำการดูแล','ไม่มี'=>'ไม่มี']) ?>
-                    </div>
-                    <div class="col-xs-3 col-sm-3 col-md-3">
-                        <?= $form->field($model, 'lesioncare')->label('การดูแลแผล')->radioList(['มี'=>'แนะนำการดูแล','ไม่มี'=>'ไม่มี']) ?>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-xs-3 col-sm-3 col-md-3">
-                        <?= $form->field($model, 'recov')->label('กายภาพบำบัด (ส่วนที่เป็น)')->radioList(['มี'=>'แนะนำการดูแล','ไม่มี'=>'ไม่มี']) ?>
-                    </div>
-                    <div class="col-xs-3 col-sm-3 col-md-3">
-                        <?= $form->field($model, 'recovcare')->label('การดูแลการทำกายภาพบำบัด')->radioList(['มี'=>'แนะนำการดูแล','ไม่มี'=>'ไม่มี']) ?>
-                    </div>
-                    <div class="col-xs-3 col-sm-3 col-md-3">
-                        <?= $form->field($model, 'oxygen')->label('Home oxygen therapy')->radioList(['มี'=>'แนะนำการดูแล','ไม่มี'=>'ไม่มี']) ?>
-                    </div>
-                    <div class="col-xs-3 col-sm-3 col-md-3">
-                        <?= $form->field($model, 'equip')->label('อุปกรณ์(ระบุ)')->textInput(['maxlength' => true]) ?>
-                    </div>
-                </div>
-                
-               
-                <div class="row">        
-
-                    <div class="col-xs-3 col-sm-3 col-md-3">           
-                        <?=
-                        $form->field($model, 'appdate')->label('วันที่นัด')->widget(\yii\jui\DatePicker::classname(), [
-                            'language' => 'th',
-                            'dateFormat' => 'yyyy-MM-dd',
-                            'clientOptions' => [
-                                'changeMonth' => true,
-                                'changeYear' => true,
-                            ],
-                            'options' => ['class' => 'form-control'
-                            ],
-                        ]);
-                        ?>
-                    </div>
-                    <div class="col-xs-3 col-sm-3 col-md-3">
-<?= $form->field($model, 'doctorapp')->label('แพทย์ผู้นัด')->textInput(['maxlength' => true]) ?>
-                    </div>             
-
-                    <div class="col-xs-3 col-sm-3 col-md-3">
-<?= $form->field($model, 'retfo')->label('แหล่งที่มา')->textInput(['maxlength' => true]) ?>
-                    </div> 
-                    <div class="col-xs-3 col-sm-3 col-md-3">
-<?= $form->field($model, 'other')->label('อื่นๆ (โปรดระบุ)')->textInput(['maxlength' => true]) ?>
-                    </div>
-                </div>
-                
-                <div class="row">                    
-                    <div class="col-xs-3 col-sm-3 col-md-3">
-                         <?=
-                                $form->field($model, 'senddate')->label('วันที่ส่งเยี่ยม')->widget(\yii\jui\DatePicker::classname(), [
-                                    'language' => 'th',
-                                    'dateFormat' => 'yyyy-MM-dd',
-                                    'clientOptions' => [
-                                        'changeMonth' => true,
-                                        'changeYear' => true,
-                                    ],
-                                    'options' => ['class' => 'form-control'
-                                    ],
-                                ]);
-                                ?>
-                    </div>
-                    <div class="col-xs-3 col-sm-3 col-md-3">
-                        <?=
-                                $form->field($model, 'depart')->label('แผนกที่ส่งเยี่ยม')->widget(\kartik\widgets\Select2::className(), [
-                                    'data' => yii\helpers\ArrayHelper::map(\app\modules\fct\models\Fctdepart::find()->all(), 'id', 'name'),
-                                    'options' => [
-                                        'placeholder' => '<-- แผนกที่ส่งเยี่ยม -->'
-                                    ],
-                                    'pluginOptions' => [
-                                        'allowClear' => true
-                                    ]
-                                ])
-                                ?> 
-                    </div>                    
-                    <div class="col-xs-3 col-sm-3 col-md-3">
-                        <?= $form->field($model, 'officer')->label('ผู้ส่งเยี่ยม')->textInput(['maxlength' => true]) ?>
-                    </div>  
-                    <div class="col-xs-3 col-sm-3 col-md-3">
-                        <?=
-                                $form->field($model, 'hosin')->widget(\kartik\widgets\Select2::className(), [
-                                    'data' => yii\helpers\ArrayHelper::map(app\modules\fct\models\Pcuchild::find()->all(), 'hcode', 'name'),
-                                    'options' => [
-                                        'placeholder' => '<-- รพ.สต -->'
-                                    ],
-                                    'pluginOptions' => [
-                                        'allowClear' => true
-                                    ]
-                                ])
-                                ?>
-                    </div>
-                </div>
-                
-            </div> 
-        </div> 
+                 
     </div>     
     </div> 
-    </div>
+    </div>-->
     
     <hr>
 <!--    <div class="label label-warning"> LR</div>-->

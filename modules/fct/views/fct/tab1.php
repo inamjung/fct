@@ -1,29 +1,78 @@
-<?php
+<div class="box box-primary">
+        <div class="box-header"></div>
+        <div class="box-body">
+            <h4><div class="label label-success">บันทึกข้อมูลที่ต้องการให้เยี่ยม</div></h4><p>
+            <div class="row">
+            <div class="col-xs-3 col-sm-3 col-md-3">
+                <div class="panel panel-info">
+                    <div class="panel-heading"> </div>
+                    <div class="panel-body">
+                        <?=
+                        $form->field($model, 'fcttype_id')->widget(\kartik\widgets\Select2::className(), [
+                            'data' => yii\helpers\ArrayHelper::map(app\modules\fct\models\Fcttype::find()->all(), 'id', 'name'),
+                            'options' => [
+                                'placeholder' => '<--เลือกประเภท-->'
+                            ],
+                            'pluginOptions' => [
+                                'allowClear' => true
+                            ]
+                        ])
+                        ?>
+                        <?= $form->field($model, 'pass')->label('การเข้าเยี่ยม')->radioList(yii\helpers\ArrayHelper::map(\app\modules\fct\models\Fctpass::find()->all(), 'id', 'name')) ?>
+                        <?= $form->field($model, 'colour_id')->label('ความเร่งด่วน')->radioList(yii\helpers\ArrayHelper::map(app\modules\fct\models\Fctcolour::find()->all(), 'id', 'name')) ?>
+                    </div>
+                </div>
+            </div>    
+            <div class="col-xs-3 col-sm-3 col-md-3">
+                <div class="panel panel-info">
+                    <div class="panel-heading"> </div>
+                    <div class="panel-body">
+                        <?= $form->field($model, 'pps')->label('PPS Scale(%)')->textInput(['maxlength' => true]) ?>
+                        <?= $form->field($model, 'bt')->label('BT(C)')->textInput(['maxlength' => true]) ?>
+                        <?= $form->field($model, 'pr')->label('PR(min)')->textInput(['maxlength' => true]) ?>
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-3 col-sm-3 col-md-3">
+                <div class="panel panel-info">
+                    <div class="panel-heading"> </div>
+                    <div class="panel-body"> 
+                        <?= $form->field($model, 'rr')->label('RR(min)')->textInput(['maxlength' => true]) ?>
+                        <?= $form->field($model, 'bp')->label('BP(mmHg)')->textInput(['maxlength' => true]) ?>
+                        <?= $form->field($model, 'pain')->label('Pain Scale')->textInput(['maxlength' => true]) ?>                       
 
-use yii\helpers\Html;
-use yii\widgets\ActiveForm;
-use kartik\select2\Select2;
-use yii\widgets\DetailView;
-use kartik\checkbox\CheckboxX;
-
-/* @var $this yii\web\View */
-/* @var $model app\modules\fct\models\Fct */
-/* @var $form yii\widgets\ActiveForm */
-?>
-
-<div class="fct-form">
-    <div class="well">
-    <?php $form = ActiveForm::begin(['id'=>'tab-formcase']); ?>    
-
-    <?php
-    echo $form->field($model, 'okcase', ['labelOptions' => ['style' => 'color:red;']])->widget(CheckboxX::classname(), [
-        'pluginOptions' => ['threeState' => false],
-    ])->label('รับเยี่ยมผู้ป่วย');
-    ?>
-
-    <div class="form-group">
-        <?= Html::submitButton($model->isNewRecord ? 'บันทึก' : '<i class="glyphicon glyphicon-ok"></i> บันทึก', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
-    </div>
-
-    <?php ActiveForm::end(); ?>
-    </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-3 col-sm-3 col-md-3">
+                <div class="panel panel-info">
+                    <div class="panel-heading"> </div>
+                    <div class="panel-body">
+                        <?= $form->field($model, 'painnote')->label('การจัดการกับความปวด')->textInput(['maxlength' => true]) ?>
+                        <?= $form->field($model, 'or')->label('การผ่าตัด')->textInput(['maxlength' => true]) ?>
+                        <?=
+                        $form->field($model, 'ordate')->label('วันที่ผ่าตัด')->widget(\yii\jui\DatePicker::classname(), [
+                            'language' => 'th',
+                            'dateFormat' => 'yyyy-MM-dd',
+                            'clientOptions' => [
+                                'changeMonth' => true,
+                                'changeYear' => true,
+                            ],
+                            'options' => ['class' => 'form-control'
+                            ],
+                        ]);
+                        ?>
+     
+                    </div>
+                </div>
+            </div>    
+        </div>
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12">
+                    <?= $form->field($model, 'receive')->label('ยาที่ได้รับล่าสุด')->textarea(['row' => 6]) ?> 
+                </div>
+            </div>
+            
+        </div>            
+        </div>
