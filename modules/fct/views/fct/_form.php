@@ -19,130 +19,13 @@ use yii\widgets\DetailView;
     <?php
     $form = ActiveForm::begin(['id'=>'form1']);
     ?>
-    <div class="well">
-        <h2><div class="label label-info">ข้อมูลผู้ป่วย </div></h2>
-        <div class="row">
-                <div class="col-xs-7 col-sm-7 col-md-7">
-                    <div class="panel panel-info">
-                        <div class="panel-heading"></div>
-                        <div class="panel-body">
-                            <?=
-                            DetailView::widget([
-                                'model' => $model,
-                                'formatter' => ['class' => 'yii\i18n\Formatter', 'nullDisplay' => '-'],
-                                'attributes' => [
-                                    [
-                                        'label' => 'เลขบัตรประชาชน',
-                                        'attribute' => 'cid'
-                                    ],
-                                    [
-                                        'label' => 'ชื่อ-สกุล',
-                                        'attribute' => 'ptname'
-                                    ],
-                                    [
-                                        'label' => 'ที่อยู่',
-                                        'attribute' => 'address',
-                                    ],
-                                    [
-                                        'label' => 'เบอร์ติดต่อ',
-                                        'attribute' => 'phone',
-                                    ],
-                                    [
-                                        'label' => 'อายุ',
-                                        'attribute' => 'disease',
-                                    ],
-                                    
-                                ],
-                            ])
-                            ?>
-
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-xs-5 col-sm-5 col-md-5">
-                    <div class="panel panel-info">
-                        <div class="panel-heading"></div>
-                        <div class="panel-body">
-                            <?=
-                            DetailView::widget([
-                                'model' => $model,
-                                'formatter' => ['class' => 'yii\i18n\Formatter', 'nullDisplay' => '-'],
-                                'attributes' => [
-                                    [
-                                        'label' => 'สิทธิ์การรักษา',
-                                        'attribute' => 'pttypess.name',
-                                    ],
-                                    [
-                                        'label' => 'กรุ๊ปเลือด',
-                                        'attribute' => 'bloodgrp',
-                                    ],                                    
-                                    [
-                                        'label' => 'โรคประจำตัว',
-                                        'attribute' => 'disease',
-                                    ],
-                                    [
-                                        'label' => 'การวินิจฉัย',
-                                        'attribute' => 'diage',
-                                    ],
-                                    [
-                                        'label' => 'ประวัติการแพ้ยา',
-                                        'attribute' => 'drugallergy'
-                                    ],
-                                ],
-                            ])
-                            ?>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        
-   
-        <div class="row" style="display: none">        
-
-                <div class="col-xs-3 col-sm-3 col-md-3">
-                    <?=
-                    $form->field($model, 'admit')->label('วันที่ Admit')->widget(\yii\jui\DatePicker::classname(), [
-                        'language' => 'th',
-                        'dateFormat' => 'yyyy-MM-dd',
-                        'clientOptions' => [
-                            'changeMonth' => true,
-                            'changeYear' => true,
-                        ],
-                        'options' => ['class' => 'form-control',
-                        //'disabled' => true
-                        ],
-                    ]);
-                    ?>
-                </div>
-                <div class="col-xs-3 col-sm-3 col-md-3">
-                    <?=
-                    $form->field($model, 'dc')->label('วันที่ D/C')->widget(\yii\jui\DatePicker::classname(), [
-                        'language' => 'th',
-                        'dateFormat' => 'yyyy-MM-dd',
-                        'clientOptions' => [
-                            'changeMonth' => true,
-                            'changeYear' => true,
-                        ],
-                        'options' => ['class' => 'form-control',
-                        //'disabled' => true
-                        ],
-                    ]);
-                    ?>
-                </div> 
-            <div class="col-xs-3 col-sm-3 col-md-3">
-            <?= $form->field($model, 'cc')->label('CC')->textInput(['readonly' => true,'maxlength' => true]) ?>
-        </div>
-        <div class="col-xs-3 col-sm-3 col-md-3">
-<?= $form->field($model, 'pi')->label('PI')->textInput(['readonly' => true,'maxlength' => true]) ?>
-        </div>
-            </div>
-        </div>
+    
         
  <ul class="nav nav-tabs">
-  <li class="active"><a href="#home" data-toggle="tab">Home</a></li>
-  <li><a href="#profile" data-toggle="tab">Profile</a></li>
-  <li class="disabled"><a>Disabled</a></li>
+  <li class="active"><a href="#home" data-toggle="tab">ข้อมูลผู้ป่วย</a></li>
+  <li><a href="#profile0" data-toggle="tab">บันทึกข้อมูลที่ต้องการให้เยี่ยม</a></li>
+  <li><a href="#profile1" data-toggle="tab">ปัญหาผู้ป่วย</a></li>
+<!--  <li class="disabled"><a>Disabled</a></li>
   <li class="dropdown">
     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
       Dropdown <span class="caret"></span>
@@ -152,11 +35,20 @@ use yii\widgets\DetailView;
       <li class="divider"></li>
       <li><a href="#dropdown2" data-toggle="tab">Another action</a></li>
     </ul>
-  </li>
+  </li>-->
 </ul>
 <div id="myTabContent" class="tab-content">
-  <div class="tab-pane fade active in" id="home">
-    tab1
+    <div class="tab-pane fade active in" id="home">
+  
+    <?php
+    echo $this->render('tab0',[
+        'model' => $model,
+        'form' => $form
+    ]);    
+    ?>
+  </div>
+  <div class="tab-pane fade" id="profile0">
+   
     <?php
     echo $this->render('tab1',[
         'model' => $model,
@@ -164,8 +56,8 @@ use yii\widgets\DetailView;
     ]);    
     ?>
   </div>
-  <div class="tab-pane fade" id="profile">
-    tab2
+  <div class="tab-pane fade" id="profile1">
+   
     <?php
     echo $this->render('tab2',[
         'model' => $model,
