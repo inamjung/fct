@@ -24,7 +24,7 @@ use yii\bootstrap\Nav;
             </div>
         </div>
             <hr>
-<?php } ?>
+
             
         <!--        //เมนูการตั้งค่า-->
 
@@ -46,6 +46,16 @@ use yii\bootstrap\Nav;
                     <li><a href="<?php echo Url::to(['/fct/fcttype/index']); ?>"><i class="fa fa-circle text-blue"></i> 
                             <span>
                                 ประเภทผู้ป่วย</span><small class="label pull-right bg-aqua"></small>
+                        </a>
+                    </li>
+                    <li><a href="<?php echo Url::to(['/fct/fcthhctool/index']); ?>"><i class="fa fa-circle text-blue"></i> 
+                            <span>
+                                อุปกรณ์</span><small class="label pull-right bg-aqua"></small>
+                        </a>
+                    </li>
+                    <li><a href="<?php echo Url::to(['/fct/fcthosin/index']); ?>"><i class="fa fa-circle text-blue"></i> 
+                            <span>
+                                หน่วยงาน/ทีมเยี่ยม</span><small class="label pull-right bg-aqua"></small>
                         </a>
                     </li>
                     
@@ -113,7 +123,9 @@ use yii\bootstrap\Nav;
                     <li><a href="<?php echo Url::to(['/fct/fct/indexcase']); ?>"><i class="fa fa-circle text-blue"></i> 
                             <span>
                                 รับผู้ป่วยที่ส่งเยี่ยม</span><small class="label pull-right bg-aqua">
-                                <?php echo \app\modules\fct\models\Fct::find()->Where(['okcase'=>'0'])                                                                                    
+                                    
+                                <?php echo \app\modules\fct\models\Fct::find()->Where(['hosin' => Yii::$app->user->identity->fcthosin_id])
+                                                                                    ->andWhere(['okcase'=>'0'])                                                                                    
                                                                                     ->andWhere(['send'=>'1'])                                                                                   
                                                                                     ->count(); ?>
                             </small>
@@ -124,7 +136,8 @@ use yii\bootstrap\Nav;
                             <span>
                                 บันทึกผลเยี่ยม</span><small class="label pull-right bg-red-gradient">
                                 
-                                    <?php echo \app\modules\fct\models\Fcthhc::find()->Where(['status'=>'ยังไม่เยี่ยม'])                                                                                    
+                                    <?php echo \app\modules\fct\models\Fcthhc::find()->Where(['fcthosin_id'=> Yii::$app->user->identity->fcthosin_id])
+                                                                                        ->andWhere(['status'=>'ยังไม่เยี่ยม'])                                                                                    
                                                                                     //->andWhere(['send'=>'1'])                                                                                    
                                                                                     ->count(); ?>
                             </small>
@@ -140,6 +153,7 @@ use yii\bootstrap\Nav;
                 
                 
         </ul>
+    <?php } ?>
     </section>
 
 </aside>

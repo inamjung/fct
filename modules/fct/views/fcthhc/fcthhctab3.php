@@ -1,8 +1,8 @@
 <?php
 
 use yii\helpers\Html;
-use yii\widgets\ActiveForm;
-
+use yii\bootstrap\ActiveForm;
+use yii\helpers\ArrayHelper;
 
 ?>
 
@@ -82,6 +82,10 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'compnote')->label('มีปัญหา(ระบุ)')->textInput(['maxlength' => true]) ?>
             	</div>
+                <div class="col-xs-9 col-sm-9 col-md-9">                    
+                    <?= $form->field($model, 'tool')->label('อุปกรณ์ที่ยืม')->inline()->checkboxList(ArrayHelper::map(app\modules\fct\models\Fcthhctool::find()
+                    ->all(), 'name', 'name'));?>
+                </div>
             </div>
         </div>
     </div>

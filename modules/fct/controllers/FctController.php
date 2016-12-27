@@ -73,9 +73,10 @@ class FctController extends Controller
    
     public function actionIndexcase()
     {
-        $searchModel = new FctSearch();
-         $searchModel-> okcase='0';
+        $searchModel = new FctSearch(['okcase'=>'0']);
+        //$searchModel-> okcase='0';
         $searchModel-> send=1;
+        $searchModel->hosin = Yii::$app->user->identity->fcthosin_id;
         
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
        

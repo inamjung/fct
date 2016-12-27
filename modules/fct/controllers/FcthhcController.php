@@ -10,7 +10,10 @@ use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use app\modules\fct\models\Fcthhcdetail;
 use yii\data\ArrayDataProvider;
+use yii\helpers\Json;
 use yii\helpers\Url;
+use yii\helpers\BaseArrayHelper;
+use yii\helpers\ArrayHelper;
 /**
  * FcthhcController implements the CRUD actions for Fcthhc model.
  */
@@ -58,6 +61,7 @@ public function actionIndexhhc()
     public function actionIndexfct()
     {
         $searchModel = new FcthhcSearch(['status'=>'ยังไม่เยี่ยม']);
+        $searchModel->fcthosin_id = Yii::$app->user->identity->fcthosin_id;
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
         
 //        $searchModel2 = new FcthhcSearch(['status'=>'เยี่ยมแล้ว']);
@@ -73,6 +77,8 @@ public function actionIndexhhc()
     public function actionIndexfctok()
     {
         $searchModel = new FcthhcSearch(['status'=>'เยี่ยมแล้ว']);
+        
+        $searchModel->fcthosin_id = Yii::$app->user->identity->fcthosin_id;
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('indexfctok', [
@@ -119,7 +125,8 @@ public function actionIndexhhc()
      */
     public function actionUpdate($id)
     {
-        $model = $this->findModel($id);       
+        $model = $this->findModel($id);    
+        $model->tool  = $model->getArray($model->tool);
 
         if ($model->load(Yii::$app->request->post())&& $model->save()) {
           
@@ -136,6 +143,7 @@ public function actionIndexhhc()
     public function actionUpdatedetail($id)
     {
         $model = $this->findModel($id);
+        $model->tool  = $model->getArray($model->tool);
         $hhcdetail = new Fcthhcdetail;
 
         if ($model->load(Yii::$app->request->post())) {

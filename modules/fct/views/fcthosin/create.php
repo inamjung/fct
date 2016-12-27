@@ -2,7 +2,6 @@
 
 use yii\helpers\Html;
 
-
 /* @var $this yii\web\View */
 /* @var $model app\modules\fct\models\Fcthosin */
 
@@ -12,10 +11,16 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="fcthosin-create">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+    <div class="panel panel-primary">
+        <div class="panel-heading"> หน่วย/ทีมที่ออกเยี่ยม</div>
+        <div class="panel-body">
 
-    <?= $this->render('_form', [
-        'model' => $model,
-    ]) ?>
+            <?=
+            $this->render('_form', [
+                'model' => $model,
+            ])
+            ?>
 
+        </div>
+    </div>
 </div>

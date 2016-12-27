@@ -18,8 +18,10 @@ class FctSearch extends Fct
     public function rules()
     {
         return [
-            [['pass','id', 'fcttype_id', 'colour_id', 'send', 'okcase', 'confirm', 'confirmfct'], 'integer'],
-            [['pttype','hn', 'an', 'ptname', 'ptage', 'diage', 'pps', 'pain', 'painnote', 'cc', 'pi', 'bt', 'pr', 'rr', 'bp', 'drugallergy', 'admit', 'dc', 'or', 'ordate', 'disease', 'receive', 'address', 'ptcate', 'phone', 'hossub', 'tra', 'retng', 'retfo', 'colobag', 'lesion', 'lesioncare', 'recov', 'recovcare', 'oxygen', 'lr01', 'lr02', 'lr03', 'lr04', 'lr05', 'lr06', 'lr07', 'lr08', 'lr09', 'lr10', 'lrl01', 'lrl02', 'lrl03', 'lrl04', 'lrl05', 'lrl06', 'lrl07', 'lrl08', 'lr', 'lrl09', 'lrl10', 'lrl11', 'lrl12', 'lrl13', 'other', 'appdate', 'doctorapp', 'appdate2', 'doctorapp2', 'appdate3', 'doctorapp3', 'senddate', 'windpipe', 'insulin', 'equip', 'depart', 'hosin', 'officer', 'cid', 'birthday', 'tmbpart', 'sex', 'bloodgrp'], 'safe'],
+            [['pass','id', 'fcttype_id', 'colour_id', 'send', 'okcase', 'confirm', 'confirmfct','age', 'hosin'], 'integer'],
+            [['pttype','hn', 'an', 'ptname', 'ptage', 'diage', 'pps', 'pain', 'painnote', 'cc', 'pi', 'bt', 'pr', 'rr', 'bp', 'drugallergy', 'admit', 'dc', 'or', 'ordate', 'disease', 'receive', 'address', 'ptcate', 'phone', 'hossub', 'tra', 'retng', 'retfo', 'colobag', 'lesion', 'lesioncare', 'recov', 'recovcare', 'oxygen', 'lr01', 'lr02', 'lr03', 'lr04', 'lr05', 'lr06', 'lr07', 'lr08', 'lr09', 'lr10', 'lrl01', 'lrl02', 'lrl03', 'lrl04', 'lrl05', 'lrl06', 'lrl07', 'lrl08', 'lr', 'lrl09', 'lrl10', 'lrl11', 'lrl12', 'lrl13', 'other', 'appdate', 'doctorapp', 'appdate2', 'doctorapp2', 'appdate3', 'doctorapp3', 'senddate', 'windpipe', 'insulin', 'equip', 'depart',  'officer', 'cid', 'birthday', 'tmbpart', 'sex', 'bloodgrp','moopart','vstdate'],
+                'safe'],
+            [['bw','height'],'number']
         ];
     }
 
@@ -64,6 +66,7 @@ class FctSearch extends Fct
             'colour_id' => $this->colour_id,
             'admit' => $this->admit,
             'dc' => $this->dc,
+            'hosin' => $this->hosin,
             'ordate' => $this->ordate,
             'appdate' => $this->appdate,
             'appdate2' => $this->appdate2,
@@ -74,6 +77,10 @@ class FctSearch extends Fct
             'confirm' => $this->confirm,
             'confirmfct' => $this->confirmfct,
             'birthday' => $this->birthday,
+            'bw' => $this->bw,
+            'height' => $this->height,
+            'age' => $this->age,
+            'vstdate' => $this->vstdate,
         ]);
 
         $query->andFilterWhere(['like', 'pass', $this->pass])
@@ -140,13 +147,14 @@ class FctSearch extends Fct
             ->andFilterWhere(['like', 'insulin', $this->insulin])
             ->andFilterWhere(['like', 'equip', $this->equip])
             ->andFilterWhere(['like', 'depart', $this->depart])
-            ->andFilterWhere(['like', 'hosin', $this->hosin])
+            
             ->andFilterWhere(['like', 'officer', $this->officer])            
             ->andFilterWhere(['like', 'cid', $this->cid])
             ->andFilterWhere(['like', 'tmbpart', $this->tmbpart])
             ->andFilterWhere(['like', 'sex', $this->sex])
             ->andFilterWhere(['like', 'bloodgrp', $this->bloodgrp])
-            ->andFilterWhere(['like', 'pttype', $this->pttype]);
+            ->andFilterWhere(['like', 'pttype', $this->pttype])
+            ->andFilterWhere(['like', 'moopart', $this->moopart])    ;
 
         return $dataProvider;
     }

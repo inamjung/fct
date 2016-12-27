@@ -1,3 +1,8 @@
+<?php
+use yii\helpers\ArrayHelper;
+
+?>
+
 <div class="box box-primary">
                     <div class="box-header"></div>
                     <div class="box-body">
@@ -86,7 +91,8 @@
                                         'changeMonth' => true,
                                         'changeYear' => true,
                                     ],
-                                    'options' => ['class' => 'form-control'
+                                    'options' => ['class' => 'form-control',
+                                        'required' => ''
                                     ],
                                 ]);
                                 ?>
@@ -96,7 +102,8 @@
                                 $form->field($model, 'depart')->label('แผนกที่ส่งเยี่ยม')->widget(\kartik\widgets\Select2::className(), [
                                     'data' => yii\helpers\ArrayHelper::map(\app\modules\fct\models\Fctdepart::find()->all(), 'id', 'name'),
                                     'options' => [
-                                        'placeholder' => '<-- แผนกที่ส่งเยี่ยม -->'
+                                        'placeholder' => '<-- แผนกที่ส่งเยี่ยม -->',
+                                        'required' => ''
                                     ],
                                     'pluginOptions' => [
                                         'allowClear' => true
@@ -107,18 +114,13 @@
                     <div class="col-xs-3 col-sm-3 col-md-3">
                         <?= $form->field($model, 'officer')->label('ผู้ส่งเยี่ยม')->textInput(['maxlength' => true]) ?>
                     </div>  
-                    <div class="col-xs-3 col-sm-3 col-md-3">
-                        <?=
-                                $form->field($model, 'hosin')->widget(\kartik\widgets\Select2::className(), [
-                                    'data' => yii\helpers\ArrayHelper::map(app\modules\fct\models\Pcuchild::find()->all(), 'hcode', 'name'),
-                                    'options' => [
-                                        'placeholder' => '<-- รพ.สต -->'
-                                    ],
-                                    'pluginOptions' => [
-                                        'allowClear' => true
-                                    ]
-                                ])
-                                ?>
+                    <div class="col-xs-3 col-sm-3 col-md-3">                        
+                        <?= $form->field($model, 'hosin')->label('รพ.สต')->dropdownList(
+                            ArrayHelper::map(\app\modules\fct\models\Fcthosin::find()->all(), 'id', 'name'), [
+                        'id' => 'ddl-colour',
+                        'prompt' => '<-- รพ.สต -->',
+                        'required' => ''
+                    ]);?>
                     </div>
                 </div>
                 

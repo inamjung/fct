@@ -23,7 +23,7 @@ use yii\widgets\ActiveForm;
                 'changeYear' => true,
             ],
             'options' => ['class' => 'form-control',
-                //'disabled' => true
+                'required' => ''
             ],
     ]) ?>
         </div>

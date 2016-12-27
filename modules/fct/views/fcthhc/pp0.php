@@ -4,7 +4,8 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 ?>
-
+<form class="form-horizontal">
+<fieldset>
 <div class="box box-danger">
                     <div class="box-header"></div>
                     <div class="box-body">
@@ -41,3 +42,5 @@ use yii\widgets\ActiveForm;
     </div>            
 </div>
 </div> 
+    </fieldset>
+</form>

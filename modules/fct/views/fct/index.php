@@ -21,7 +21,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= Html::a('Create Fct', ['create'], ['class' => 'btn btn-success']) ?>
     </p>-->
     <div class="panel panel-primary">
-        <div class="panel-heading"> รายชื่อผู้ป่วยรอส่งเยี่ยม</div>
+        <div class="panel-heading"> บันทึกส่งเยี่ยม - รายชื่อผู้ป่วยรอส่งเยี่ยม</div>
         <div class="panel-body">
             <?=
             GridView::widget([
@@ -135,9 +135,7 @@ $this->params['breadcrumbs'][] = $this->title;
                         'options' => ['style' => 'width:100px;'],
                         'template' => '<div class="btn-group btn-group-sm" role="group" aria-label="...">{update}</div>',
                         'buttons' => [
-//                    'view'=>function($url,$model,$key){
-//                        return Html::a('<i class="glyphicon glyphicon-search"></i>',['/fct/fct/me'],['class'=>'btn btn-default']);
-//                    },
+                    
                             'update' => function($url, $model, $key) {
                                 return Html::a('<i class="glyphicon glyphicon-pencil"></i> ', ['fct/update', 'id' => $model->id], [
                                             'class' => 'activity-update-link btn btn-info',

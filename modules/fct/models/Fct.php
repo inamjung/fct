@@ -109,14 +109,14 @@ class Fct extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['fcttype_id','pass', 'colour_id', 'depart','senddate', 'hosin'], 'required'],
-            [['fcttype_id', 'pass', 'colour_id', 'confirm', 'confirmfct', 'send', 'okcase'], 'integer'],
-            [['admit', 'dc', 'ordate', 'appdate', 'appdate2', 'appdate3', 'senddate', 'birthday'], 'safe'],
+            //[['fcttype_id','colour_id','pass','senddate','depart','hosin'],'required'],
+            [['fcttype_id', 'pass', 'colour_id', 'confirm', 'confirmfct', 'send', 'okcase','age', 'hosin'], 'integer'],
+            [['admit', 'dc', 'ordate', 'appdate', 'appdate2', 'appdate3', 'senddate', 'birthday','vstdate'], 'safe'],
             [['hn'], 'string', 'max' => 9],
-            [['an', 'lr07', 'lr08', 'lr09', 'lrl02', 'lrl03', 'lrl04', 'lrl05', 'lrl06', 'lrl10', 'lrl11', 'lrl12', 'lrl13'], 'string', 'max' => 10],
+            [['an', 'lr07', 'lr08', 'lr09', 'lrl02', 'lrl03', 'lrl04', 'lrl05', 'lrl06', 'lrl10', 'lrl11', 'lrl12', 'lrl13','moopart'], 'string', 'max' => 10],
             [['ptname', 'disease',  'ptcate', 'doctorapp', 'doctorapp2', 'doctorapp3', 'depart', 'officer'], 'string', 'max' => 50],
             [['ptage'], 'string', 'max' => 3],
-            [['diage', 'painnote', 'drugallergy', 'or', 'hossub', 'tra', 'retng', 'retfo', 'colobag', 'lesion', 'lesioncare', 'recov', 'recovcare', 'oxygen', 'lr01', 'lr03', 'lr05', 'lrl07', 'lrl08', 'lr', 'lrl09', 'other', 'windpipe', 'insulin', 'equip', 'hosin'], 'string', 'max' => 100],
+            [['diage', 'painnote', 'drugallergy', 'or', 'hossub', 'tra', 'retng', 'retfo', 'colobag', 'lesion', 'lesioncare', 'recov', 'recovcare', 'oxygen', 'lr01', 'lr03', 'lr05', 'lrl07', 'lrl08', 'lr', 'lrl09', 'other', 'windpipe', 'insulin', 'equip'], 'string', 'max' => 100],
             [['pps', 'pain', 'bt', 'pr', 'rr'], 'string', 'max' => 5],
             [['cc', 'address', 'lr02', 'lr04', 'lr06', 'lr10', 'lrl01'], 'string', 'max' => 200],
             [['pi','receive',], 'string', 'max' => 250],
@@ -126,6 +126,7 @@ class Fct extends \yii\db\ActiveRecord
             [['tmbpart','pttype'], 'string', 'max' => 2],
             [['sex'], 'string', 'max' => 1],
             [['bloodgrp'], 'string', 'max' => 30],
+            [['bw','height'],'number']
         ];
     }
 
@@ -220,7 +221,8 @@ class Fct extends \yii\db\ActiveRecord
             'tmbpart' => 'ตำบล',
             'sex' => 'เพศ',
             'bloodgrp' => 'กรุ๊ปเลือด',
-            'pttype'=>'สิทธิ์การรักษา'
+            'pttype'=>'สิทธิ์การรักษา',
+            'moopart'=>'หมู่ที่'
         ];
     }
     public function getFcthhc(){
@@ -245,6 +247,6 @@ class Fct extends \yii\db\ActiveRecord
         return $this->hasOne(Pttype::className(), ['pttype'=>'pttype']);
     }
     public function getFcthosin(){
-        return $this->hasOne(\app\models\PcuChild::className(), ['hcode'=>'hosin']);
+        return $this->hasOne(Fcthosin::className(), ['id'=>'hosin']);
     }
 }

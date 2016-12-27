@@ -34,29 +34,30 @@ $this->params['breadcrumbs'][] = $this->title;
                     ['class' => 'yii\grid\SerialColumn'],
                     //'id',
                     //'fcttype_id',
+                     'senddate',
                     [
-                        'attribute'=>'fcttype_id',
-                        'value'=>'type.name'
+                        'attribute' => 'fcttype_id',
+                        'value' => 'type.name'
                     ],
                     //'pass',
                     [
-                        'attribute'=>'colour_id',
-                        'value'=>'colourfct.name'
+                        'attribute' => 'colour_id',
+                        'value' => 'colourfct.name'
                     ],
                     //'colour_id',
-                    'senddate',
+                   
                     'cid',
                     //'hn',
                     // 'an',
                     'ptname',
                     //'birthday',
-                    [
-                        'attribute' => 'sex',
-                        'format' => 'html',
-                        'value' => function($model, $key, $index, $column) {
-                            return $model->sex == 1 ? "ชาย" : "หญิง";
-                        }
-                    ],
+//                    [
+//                        'attribute' => 'sex',
+//                        'format' => 'html',
+//                        'value' => function($model, $key, $index, $column) {
+//                            return $model->sex == 1 ? "ชาย" : "หญิง";
+//                        }
+//                    ],
                     // 'ptage',
                     // 'diage',
                     // 'pps',
@@ -118,26 +119,33 @@ $this->params['breadcrumbs'][] = $this->title;
                     // 'doctorapp2',
                     // 'appdate3',
                     // 'doctorapp3',
-                    
                     // 'windpipe',
                     // 'insulin',
-                    // 'equip',
-                    // 'depart',
-                    // 'hosin',
+                    // 'equip',                    
+                    [
+                        'attribute' => 'depart',
+                        'value' => 'dep.name'
+                    ],
+                    [
+                        'label'=>'หน่วยงานที่เยี่ยม',
+                        'attribute' =>  'hosin',
+                        'value' => 'fcthosin.name'
+                    ],        
+                   
                     // 'officer',
                     // 'confirm',
                     // 'confirmfct',
                     //'tmbpart',
-                    'phone',
+                    //'phone',
                     //'bloodgrp',                   
-                    [
-                        'class' => 'kartik\grid\BooleanColumn',
-                        'attribute' => 'send',
-                    ],       
-                    [
-                        'class' => 'kartik\grid\BooleanColumn',
-                        'attribute' => 'okcase',
-                    ],
+//                    [
+//                        'class' => 'kartik\grid\BooleanColumn',
+//                        'attribute' => 'send',
+//                    ],       
+//                    [
+//                        'class' => 'kartik\grid\BooleanColumn',
+//                        'attribute' => 'okcase',
+//                    ],
                     [
                         'class' => 'yii\grid\ActionColumn',
                         'options' => ['style' => 'width:100px;'],
@@ -171,19 +179,19 @@ $this->params['breadcrumbs'][] = $this->title;
                         ],
                     ]);
                     ?>
+                </div>
+            </div>
         </div>
-    </div>
-</div>
-<?php
-                    Modal::begin([
-                        'id' => 'activity-modal',
-                        'header' => '<h4 class="modal-title"></h4>',
-                        'size' => 'modal-lg',
-                        'footer' => '<a href="#" class="btn btn-primary" data-dismiss="modal">ปิด</a>',
-                    ]);
-                    Modal::end();
-                    ?>
-                    <?php $this->registerJs('
+        <?php
+        Modal::begin([
+            'id' => 'activity-modal',
+            'header' => '<h4 class="modal-title"></h4>',
+            'size' => 'modal-lg',
+            'footer' => '<a href="#" class="btn btn-primary" data-dismiss="modal">ปิด</a>',
+        ]);
+        Modal::end();
+        ?>
+        <?php $this->registerJs('
         function init_click_handlers(){
             $("#activity-create-link").click(function(e) {
                     $.get(

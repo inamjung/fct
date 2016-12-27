@@ -19,7 +19,7 @@ use kartik\checkbox\CheckboxX;
                         'formatter' => ['class' => 'yii\i18n\Formatter', 'nullDisplay' => '-'],
                         'attributes' => [
                             [
-                                'label' => '',
+                                'label' => 'หน่วยงานที่รับเยี่ยม',
                                 'attribute' => 'fcthosin.name'
                             ],
                               ],
@@ -89,10 +89,7 @@ use kartik\checkbox\CheckboxX;
                                 'label' => 'วันที่ส่งเยี่ยม',
                                 'attribute' => 'senddate'
                             ],
-                            [
-                                'label' => 'การให้เยี่ยม',
-                                'attribute' => 'pass1.name'
-                            ],
+                            
                             [
                                 'label' => 'ความเร่งด่วน',
                                 'attribute' => 'colourfct.name',
@@ -108,6 +105,31 @@ use kartik\checkbox\CheckboxX;
                         ],
                     ])
                     ?>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-4 col-sm-4 col-md-4">
+            <div class="panel panel-warning">
+                <div class="panel-heading"> ข้อมูลการส่งเยี่ยม</div>
+                <div class="panel-body">
+                    <?=
+                    DetailView::widget([
+                        'model' => $model,
+                        'formatter' => ['class' => 'yii\i18n\Formatter', 'nullDisplay' => '-'],
+                        'attributes' => [
+                            [
+                                'label' => 'CC',
+                                'attribute' => 'cc'
+                            ],
+                            [
+                                'label' => 'PI',
+                                'attribute' => 'pi',
+                            ],
+                            
+                        ],
+                    ])
+                    ?>
+
                 </div>
             </div>
         </div>

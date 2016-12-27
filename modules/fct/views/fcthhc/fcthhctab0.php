@@ -59,11 +59,41 @@ DetailView::widget([
             'attribute' => 'fctcolour_id',
             'value' => $model->hhcfct->colourfct->name,
         ],
+//        [
+//            'label' => 'การอนุญาต',
+//            'attribute' => 'cid',
+//            'value' => $model->hhcfct->pass1->name,
+//        ],
+    ],
+])
+?>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-4 col-sm-4 col-md-4">
+                <div class="panel panel-warning">
+                    <div class="panel-heading"> ข้อมูลการส่งเยี่ยม</div>
+                    <div class="panel-body">
+<?=
+DetailView::widget([
+    'model' => $model,
+    'formatter' => ['class' => 'yii\i18n\Formatter', 'nullDisplay' => '-'],
+    'attributes' => [
         [
-            'label' => 'การอนุญาต',
-            'attribute' => 'cid',
-            'value' => $model->hhcfct->pass1->name,
+            'label' => 'CC',
+            'attribute' => 'cc',
+            'value' => $model->hhcfct->cc,
         ],
+        [
+            'label' => 'PI',
+            'attribute' => 'pi',
+            'value' => $model->hhcfct->pi,
+        ],
+//        [
+//            'label' => 'การอนุญาต',
+//            'attribute' => 'cid',
+//            'value' => $model->hhcfct->pass1->name,
+//        ],
     ],
 ])
 ?>

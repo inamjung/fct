@@ -4,7 +4,7 @@
 <div class="well">
         <h2><div class="label label-info">ข้อมูลผู้ป่วย </div></h2>
         <div class="row">
-                <div class="col-xs-7 col-sm-7 col-md-7">
+                <div class="col-xs-6 col-sm-6 col-md-6">
                     <div class="panel panel-info">
                         <div class="panel-heading"></div>
                         <div class="panel-body">
@@ -42,7 +42,7 @@
                     </div>
                 </div>
 
-                <div class="col-xs-5 col-sm-5 col-md-5">
+                <div class="col-xs-6 col-sm-6 col-md-6">
                     <div class="panel panel-info">
                         <div class="panel-heading"></div>
                         <div class="panel-body">
@@ -80,43 +80,14 @@
             </div>
         
    
-        <div class="row" style="display: none">        
+        <div class="row">        
 
-                <div class="col-xs-3 col-sm-3 col-md-3">
-                    <?=
-                    $form->field($model, 'admit')->label('วันที่ Admit')->widget(\yii\jui\DatePicker::classname(), [
-                        'language' => 'th',
-                        'dateFormat' => 'yyyy-MM-dd',
-                        'clientOptions' => [
-                            'changeMonth' => true,
-                            'changeYear' => true,
-                        ],
-                        'options' => ['class' => 'form-control',
-                        //'disabled' => true
-                        ],
-                    ]);
-                    ?>
-                </div>
-                <div class="col-xs-3 col-sm-3 col-md-3">
-                    <?=
-                    $form->field($model, 'dc')->label('วันที่ D/C')->widget(\yii\jui\DatePicker::classname(), [
-                        'language' => 'th',
-                        'dateFormat' => 'yyyy-MM-dd',
-                        'clientOptions' => [
-                            'changeMonth' => true,
-                            'changeYear' => true,
-                        ],
-                        'options' => ['class' => 'form-control',
-                        //'disabled' => true
-                        ],
-                    ]);
-                    ?>
-                </div> 
-            <div class="col-xs-3 col-sm-3 col-md-3">
-            <?= $form->field($model, 'cc')->label('CC')->textInput(['readonly' => true,'maxlength' => true]) ?>
+                 
+            <div class="col-xs-6 col-sm-6 col-md-6">
+            <?= $form->field($model, 'cc')->label('CC')->textArea() ?>
         </div>
-        <div class="col-xs-3 col-sm-3 col-md-3">
-<?= $form->field($model, 'pi')->label('PI')->textInput(['readonly' => true,'maxlength' => true]) ?>
+        <div class="col-xs-6 col-sm-6 col-md-6">
+<?= $form->field($model, 'pi')->label('PI')->textArea() ?>
         </div>
             </div>
         </div>

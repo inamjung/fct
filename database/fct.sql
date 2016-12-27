@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50525
 File Encoding         : 65001
 
-Date: 2016-12-08 09:46:41
+Date: 2016-12-27 15:24:30
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -231,7 +231,7 @@ CREATE TABLE `fct` (
   `insulin` varchar(100) DEFAULT NULL,
   `equip` varchar(100) DEFAULT NULL,
   `depart` varchar(50) DEFAULT NULL COMMENT 'แผนกที่ส่ง',
-  `hosin` varchar(100) DEFAULT NULL COMMENT 'รพ.สต',
+  `hosin` int(11) DEFAULT NULL COMMENT 'รพ.สต',
   `officer` varchar(50) DEFAULT NULL,
   `confirm` smallint(2) DEFAULT '0',
   `confirmfct` smallint(2) DEFAULT '0',
@@ -242,18 +242,20 @@ CREATE TABLE `fct` (
   `sex` varchar(1) DEFAULT NULL COMMENT 'เพศ',
   `bloodgrp` varchar(30) DEFAULT NULL COMMENT 'กรุ๊ปเลือด',
   `pttype` char(2) DEFAULT NULL COMMENT 'สิทธิ์การรักษา',
+  `moopart` varchar(10) DEFAULT NULL,
+  `bw` double DEFAULT NULL,
+  `height` double DEFAULT NULL,
+  `age` int(11) DEFAULT NULL,
+  `vstdate` date DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=tis620;
+) ENGINE=MyISAM AUTO_INCREMENT=31 DEFAULT CHARSET=tis620;
 
 -- ----------------------------
 -- Records of fct
 -- ----------------------------
-INSERT INTO `fct` VALUES ('1', '3430300510561', '1', '6', '2', '000056441', null, 'น.ส.ไอน้ำ เรืองโพน', null, null, '', '', '', '', '', '', '', '', '', 'ไม่ทราบประวัติการแพ้ยา', null, null, '', null, '\"\"', '', '43 หมู่ 3 ต.ชุมภูพร อ.ศรีวิไล จ.บึงกาฬ', '', '091-3638928', null, '', '', '', '', '', '', '', '', '', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, '', null, '', null, null, null, null, null, '', '', '', '5', '04892', '', '0', '0', '1', '1', '1974-07-18', '02', '2', 'O', 'O1');
-INSERT INTO `fct` VALUES ('2', '3430300847522', '1', '4', '3', '000017236', null, 'นายคำพันธ์ ไชยมาตร์', null, null, '80', '7', '', '', '', '', '', '', '140/90', 'ไม่ทราบประวัติการแพ้ยา', null, null, '', null, 'โรคหอบหืด(Asthma)', '', '48 หมู่ 6 ต.นาแสง อ.ศรีวิไล จ.บึงกาฬ', '', '-', null, '', '', '', '', '', '', '', '', '', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, '', null, '', null, null, null, null, '2016-11-28', '', '', '', '5', '04892', '', '0', '0', '1', '1', '1944-03-04', '03', '1', 'ไม่ทราบหมู่เลือด', '77');
-INSERT INTO `fct` VALUES ('3', '3300800085690', '1', '3', '1', '000058199', null, 'น.ส.ศิริพร บัวสุนทร', null, null, '80', '8', 'นวด บีบ', '', '', '36', '50', '50', '130/90', 'ไม่ทราบประวัติการแพ้ยา', null, null, '', null, '\"\"', 'cpm para amocxy', '37 หมู่ 15 ต.ตะเคียน อ.ด่านขุนทด จ.นครราชสีมา', 'ไม่มี', '087-2522600', null, 'ไม่มี', 'ไม่มี', '', '', 'ไม่มี', '', 'ไม่มี', 'ไม่มี', 'ไม่มี', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, '', null, '', null, null, null, null, '2016-12-01', 'ไม่มี', 'ไม่มี', '', '5', '04890', '', '0', '0', '1', '1', '1980-03-22', '05', '2', 'AB', 'O1');
-INSERT INTO `fct` VALUES ('4', '3620700295398', '1', '3', '2', '000041094', null, 'นายอุดม แสงจันทร์', null, null, '60', '4', '5', '', '', '36', '', '', '150/80', 'ไม่ทราบประวัติการแพ้ยา', null, null, '', null, 'คลินิกโรคเบาหวาน (DM)', '', '93 หมู่ 7 ต.ศรีวิไล อ.ศรีวิไล จ.บึงกาฬ', '', '061-5168954', null, '', '', '', '', '', '', '', '', '', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, '', null, '', null, null, null, null, '2016-11-29', '', '', '', '5', '04889', '', '0', '0', '1', '1', '1963-04-06', '01', '1', 'ไม่ทราบหมู่เลือด', '89');
-INSERT INTO `fct` VALUES ('5', '3430300878266', null, null, null, '000032017', null, 'นางทองศรี ไพบูลย์', null, null, null, null, null, null, null, null, null, null, null, 'ไม่ทราบประวัติการแพ้ยา', null, null, null, null, '', null, '91 หมู่ 2 ต.นาสะแบง อ.ศรีวิไล จ.หนองคาย', null, '', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, '0', '0', '0', '0', '1960-11-07', '04', '2', 'ไม่ทราบหมู่เลือด', '82');
-INSERT INTO `fct` VALUES ('6', '1431200043451', null, null, null, '000029019', null, 'นายวัชรินทร์ จันเขียว', null, null, null, null, null, null, null, null, null, null, null, 'ไม่ทราบประวัติการแพ้ยา', null, null, null, null, '', null, '', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, '0', '0', '0', '0', '1996-02-12', '04', '1', 'ไม่ทราบหมู่เลือด', '71');
+INSERT INTO `fct` VALUES ('28', '3430300510561', null, '2', '1', '000056441', null, 'น.ส.ไอน้ำ เรืองโพน', null, null, '', '', '', '	คลำพบก้อนที่ท้อง เป็นมา 3เดือน', '3เดือนก่อนมารพ. คลำพบก้อนที่ท้อง เจ็บท้องเวลาสัมผัส', '', '', '', '', 'ไม่ทราบประวัติการแพ้ยา', null, null, '', null, '\"\"', '', '43 หมู่ 3 ต.ชุมภูพร อ.ศรีวิไล จ.บึงกาฬ', '', '091-3638928', null, '', '', '', '', '', '', '', '', '', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, '', null, '', null, null, null, null, '2016-12-04', '', '', '', '2', '2', '', '0', '0', '1', '0', '1974-07-18', '02', '2', 'O', 'O1', '03', null, null, null, null);
+INSERT INTO `fct` VALUES ('29', '3620700295398', null, null, null, '000041094', null, 'นายอุดม แสงจันทร์', null, null, null, null, null, null, null, null, null, null, null, 'ไม่ทราบประวัติการแพ้ยา', null, null, null, null, 'คลินิกโรคเบาหวาน (DM)', null, '93 หมู่ 7 ต.ศรีวิไล อ.ศรีวิไล จ.บึงกาฬ', null, '061-5168954', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, '3', null, '0', '0', '0', '0', '1963-04-06', '01', '1', 'ไม่ทราบหมู่เลือด', '89', '07', null, null, null, null);
+INSERT INTO `fct` VALUES ('30', '1430300102881', null, '3', '3', '000024050', null, 'นางพนิตตา สุวรรณเขต', null, null, '', '', '', 'ปวดหลัง 2 ข้าง เป็นมา 1 wk', '-', '', '', '', '', 'ไม่ทราบประวัติการแพ้ยา', null, null, '', null, '\"\"', '', '78 หมู่ 2 ต.ศรีวิไล อ.ศรีวิไล จ.บึงกาฬ', '', '08-37686994', null, '', '', '', '', '', '', '', '', '', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, '', null, '', null, null, null, null, '2016-12-27', '', '', '', '5', '2', '', '0', '0', '1', '0', '1987-06-10', '01', '2', 'O', 'O1', '2', null, null, null, null);
 
 -- ----------------------------
 -- Table structure for fctcolour
@@ -440,16 +442,22 @@ CREATE TABLE `fcthhc` (
   `fcttype_id` int(11) DEFAULT NULL COMMENT 'ประเภทผู้ป่วย',
   `fctcolour_id` int(11) DEFAULT NULL COMMENT 'ความเร่งด่วน',
   `hhclot` int(11) DEFAULT NULL COMMENT 'ครั้งที่เยียม',
+  `chlid05_glow` varchar(50) DEFAULT NULL,
+  `chlid614_bw` double DEFAULT NULL,
+  `chlid614_hg` double DEFAULT NULL,
+  `child614_food` varchar(50) DEFAULT NULL,
+  `dc` varchar(20) DEFAULT NULL COMMENT 'จำหน่าย',
+  `tool` varchar(255) DEFAULT NULL COMMENT 'อุปกรณ์ที่ยืม',
+  `cc` varchar(200) DEFAULT NULL,
+  `pi` varchar(250) DEFAULT NULL,
+  `moopart` varchar(10) DEFAULT NULL COMMENT 'หมู่ที่',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=tis620;
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=tis620;
 
 -- ----------------------------
 -- Records of fcthhc
 -- ----------------------------
-INSERT INTO `fcthhc` VALUES ('1', '4', '2016-11-30', null, '', '', '', '', '', 'รู้ตัวดี', '', '', 'กลั้นได้', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '2016-12-31', 'ทุเลา', '', null, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', null, null, null, null, null, null, '04890', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', null, '', '', '', '3620700295398', 'เยี่ยมแล้ว', '04889', null, null, null, null, null, null, null);
-INSERT INTO `fcthhc` VALUES ('2', '2', null, null, '', '', '', '', '', 'รู้ตัวดี', 'กินเอง', '', 'กลั้นได้', 'สื่อสารได้', '', 'ได้ดี', '', '', 'ยอมรับ', 'ไม่มีปัญหา', '', '', '', '', '', 'ไม่มี', '', 'ไม่มี', '', 'ไม่มีปัญหา', '', 'ไม่มีปัญหา', '', '', '', '', '', 'ไม่มีปัญหา', '', 'ไม่มีปัญหา', '', '', '', '', '', 'ไม่มีปัญหา', '', 'ไม่มีปัญหา', '', '', '', '', '', '', '', '2', 'เดือน', '2016-12-30', 'ปกติ', '', null, '', '', '', '', '', '', '', '', '', '', '', '3', '', '', '', '3', '', '', '3', '', '', '', '', '', '', '', '', '', '', '', '', null, null, null, null, null, null, '04889', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', null, '', '', '', '3430300847522', 'เยี่ยมแล้ว', '04892', null, null, null, null, null, null, null);
-INSERT INTO `fcthhc` VALUES ('3', '1', '2016-11-30', null, '', '', '', '', '', 'สับสน', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '3', 'ปี', '2017-01-31', 'ทุเลา', '', null, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', null, null, null, null, null, null, '04890', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', null, '', '', '', '3430300510561', 'เยี่ยมแล้ว', '04892', null, null, null, null, null, null, null);
-INSERT INTO `fcthhc` VALUES ('4', '3', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, '3300800085690', 'ยังไม่เยี่ยม', '04890', null, null, null, null, null, null, null);
+INSERT INTO `fcthhc` VALUES ('5', '28', '2016-12-27', null, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', null, 'ปกติ', '', null, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', null, null, null, null, null, null, '04889', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', null, '', '', '', '3430300510561', 'ยังไม่เยี่ยม', '3', null, null, null, null, null, null, null, null, null, null, null, null, 'O2,BP', null, null, null);
 
 -- ----------------------------
 -- Table structure for fcthhcdetail
@@ -594,11 +602,26 @@ CREATE TABLE `fcthhcdetail` (
 -- ----------------------------
 -- Records of fcthhcdetail
 -- ----------------------------
-INSERT INTO `fcthhcdetail` VALUES ('1', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 'ยังไม่เยี่ยม', '04892', null, null, null, null, null, null);
-INSERT INTO `fcthhcdetail` VALUES ('2', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 'ยังไม่เยี่ยม', '04892', null, null, null, null, null, null);
-INSERT INTO `fcthhcdetail` VALUES ('3', '2', '2', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, '3430300847522', 'ยังไม่เยี่ยม', '04892', null, null, null, null, null, null);
-INSERT INTO `fcthhcdetail` VALUES ('4', '3', '1', null, '2016-12-01', null, null, '', '', '', '', 'รู้ตัวดี', '', '', 'กลั้นได้', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'ไม่มีปัญหา', '', '', '', '', '', '', '', 'ไม่มีปัญหา', '', '', '', '', '', '', '', '', '', '', '', '2017-01-01', 'ทุเลา', '', null, '', '', '', '', '', '', '', '', '', '', '', '3', '', '', '', '2', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', null, null, null, null, null, null, '04889', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', null, '', '', '', '3430300510561', 'เยี่ยมแล้ว', '04892', null, null, null, null, null, null);
-INSERT INTO `fcthhcdetail` VALUES ('5', '1', '4', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, '3620700295398', 'ยังไม่เยี่ยม', '04889', null, null, null, null, null, null);
+
+-- ----------------------------
+-- Table structure for fcthhctool
+-- ----------------------------
+DROP TABLE IF EXISTS `fcthhctool`;
+CREATE TABLE `fcthhctool` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) DEFAULT NULL COMMENT 'อุปกรณ์',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of fcthhctool
+-- ----------------------------
+INSERT INTO `fcthhctool` VALUES ('1', 'เตียงลม');
+INSERT INTO `fcthhctool` VALUES ('2', 'ไม้ค้ำยัน');
+INSERT INTO `fcthhctool` VALUES ('3', 'worker');
+INSERT INTO `fcthhctool` VALUES ('4', 'O2');
+INSERT INTO `fcthhctool` VALUES ('5', 'BP');
+INSERT INTO `fcthhctool` VALUES ('6', 'อื่นๆ');
 
 -- ----------------------------
 -- Table structure for fcthome
@@ -629,7 +652,7 @@ CREATE TABLE `fcthosin` (
 -- ----------------------------
 -- Records of fcthosin
 -- ----------------------------
-INSERT INTO `fcthosin` VALUES ('1', 'โรงพยาบาลมะเร็ง', '1');
+INSERT INTO `fcthosin` VALUES ('1', 'โรงพยาบาลแม่เมาะ', '1');
 INSERT INTO `fcthosin` VALUES ('2', 'รพสต.บ้านดง', null);
 INSERT INTO `fcthosin` VALUES ('3', 'รพสต.นาสัก', null);
 INSERT INTO `fcthosin` VALUES ('4', 'รพสต.จางเหนือ', null);
@@ -689,103 +712,6 @@ INSERT INTO `fcttype` VALUES ('25', 'ติดบ้าน');
 INSERT INTO `fcttype` VALUES ('26', 'อุบัติเหตุ');
 INSERT INTO `fcttype` VALUES ('27', 'โรคหัวใจ');
 INSERT INTO `fcttype` VALUES ('28', 'ระบบทางเดินปัสสาวะ');
-
--- ----------------------------
--- Table structure for fct_copy
--- ----------------------------
-DROP TABLE IF EXISTS `fct_copy`;
-CREATE TABLE `fct_copy` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `fcttype_id` int(11) DEFAULT NULL,
-  `pass` varchar(10) DEFAULT NULL,
-  `colour_id` int(11) DEFAULT NULL,
-  `hn` varchar(9) DEFAULT NULL,
-  `an` varchar(10) DEFAULT NULL,
-  `ptname` varchar(50) DEFAULT NULL COMMENT 'ผู้ป่วย',
-  `ptage` varchar(3) DEFAULT NULL COMMENT 'อายุ',
-  `diage` varchar(100) DEFAULT NULL COMMENT 'โรค',
-  `pps` varchar(5) DEFAULT NULL,
-  `pain` varchar(5) DEFAULT NULL,
-  `painnote` varchar(100) DEFAULT NULL,
-  `cc` varchar(200) DEFAULT NULL,
-  `pi` varchar(250) DEFAULT NULL,
-  `bt` varchar(5) DEFAULT NULL,
-  `pr` varchar(5) DEFAULT NULL,
-  `rr` varchar(5) DEFAULT NULL,
-  `bp` varchar(7) DEFAULT NULL,
-  `drugallergy` varchar(100) DEFAULT NULL,
-  `admit` date DEFAULT NULL,
-  `dc` date DEFAULT NULL,
-  `or` varchar(100) DEFAULT NULL,
-  `ordate` date DEFAULT NULL,
-  `disease` varchar(50) DEFAULT NULL,
-  `receive` varchar(50) DEFAULT NULL,
-  `address` varchar(200) DEFAULT NULL,
-  `ptcate` varchar(50) DEFAULT NULL,
-  `phone` varchar(10) DEFAULT NULL,
-  `hossub` varchar(100) DEFAULT NULL,
-  `tra` varchar(100) DEFAULT NULL,
-  `retng` varchar(100) DEFAULT NULL,
-  `retfo` varchar(100) DEFAULT NULL,
-  `colobag` varchar(100) DEFAULT NULL,
-  `lesion` varchar(100) DEFAULT NULL,
-  `lesioncare` varchar(100) DEFAULT NULL,
-  `recov` varchar(100) DEFAULT NULL,
-  `recovcare` varchar(100) DEFAULT NULL,
-  `oxygen` varchar(100) DEFAULT NULL,
-  `lr01` varchar(100) DEFAULT NULL,
-  `lr02` varchar(200) DEFAULT NULL,
-  `lr03` varchar(100) DEFAULT NULL,
-  `lr04` varchar(200) DEFAULT NULL,
-  `lr05` varchar(100) DEFAULT NULL,
-  `lr06` varchar(200) DEFAULT NULL,
-  `lr07` varchar(10) DEFAULT NULL,
-  `lr08` varchar(10) DEFAULT NULL,
-  `lr09` varchar(10) DEFAULT NULL,
-  `lr10` varchar(200) DEFAULT NULL,
-  `lrl01` varchar(200) DEFAULT NULL,
-  `lrl02` varchar(10) DEFAULT NULL,
-  `lrl03` varchar(10) DEFAULT NULL,
-  `lrl04` varchar(10) DEFAULT NULL,
-  `lrl05` varchar(10) DEFAULT NULL,
-  `lrl06` varchar(10) DEFAULT NULL,
-  `lrl07` varchar(100) DEFAULT NULL,
-  `lrl08` varchar(100) DEFAULT NULL,
-  `lr` varchar(100) DEFAULT NULL,
-  `lrl09` varchar(100) DEFAULT NULL,
-  `lrl10` varchar(10) DEFAULT NULL,
-  `lrl11` varchar(10) DEFAULT NULL,
-  `lrl12` varchar(10) DEFAULT NULL,
-  `lrl13` varchar(10) DEFAULT NULL,
-  `other` varchar(100) DEFAULT NULL,
-  `appdate` date DEFAULT NULL,
-  `doctorapp` varchar(50) DEFAULT NULL,
-  `appdate2` date DEFAULT NULL,
-  `doctorapp2` varchar(50) DEFAULT NULL,
-  `appdate3` date DEFAULT NULL,
-  `doctorapp3` varchar(50) DEFAULT NULL,
-  `senddate` date DEFAULT NULL,
-  `windpipe` varchar(100) DEFAULT NULL,
-  `insulin` varchar(100) DEFAULT NULL,
-  `equip` varchar(100) DEFAULT NULL,
-  `depart` varchar(50) DEFAULT NULL,
-  `hosin` varchar(100) DEFAULT NULL,
-  `officer` varchar(50) DEFAULT NULL,
-  `confirm` varchar(10) DEFAULT NULL,
-  `confirmfct` varchar(10) DEFAULT NULL,
-  `cid` varchar(13) DEFAULT NULL,
-  `send` smallint(2) DEFAULT NULL COMMENT 'ส่งเยี่ยม',
-  `okcase` smallint(2) DEFAULT NULL COMMENT 'รับเคส',
-  `birthday` date DEFAULT NULL,
-  `tmbpart` varchar(2) DEFAULT NULL,
-  `sex` varchar(1) DEFAULT NULL,
-  `bloodgrp` varchar(2) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=525 DEFAULT CHARSET=tis620;
-
--- ----------------------------
--- Records of fct_copy
--- ----------------------------
 
 -- ----------------------------
 -- Table structure for groups
@@ -1335,6 +1261,6 @@ CREATE TABLE `user` (
 -- ----------------------------
 -- Records of user
 -- ----------------------------
-INSERT INTO `user` VALUES ('1', 'admin', 'admin@localhost.com', '$2y$12$dPJB3nYzwapkDWV/M/j8NOIL54PWhA6L3ZB.D./V4tyEp5YVHcRUe', 'gscRoe1lTkPJmxrcuvWccAP3SpBSgx9y', null, null, null, null, null, null, null, null, null, null, '1477563186', '1477563186', '::1', null, 'ผู้ดูแลระบบ', 'risk.png', '', '');
-INSERT INTO `user` VALUES ('2', 'user', 'user@localhost.com', '$2y$12$OdbHVyUxftQ4sWbU2/b5vecd14EQiDOQtGLY0mlbIoYNg5N7g9wIm', 'sZXdlEkovbpGRuTUai-48qtKRg0wG_xD', null, null, null, null, null, null, null, null, null, null, '1477564929', '1477564929', '::1', null, null, null, null, null);
-INSERT INTO `user` VALUES ('3', 'viewer', 'viewer@localhost.com', '$2y$12$JzwBl6l5vOHx7AR1Cuz/E.LQekOFxuH/PTdOKDOePtrQp84h4doBa', 'VRGs5thRauimpQrCdDsjXUNZsW8CRaSB', null, null, null, null, null, null, null, null, null, null, '1477564995', '1477564995', '::1', null, null, null, null, null);
+INSERT INTO `user` VALUES ('1', 'admin', 'admin@localhost.com', '$2y$12$dPJB3nYzwapkDWV/M/j8NOIL54PWhA6L3ZB.D./V4tyEp5YVHcRUe', 'gscRoe1lTkPJmxrcuvWccAP3SpBSgx9y', null, null, null, null, null, null, null, null, null, null, '1477563186', '1477563186', '::1', '2', 'ผู้ดูแลระบบ', 'risk.png', '', '');
+INSERT INTO `user` VALUES ('2', 'user', 'user@localhost.com', '$2y$12$OdbHVyUxftQ4sWbU2/b5vecd14EQiDOQtGLY0mlbIoYNg5N7g9wIm', 'sZXdlEkovbpGRuTUai-48qtKRg0wG_xD', null, null, null, null, null, null, null, null, null, null, '1477564929', '1477564929', '::1', '3', null, null, null, null);
+INSERT INTO `user` VALUES ('3', 'viewer', 'viewer@localhost.com', '$2y$12$JzwBl6l5vOHx7AR1Cuz/E.LQekOFxuH/PTdOKDOePtrQp84h4doBa', 'VRGs5thRauimpQrCdDsjXUNZsW8CRaSB', null, null, null, null, null, null, null, null, null, null, '1477564995', '1477564995', '::1', '1', null, null, null, null);

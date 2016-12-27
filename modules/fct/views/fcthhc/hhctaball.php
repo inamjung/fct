@@ -14,7 +14,7 @@ use yii\widgets\ActiveForm;
 <?= $form->field($model, 'timeu')->label('ควรเข้าเยี่ยม(ครั้ง)')->textInput(['maxlength' => true]) ?>
                 </div>
                 <div class="col-xs-4 col-sm-4 col-md-4">
-<?= $form->field($model, 'times')->label('ต่อ')->radioList([ 'วัน' => 'วัน', 'สัปดาห์' => 'สัปดาห์', 'เดือน' => 'เดือน', 'ปี' => 'ปี']) ?>
+<?= $form->field($model, 'times')->label('ต่อ')->inline()->radioList([ 'วัน' => 'วัน', 'สัปดาห์' => 'สัปดาห์', 'เดือน' => 'เดือน', 'ปี' => 'ปี']) ?>
                 </div>
                 <div class="col-xs-2 col-sm-2 col-md-2">
                     <?=
@@ -35,7 +35,9 @@ use yii\widgets\ActiveForm;
             </div>
             <div class="row">
                 <div class="col-xs-8 col-sm-8 col-md-8">
-                    <?= $form->field($model, 'other')->label('สรุปการเยี่ยม')->radioList([ 'ปกติ' => 'ปกติ', 'ทุเลา' => 'ทุเลา', 'ทรุด' => 'ทรุด', 'ตาย' => 'ตาย', 'ไม่สมัครใจให้เยี่ยม' => 'ไม่สมัครใจให้เยี่ยม', 'readmit' => 'ReAdmit', 'ไม่พบผู้ป่วย' => 'ไม่พบผู้ป่วย', 'ย้ายที่อยู่' => 'ย้ายที่อยู่', 'สิ้นสุดการเยี่ยม' => 'สิ้นสุดการเยี่ยม']) ?>
+                    <?= $form->field($model, 'other')->label('สรุปการเยี่ยม')->inline()->radioList([ 'ปกติ' => 'ปกติ', 'ทุเลา' => 'ทุเลา', 'ทรุด' => 'ทรุด', 'ตาย' => 'ตาย', 'ไม่สมัครใจให้เยี่ยม' => 'ไม่สมัครใจให้เยี่ยม', 'readmit' => 'ReAdmit', 'ไม่พบผู้ป่วย' => 'ไม่พบผู้ป่วย', 'ย้ายที่อยู่' => 'ย้ายที่อยู่', 'สิ้นสุดการเยี่ยม' => 'สิ้นสุดการเยี่ยม'],[
+                        'class'=>'form-control','required'=>true
+                    ]) ?>
                 </div>
                 <div class="col-xs-4 col-sm-4 col-md-4">
 <?= $form->field($model, 'other2')->label('ที่อยู่ใหม่ที่ย้ายไป')->textInput(['maxlength' => true]) ?>
@@ -66,7 +68,8 @@ use yii\widgets\ActiveForm;
                     $form->field($model, 'departfct')->label('หน่วยงานที่เยี่ยม')->widget(\kartik\widgets\Select2::className(), [
                         'data' => yii\helpers\ArrayHelper::map(app\modules\fct\models\Pcuchild::find()->all(), 'hcode', 'name'),
                         'options' => [
-                            'placeholder' => '<-- ระบุหน่วยงานที่เยี่ยม -->'
+                            'placeholder' => '<-- ระบุหน่วยงานที่เยี่ยม -->',
+                            'required' => ''
                         ],
                         'pluginOptions' => [
                             'allowClear' => true

@@ -4,13 +4,13 @@ use yii\helpers\Html;
 use yii\widgets\DetailView;
 
 /* @var $this yii\web\View */
-/* @var $model app\modules\fct\models\Fcthosin */
+/* @var $model app\modules\fct\models\Fcthhctool */
 
 $this->title = $model->name;
-$this->params['breadcrumbs'][] = ['label' => 'Fcthosins', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Fcthhctools', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="fcthosin-view">
+<div class="fcthhctool-view">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
@@ -30,7 +30,6 @@ $this->params['breadcrumbs'][] = $this->title;
         'attributes' => [
             //'id',
             'name',
-            //'group',
         ],
     ]) ?>
 

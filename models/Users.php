@@ -92,4 +92,7 @@ class Users extends \yii\db\ActiveRecord
             'role'=>'Role'
         ];
     }
+    public function getDepartuser(){
+        return $this->hasOne(\app\modules\fct\models\Fcthosin::className(), ['id'=>'fcthosin_id']);
+    }
 }

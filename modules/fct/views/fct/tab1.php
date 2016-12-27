@@ -1,3 +1,8 @@
+<?php
+use yii\helpers\ArrayHelper;
+
+?>
+
 <div class="box box-primary">
         <div class="box-header"></div>
         <div class="box-body">
@@ -7,19 +12,20 @@
                 <div class="panel panel-info">
                     <div class="panel-heading"> </div>
                     <div class="panel-body">
-                        <?=
-                        $form->field($model, 'fcttype_id')->widget(\kartik\widgets\Select2::className(), [
-                            'data' => yii\helpers\ArrayHelper::map(app\modules\fct\models\Fcttype::find()->all(), 'id', 'name'),
-                            'options' => [
-                                'placeholder' => '<--เลือกประเภท-->'
-                            ],
-                            'pluginOptions' => [
-                                'allowClear' => true
-                            ]
-                        ])
-                        ?>
-                        <?= $form->field($model, 'pass')->label('การเข้าเยี่ยม')->radioList(yii\helpers\ArrayHelper::map(\app\modules\fct\models\Fctpass::find()->all(), 'id', 'name')) ?>
-                        <?= $form->field($model, 'colour_id')->label('ความเร่งด่วน')->radioList(yii\helpers\ArrayHelper::map(app\modules\fct\models\Fctcolour::find()->all(), 'id', 'name')) ?>
+
+                         <?= $form->field($model, 'fcttype_id')->label('ประเภทผู้ป่วย')->dropdownList(
+                            ArrayHelper::map(app\modules\fct\models\Fcttype::find()->all(), 'id', 'name'), [
+                        'id' => 'ddl-colour',
+                        'prompt' => '--- เลือกประเภท ---',
+                        'required' => ''
+                    ]);?>
+                        
+                        <?= $form->field($model, 'colour_id')->label('ความเร่งด่วน')->dropdownList(
+                            ArrayHelper::map(app\modules\fct\models\Fctcolour::find()->all(), 'id', 'name'), [
+                        'id' => 'ddl-colour',
+                        'prompt' => '--- เลือกข้อมูล ---',
+                        'required' => ''
+                    ]);?>
                     </div>
                 </div>
             </div>    

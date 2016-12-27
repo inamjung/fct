@@ -1,7 +1,7 @@
 <?php
 
 use yii\helpers\Html;
-use yii\widgets\ActiveForm;
+use yii\bootstrap\ActiveForm;
 use kartik\select2\Select2;
 use yii\widgets\DetailView;
 use kartik\checkbox\CheckboxX;
@@ -32,7 +32,17 @@ use kartik\checkbox\CheckboxX;
                 <li><a href="#pp1" data-toggle="tab">ทารก</a></li>
             </ul>
         </li>
-         <li><a href="#all" data-toggle="tab"> สรุปผลการเยี่ยมครั้งนี้</a></li>
+        <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                พัฒนาการเด็ก <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+                <li><a href="#cd0" data-toggle="tab">0 - 5 ปี</a></li>
+                <li class="divider"></li>
+                <li><a href="#cd1" data-toggle="tab">6 - 14 ปี</a></li>
+            </ul>
+        </li>
+    <li><a href="#all" data-toggle="tab"> สรุปผลการเยี่ยมครั้งนี้</a></li>
     </ul>
     <div id="myTabContent" class="tab-content">
         <div class="tab-pane fade active in" id="hhctab0">
@@ -87,6 +97,22 @@ use kartik\checkbox\CheckboxX;
         <div class="tab-pane fade" id="pp1">
             <?php
             echo $this->render('pp1',[
+                'model' => $model,
+                'form' => $form
+            ]);    
+            ?>
+        </div>
+        <div class="tab-pane fade" id="cd0">
+            <?php
+            echo $this->render('cd0',[
+                'model' => $model,
+                'form' => $form
+            ]);    
+            ?>
+        </div>
+        <div class="tab-pane fade" id="cd1">
+            <?php
+            echo $this->render('cd1',[
                 'model' => $model,
                 'form' => $form
             ]);    

@@ -83,12 +83,19 @@ class PatientController extends Controller
      * @param string $id
      * @return mixed
      */
-    public function actionIndexfct( $cid = null,$hos_guid=null,$birthday=null)
+    public function actionIndexfct( $cid = null,$hos_guid=null,$birthday=null,$cc=null,$hpi=null,$age_y=null)
     {
-       $sql = "select hos_guid,cid,hn,concat(pname,fname,' ',lname)as ptname,birthday
-            ,addressid,moopart,tmbpart,clinic,drugallergy   
-            from patient 
-            where cid='$cid'";
+       $sql = "select p.hos_guid,v.vn,p.hn,concat(p.pname,p.fname,' ',p.lname)as ptname,p.cid
+        ,v.age_y,max(v.vstdate) as vstdate,o.cc,o.hpi,o.bw,o.height,p.drugallergy
+        ,p.birthday,p.addressid,p.moopart,p.tmbpart,p.clinic
+
+        from patient p
+        left outer join vn_stat v on v.hn=p.hn
+        left outer join opdscreen o on o.vn=v.vn
+        where p.cid='$cid'
+        group by v.vn
+        order by v.vstdate desc
+        limit 3";
         $connection = Yii::$app->db2;
         $data = $connection->createCommand($sql)->queryAll();
         
@@ -102,7 +109,10 @@ class PatientController extends Controller
             'sql' => $sql,    
             'cid'=>$cid,
             'hos_guid'=>$hos_guid,
-            'birthday'=>$birthday
+            'birthday'=>$birthday,
+            'cc'=>$cc,            
+            'hpi'=>$hpi,
+            'age_y'=>$age_y
         ]);
     }
     
@@ -125,10 +135,10 @@ class PatientController extends Controller
             $fcthos->phone = $model->informtel;
             $fcthos->ptname = $model->patientname;
             $fcthos->pttype = $model->pttype;
+            $fcthos->moopart = $model->moopart;
             $fcthos->send = '0';
-            $fcthos->okcase = '0';
-            
-           //$fcthos->phone = $model->informtel;
+            $fcthos->okcase = '0';            
+           
             
             $fcthos->save();
             $model->save();
@@ -139,7 +149,18 @@ class PatientController extends Controller
             ]);
         }
     }
+    
+//    public function actionInn($cid = null,$cc=null,$hpi=null){
+//        
+//        $fctin = new Fct;
+//        
+//        $fctin->cid = '3430300510561';
+//        
+//        $fctin->insert();
+//        return $this->render('indexfct');
+//    }
 
+    
     /**
      * Deletes an existing Patient model.
      * If deletion is successful, the browser will be redirected to the 'index' page.

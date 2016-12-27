@@ -41,6 +41,13 @@ $this->params['breadcrumbs'][] = $this->title;
                         }
                     ],
                     [
+                        'label' => 'ทีมเยี่ยม',
+                        'attribute' => 'fcthosin_id',  
+                        'value' => function($model) {
+                            return $model->hhcfct->fcthosin->name;
+                        }
+                    ],    
+                    [
                         'label' => 'ประเภทผู้ป่วย',
                         'attribute' => 'fcttype_id',
                         'value' => function($model) {
@@ -174,7 +181,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     // 'lrl09',
                     //'cid',
                     'status',
-                    // 'fcthosin_id',
+                    
                     // 'birthday',
                     // 'tmbpart',
                     // 'sex',

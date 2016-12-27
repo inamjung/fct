@@ -4,11 +4,11 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
-/* @var $model app\modules\fct\models\Fcthosin */
+/* @var $model app\modules\fct\models\Fcthhctool */
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
-<div class="fcthosin-form">
+<div class="fcthhctool-form">
 
     <?php $form = ActiveForm::begin(); ?>
 

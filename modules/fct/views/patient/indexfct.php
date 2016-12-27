@@ -52,6 +52,11 @@ if (count($datas) == 0) {
             //['class' => 'kartik\grid\SerialColumn'],
 
             [
+                'label' => 'วันที่รับบริการ',
+                'attribute' => 'vstdate',
+                'contentOptions' => ['class' => 'text-left'],
+            ],
+            [
                 'label' => 'CID',
                 'attribute' => 'cid',
                 'format' => 'raw',
@@ -73,10 +78,35 @@ if (count($datas) == 0) {
                         'contentOptions' => ['class' => 'text-left'],
                     ],
                     [
+                        'label' => 'อายุ',
+                        'attribute' => 'age_y',
+                        'contentOptions' => ['class' => 'text-left'],
+                    ],
+                    [
                         'label' => 'โรคประจำตัว',
                         'attribute' => 'clinic',
                         'contentOptions' => ['class' => 'text-left'],
                     ],
+                    [
+                        'label' => 'CC',
+                        'attribute' => 'cc',
+                        'contentOptions' => ['class' => 'text-left'],
+                    ],
+                    [
+                        'label' => 'PI',
+                        'attribute' => 'hpi',
+                        'contentOptions' => ['class' => 'text-left'],
+                    ], 
+                    [
+                        'label' => 'น้ำหนัก',
+                        'attribute' => 'bw',
+                        'contentOptions' => ['class' => 'text-left'],
+                    ],
+                    [
+                        'label' => 'ส่วนสูง',
+                        'attribute' => 'height',
+                        'contentOptions' => ['class' => 'text-left'],
+                    ],    
                     [
                         'label' => 'ประวัติแพ้ยา',
                         'attribute' => 'drugallergy',
@@ -116,8 +146,6 @@ if (count($datas) == 0) {
                 <?php Pjax::end() ?>
             </div>
         </div>
-
-
 
         <div class="footerrow" style="padding-top: 60px">
 

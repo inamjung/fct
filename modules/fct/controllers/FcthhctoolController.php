@@ -3,16 +3,16 @@
 namespace app\modules\fct\controllers;
 
 use Yii;
-use app\modules\fct\models\Fcthosin;
-use app\modules\fct\models\FcthosinsSearch;
+use app\modules\fct\models\Fcthhctool;
+use app\modules\fct\models\FcthhctoolSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * FcthosinController implements the CRUD actions for Fcthosin model.
+ * FcthhctoolController implements the CRUD actions for Fcthhctool model.
  */
-class FcthosinController extends Controller
+class FcthhctoolController extends Controller
 {
     /**
      * @inheritdoc
@@ -30,12 +30,12 @@ class FcthosinController extends Controller
     }
 
     /**
-     * Lists all Fcthosin models.
+     * Lists all Fcthhctool models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new FcthosinsSearch();
+        $searchModel = new FcthhctoolSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -45,7 +45,7 @@ class FcthosinController extends Controller
     }
 
     /**
-     * Displays a single Fcthosin model.
+     * Displays a single Fcthhctool model.
      * @param integer $id
      * @return mixed
      */
@@ -57,17 +57,16 @@ class FcthosinController extends Controller
     }
 
     /**
-     * Creates a new Fcthosin model.
+     * Creates a new Fcthhctool model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new Fcthosin();
+        $model = new Fcthhctool();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['index']);
-            
         } else {
             return $this->render('create', [
                 'model' => $model,
@@ -76,7 +75,7 @@ class FcthosinController extends Controller
     }
 
     /**
-     * Updates an existing Fcthosin model.
+     * Updates an existing Fcthhctool model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -96,7 +95,7 @@ class FcthosinController extends Controller
     }
 
     /**
-     * Deletes an existing Fcthosin model.
+     * Deletes an existing Fcthhctool model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -109,15 +108,15 @@ class FcthosinController extends Controller
     }
 
     /**
-     * Finds the Fcthosin model based on its primary key value.
+     * Finds the Fcthhctool model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return Fcthosin the loaded model
+     * @return Fcthhctool the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Fcthosin::findOne($id)) !== null) {
+        if (($model = Fcthhctool::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
