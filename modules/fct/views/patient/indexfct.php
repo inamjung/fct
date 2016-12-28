@@ -62,8 +62,30 @@ if (count($datas) == 0) {
                 'format' => 'raw',
                 'value' => function($model, $key, $widget)use($cid, $hos_guid) {
                     return Html::a(Html::encode($model['cid']), [
-                                'patient/update/',
+                                'patient/fctinsert/',
                                 'id' => $model['hos_guid'],
+                        'age_y'=>$model['age_y'],
+                        'cc'=>$model['cc'],
+                        'pi'=>$model['hpi'],
+                        'bw'=>$model['bw'],
+                        'height'=>$model['height'],
+                        
+                        'cid'=>$model['cid'],
+                        'ptname'=>$model['ptname'],
+                        'disease'=>$model['clinic'],
+                        'vstdate'=>$model['vstdate'],
+                        'moopart'=>$model['moopart'],
+                        
+                        'drugallergy'=>$model['drugallergy'],
+                        'phone'=>$model['informtel'],
+                        'tmbpart'=>$model['tmbpart'],
+                        'address'=>$model['informaddr'],
+                        'pttype'=>$model['pttype'],
+                        'sex'=>$model['sex'],
+                        'hn'=>$model['hn'],
+                        'diage'=>$model['pdx'],
+                        'bloodgrp'=>$model['bloodgrp'],
+                        
                                     ], [
                                 'data-toggle' => "modal",
                                 'data-target' => "#patientfct",
@@ -97,6 +119,11 @@ if (count($datas) == 0) {
                         'attribute' => 'hpi',
                         'contentOptions' => ['class' => 'text-left'],
                     ], 
+                    [
+                        'label' => 'วินิฉัย',
+                        'attribute' => 'pdx',
+                        'contentOptions' => ['class' => 'text-left'],
+                    ],    
                     [
                         'label' => 'น้ำหนัก',
                         'attribute' => 'bw',

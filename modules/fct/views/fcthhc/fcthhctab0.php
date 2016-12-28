@@ -28,6 +28,11 @@ use yii\widgets\DetailView;
                                     'value' => $model->hhcfct->ptname,
                                 ],
                                 [
+                                    'label' => 'อายุ',
+                                    'attribute' => 'cid',
+                                    'value' => $model->hhcfct->age,
+                                ],
+                                [
                                     'label' => 'ที่อยู่',
                                     'attribute' => 'fcttype_id',
                                     'value' => $model->hhcfct->address,

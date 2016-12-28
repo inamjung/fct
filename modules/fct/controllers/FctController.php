@@ -161,7 +161,7 @@ class FctController extends Controller
     public function actionUpdatecase($id)
     {
         $model = $this->findModel($id);
-        $fcthc = new Fcthhc;
+        $fcthc = new Fcthhc();
 
         if ($model->load(Yii::$app->request->post())) {
             $fcthc->fct_id = $model->id;

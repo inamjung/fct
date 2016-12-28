@@ -87,7 +87,8 @@ class PatientController extends Controller
     {
        $sql = "select p.hos_guid,v.vn,p.hn,concat(p.pname,p.fname,' ',p.lname)as ptname,p.cid
         ,v.age_y,max(v.vstdate) as vstdate,o.cc,o.hpi,o.bw,o.height,p.drugallergy
-        ,p.birthday,p.addressid,p.moopart,p.tmbpart,p.clinic
+        ,p.birthday,p.addressid,p.moopart,p.tmbpart,p.clinic,p.pttype
+        ,v.vstdate,p.moopart,p.informaddr,p.informtel,p.tmbpart,p.sex,v.pdx,p.bloodgrp
 
         from patient p
         left outer join vn_stat v on v.hn=p.hn
@@ -136,6 +137,7 @@ class PatientController extends Controller
             $fcthos->ptname = $model->patientname;
             $fcthos->pttype = $model->pttype;
             $fcthos->moopart = $model->moopart;
+            
             $fcthos->send = '0';
             $fcthos->okcase = '0';            
            
@@ -150,23 +152,7 @@ class PatientController extends Controller
         }
     }
     
-//    public function actionInn($cid = null,$cc=null,$hpi=null){
-//        
-//        $fctin = new Fct;
-//        
-//        $fctin->cid = '3430300510561';
-//        
-//        $fctin->insert();
-//        return $this->render('indexfct');
-//    }
 
-    
-    /**
-     * Deletes an existing Patient model.
-     * If deletion is successful, the browser will be redirected to the 'index' page.
-     * @param string $id
-     * @return mixed
-     */
     public function actionDelete($id)
     {
         $this->findModel($id)->delete();
@@ -174,13 +160,6 @@ class PatientController extends Controller
         return $this->redirect(['index']);
     }
 
-    /**
-     * Finds the Patient model based on its primary key value.
-     * If the model is not found, a 404 HTTP exception will be thrown.
-     * @param string $id
-     * @return Patient the loaded model
-     * @throws NotFoundHttpException if the model cannot be found
-     */
     protected function findModel($id)
     {
         if (($model = Patient::findOne($id)) !== null) {
@@ -188,5 +167,43 @@ class PatientController extends Controller
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
         }
+    }
+    public function actionFctinsert($id,$cc=null,$pi=null,$age_y=null,$sex=null,$hn=null,$diage=null
+            ,$height=null,$bw=null,$cid=null,$ptname=null,$address=null,$disease=null,$bloodgrp=null
+            ,$pttype=null,$vstdate=null,$moopart=null,$drugallergy=null,$phone=null,$tmbpart=null){
+        
+        $tofct = new Fct();
+        
+        $tofct->cc = $cc;
+        $tofct->pi = $pi;
+        $tofct->age = $age_y;
+        $tofct->height = $height;
+        $tofct->bw = $bw;
+        $tofct->cid = $cid;
+        $tofct->ptname = $ptname;
+        $tofct->address =$address;
+        $tofct->disease  = $disease;
+        $tofct->pttype = $pttype;
+        $tofct->vstdate = $vstdate;
+        $tofct->moopart = $moopart;
+        $tofct->drugallergy = $drugallergy;
+        $tofct->phone = $phone;
+        $tofct->tmbpart = $tmbpart;
+        $tofct->sex = $sex;
+        $tofct->hn = $hn;
+        $tofct->diage = $diage;
+        $tofct->bloodgrp = $bloodgrp;
+        
+        $tofct->send = 0;
+        $tofct->okcase = 0;
+        
+        $tofct->save();
+         return $this->redirect(['indexfct']);
+       
+        
+        
+// 
+       
+        
     }
 }

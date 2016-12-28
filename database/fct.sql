@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50525
 File Encoding         : 65001
 
-Date: 2016-12-27 15:24:30
+Date: 2016-12-28 21:02:50
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -248,14 +248,12 @@ CREATE TABLE `fct` (
   `age` int(11) DEFAULT NULL,
   `vstdate` date DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=31 DEFAULT CHARSET=tis620;
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=tis620;
 
 -- ----------------------------
 -- Records of fct
 -- ----------------------------
-INSERT INTO `fct` VALUES ('28', '3430300510561', null, '2', '1', '000056441', null, 'น.ส.ไอน้ำ เรืองโพน', null, null, '', '', '', '	คลำพบก้อนที่ท้อง เป็นมา 3เดือน', '3เดือนก่อนมารพ. คลำพบก้อนที่ท้อง เจ็บท้องเวลาสัมผัส', '', '', '', '', 'ไม่ทราบประวัติการแพ้ยา', null, null, '', null, '\"\"', '', '43 หมู่ 3 ต.ชุมภูพร อ.ศรีวิไล จ.บึงกาฬ', '', '091-3638928', null, '', '', '', '', '', '', '', '', '', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, '', null, '', null, null, null, null, '2016-12-04', '', '', '', '2', '2', '', '0', '0', '1', '0', '1974-07-18', '02', '2', 'O', 'O1', '03', null, null, null, null);
-INSERT INTO `fct` VALUES ('29', '3620700295398', null, null, null, '000041094', null, 'นายอุดม แสงจันทร์', null, null, null, null, null, null, null, null, null, null, null, 'ไม่ทราบประวัติการแพ้ยา', null, null, null, null, 'คลินิกโรคเบาหวาน (DM)', null, '93 หมู่ 7 ต.ศรีวิไล อ.ศรีวิไล จ.บึงกาฬ', null, '061-5168954', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, '3', null, '0', '0', '0', '0', '1963-04-06', '01', '1', 'ไม่ทราบหมู่เลือด', '89', '07', null, null, null, null);
-INSERT INTO `fct` VALUES ('30', '1430300102881', null, '3', '3', '000024050', null, 'นางพนิตตา สุวรรณเขต', null, null, '', '', '', 'ปวดหลัง 2 ข้าง เป็นมา 1 wk', '-', '', '', '', '', 'ไม่ทราบประวัติการแพ้ยา', null, null, '', null, '\"\"', '', '78 หมู่ 2 ต.ศรีวิไล อ.ศรีวิไล จ.บึงกาฬ', '', '08-37686994', null, '', '', '', '', '', '', '', '', '', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, '', null, '', null, null, null, null, '2016-12-27', '', '', '', '5', '2', '', '0', '0', '1', '0', '1987-06-10', '01', '2', 'O', 'O1', '2', null, null, null, null);
+INSERT INTO `fct` VALUES ('1', '3430300510561', null, null, null, '000056441', null, 'น.ส.ไอน้ำ เรืองโพน', null, 'R222', null, null, null, 'คลำพบก้อนที่ท้อง เป็นมา 3เดือน', '3เดือนก่อนมารพ. คลำพบก้อนที่ท้อง เจ็บท้องเวลาสัมผัส\r\n', null, null, null, null, 'ไม่ทราบประวัติการแพ้ยา', null, null, null, null, '\"\"', null, '43 หมู่ 3 ต.ชุมภูพร อ.ศรีวิไล จ.บึงกาฬ', null, '091-3638928', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, '0', '0', '0', '0', null, '02', '2', 'O', 'O1', '03', '40', '145', '41', '2016-04-25');
 
 -- ----------------------------
 -- Table structure for fctcolour
@@ -452,12 +450,11 @@ CREATE TABLE `fcthhc` (
   `pi` varchar(250) DEFAULT NULL,
   `moopart` varchar(10) DEFAULT NULL COMMENT 'หมู่ที่',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=tis620;
+) ENGINE=MyISAM DEFAULT CHARSET=tis620;
 
 -- ----------------------------
 -- Records of fcthhc
 -- ----------------------------
-INSERT INTO `fcthhc` VALUES ('5', '28', '2016-12-27', null, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', null, 'ปกติ', '', null, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', null, null, null, null, null, null, '04889', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', null, '', '', '', '3430300510561', 'ยังไม่เยี่ยม', '3', null, null, null, null, null, null, null, null, null, null, null, null, 'O2,BP', null, null, null);
 
 -- ----------------------------
 -- Table structure for fcthhcdetail
