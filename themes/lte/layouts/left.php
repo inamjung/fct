@@ -27,7 +27,7 @@ use yii\bootstrap\Nav;
 
             
         <!--        //เมนูการตั้งค่า-->
-
+<?php  if(Yii::$app->user->identity->role == dektrium\user\models\User::ROLE_ADMIN) {?>
 
         <ul class="sidebar-menu">
             <!--        //เมนูการตั้งค่าให้ยุบ-ย่อได้-->            
@@ -59,23 +59,29 @@ use yii\bootstrap\Nav;
                         </a>
                     </li>
                     
-<!--เมนูใหม่-->
+
                 </ul>
-                
+     <?php }?>   
+<!--เมนูใหม่-->
                 <ul class="sidebar-menu">
             <!--        //เมนูการตั้งค่าให้ยุบ-ย่อได้-->            
             <li class="treeview active">
                 <a href="#">
-                    <i class="glyphicon glyphicon-new-window"></i> <span>นำเข้าข้อมูล FCT ( แม่ข่าย )</span>
+                    <i class="glyphicon glyphicon-new-window"></i> <span>นำเข้าข้อมูล COC ( แม่ข่าย )</span>
                     <i class="fa pull-right fa-angle-down"></i>
                 </a>
                 <ul class="treeview-menu">
 
                     <li><a href="<?php echo Url::to(['/fct/patient/indexfct']); ?>"><i class="fa fa-circle text-red"></i> 
                             <span>
-                                รับผู้ป่วยเข้าระบบ FCT</span><small class="label pull-right bg-aqua"></small>
+                                รับผู้ป่วยเข้าระบบ COC</span><small class="label pull-right bg-aqua"></small>
                         </a>
-                    </li>                    
+                    </li>  
+                    <li><a href="<?php echo Url::to(['/fct/fct/create']); ?>"><i class="fa fa-circle text-yellow"></i> 
+                            <span>
+                                เพิ่มรายชื่อผู้ป่วย</span><small class="label pull-right bg-aqua"></small>
+                        </a>
+                    </li> 
 
                 </ul>
                 

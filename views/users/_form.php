@@ -28,7 +28,7 @@ use yii\widgets\ActiveForm;
     ])
     ?> 
     <?= $form->field($model, 'pos')->textInput() ?>
-    <?= $form->field($model, 'role')->textInput() ?>
+    <?= $form->field($model, 'role')->textInput(['readonly'=>true]) ?>
     <div class="row">        
         <div class="col-xs-12 col-sm-12 col-md-12  ">
             <?= $form->field($model, 'avatar_img')->label('รูปประจำตัว')->fileInput() ?>       

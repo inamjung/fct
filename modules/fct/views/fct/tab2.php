@@ -84,7 +84,7 @@ use yii\helpers\ArrayHelper;
                 <div class="row">                    
                     <div class="col-xs-3 col-sm-3 col-md-3">
                          <?=
-                                $form->field($model, 'senddate')->label('วันที่ส่งเยี่ยม')->widget(\yii\jui\DatePicker::classname(), [
+                                $form->field($model, 'senddate',['labelOptions'=>['style'=>'color:red']])->label('วันที่ส่งเยี่ยม *')->widget(\yii\jui\DatePicker::classname(), [
                                     'language' => 'th',
                                     'dateFormat' => 'yyyy-MM-dd',
                                     'clientOptions' => [
@@ -99,7 +99,7 @@ use yii\helpers\ArrayHelper;
                     </div>
                     <div class="col-xs-3 col-sm-3 col-md-3">
                         <?=
-                                $form->field($model, 'depart')->label('แผนกที่ส่งเยี่ยม')->widget(\kartik\widgets\Select2::className(), [
+                                $form->field($model, 'depart',['labelOptions'=>['style'=>'color:red']])->label('แผนกที่ส่งเยี่ยม *')->widget(\kartik\widgets\Select2::className(), [
                                     'data' => yii\helpers\ArrayHelper::map(\app\modules\fct\models\Fctdepart::find()->all(), 'id', 'name'),
                                     'options' => [
                                         'placeholder' => '<-- แผนกที่ส่งเยี่ยม -->',
@@ -115,7 +115,7 @@ use yii\helpers\ArrayHelper;
                         <?= $form->field($model, 'officer')->label('ผู้ส่งเยี่ยม')->textInput(['maxlength' => true]) ?>
                     </div>  
                     <div class="col-xs-3 col-sm-3 col-md-3">                        
-                        <?= $form->field($model, 'hosin')->label('รพ.สต')->dropdownList(
+                        <?= $form->field($model, 'hosin',['labelOptions'=>['style'=>'color:red']])->label('รพ.สต ที่ออกเยี่ยม *')->dropdownList(
                             ArrayHelper::map(\app\modules\fct\models\Fcthosin::find()->all(), 'id', 'name'), [
                         'id' => 'ddl-colour',
                         'prompt' => '<-- รพ.สต -->',

@@ -1,15 +1,14 @@
 <?php
 
 use yii\helpers\Html;
-//use yii\bootstrap\ActiveForm;
+
 use yii\helpers\ArrayHelper;
 
 ?>
-
- <div class="box box-info">
+<div class="box box-info">
         <div class="box-header"></div>
         <div class="box-body">
-            <div class="label label-info"> ประเมินอุปกรณ์</div><hr>
+            <div class="label label-info"> ประเมินอุปกรณ์</div>
             <div class="row">
                 <div class="col-xs-3 col-sm-3 col-md-3">
                 <?= $form->field($model, 'foley')->label('การดูแล Foleys cath')->radioList([ 'ไม่มีปัญหา' => 'ไม่มีปัญหา', 'มีปัญหา' => 'มีปัญหา']) ?>
@@ -89,3 +88,4 @@ use yii\helpers\ArrayHelper;
             </div>
         </div>
     </div>
+

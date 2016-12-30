@@ -13,14 +13,14 @@ use yii\helpers\ArrayHelper;
                     <div class="panel-heading"> </div>
                     <div class="panel-body">
 
-                         <?= $form->field($model, 'fcttype_id')->label('ประเภทผู้ป่วย')->dropdownList(
+                         <?= $form->field($model, 'fcttype_id',['labelOptions'=>['style'=>'color:red']])->label('ประเภทผู้ป่วย *')->dropdownList(
                             ArrayHelper::map(app\modules\fct\models\Fcttype::find()->all(), 'id', 'name'), [
                         'id' => 'ddl-colour',
                         'prompt' => '--- เลือกประเภท ---',
                         'required' => ''
                     ]);?>
                         
-                        <?= $form->field($model, 'colour_id')->label('ความเร่งด่วน')->dropdownList(
+                        <?= $form->field($model, 'colour_id',['labelOptions'=>['style'=>'color:red']])->label('ความเร่งด่วน *')->dropdownList(
                             ArrayHelper::map(app\modules\fct\models\Fctcolour::find()->all(), 'id', 'name'), [
                         'id' => 'ddl-colour',
                         'prompt' => '--- เลือกข้อมูล ---',

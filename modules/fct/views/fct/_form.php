@@ -17,25 +17,15 @@ use yii\widgets\DetailView;
     <div class="fct-form">
 
     <?php
-    $form = ActiveForm::begin(['id'=>'form1']);
+    $form = ActiveForm::begin(['id'=>'form2']);
     ?>
     
         
  <ul class="nav nav-pills">
-     <li class="active" style="text-success"><a href="#home" data-toggle="tab"> ข้อมูลผู้ป่วย</a></li>
+  <li class="active" style="text-success"><a href="#home" data-toggle="tab"> ข้อมูลผู้ป่วย</a></li>
   <li><a href="#profile0" data-toggle="tab">บันทึกข้อมูลที่ต้องการให้เยี่ยม</a></li>
   <li><a href="#profile1" data-toggle="tab">ปัญหาผู้ป่วย</a></li>
-<!--  <li class="disabled"><a>Disabled</a></li>
-  <li class="dropdown">
-    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-      Dropdown <span class="caret"></span>
-    </a>
-    <ul class="dropdown-menu">
-      <li><a href="#dropdown1" data-toggle="tab">Action</a></li>
-      <li class="divider"></li>
-      <li><a href="#dropdown2" data-toggle="tab">Another action</a></li>
-    </ul>
-  </li>-->
+
 </ul>
 <div id="myTabContent" class="tab-content">
     <div class="tab-pane fade active in" id="home">
@@ -265,10 +255,10 @@ use yii\widgets\DetailView;
     </div>-->
     
 
-<?php
-    echo $form->field($model, 'send', ['labelOptions' => ['style' => 'color:red;']])->widget(CheckboxX::classname(), [
-        'pluginOptions' => ['threeState' => false],
-    ])->label('ยืนยันส่งผู้ป่วย');
+    <?php
+        echo $form->field($model, 'send', ['labelOptions' => ['style' => 'color:red;']])->widget(CheckboxX::classname(), [
+            'pluginOptions' => ['threeState' => false],
+        ])->label('ยืนยันส่งผู้ป่วย');
     ?>
 
     <div class="form-group">

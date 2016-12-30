@@ -1,8 +1,8 @@
 <?php
 
 use yii\helpers\Html;
-use yii\widgets\ActiveForm;
-
+//use yii\widgets\ActiveForm;
+use yii\helpers\ArrayHelper;
 ?>
 
 <div class="box box-success">
@@ -35,7 +35,7 @@ use yii\widgets\ActiveForm;
             </div>
             <div class="row">
                 <div class="col-xs-8 col-sm-8 col-md-8">
-                    <?= $form->field($model, 'other')->label('สรุปการเยี่ยม')->inline()->radioList([ 'ปกติ' => 'ปกติ', 'ทุเลา' => 'ทุเลา', 'ทรุด' => 'ทรุด', 'ตาย' => 'ตาย', 'ไม่สมัครใจให้เยี่ยม' => 'ไม่สมัครใจให้เยี่ยม', 'readmit' => 'ReAdmit', 'ไม่พบผู้ป่วย' => 'ไม่พบผู้ป่วย', 'ย้ายที่อยู่' => 'ย้ายที่อยู่', 'สิ้นสุดการเยี่ยม' => 'สิ้นสุดการเยี่ยม'],[
+                    <?= $form->field($model, 'other',['labelOptions'=>['style'=>'color:red']])->label('สรุปการเยี่ยม *')->inline()->radioList([ 'ปกติ' => 'ปกติ', 'ทุเลา' => 'ทุเลา', 'ทรุด' => 'ทรุด', 'ตาย' => 'ตาย', 'ไม่สมัครใจให้เยี่ยม' => 'ไม่สมัครใจให้เยี่ยม', 'readmit' => 'ReAdmit', 'ไม่พบผู้ป่วย' => 'ไม่พบผู้ป่วย', 'ย้ายที่อยู่' => 'ย้ายที่อยู่', 'สิ้นสุดการเยี่ยม' => 'สิ้นสุดการเยี่ยม'],[
                         'class'=>'form-control','required'=>true
                     ]) ?>
                 </div>
@@ -63,19 +63,13 @@ use yii\widgets\ActiveForm;
                     ?>
                 </div>
 
-                <div class="col-xs-4 col-sm-4 col-md-4">
-                    <?=
-                    $form->field($model, 'departfct')->label('หน่วยงานที่เยี่ยม')->widget(\kartik\widgets\Select2::className(), [
-                        'data' => yii\helpers\ArrayHelper::map(app\modules\fct\models\Pcuchild::find()->all(), 'hcode', 'name'),
-                        'options' => [
-                            'placeholder' => '<-- ระบุหน่วยงานที่เยี่ยม -->',
-                            'required' => ''
-                        ],
-                        'pluginOptions' => [
-                            'allowClear' => true
-                        ]
-                    ])
-                    ?>
+                <div class="col-xs-4 col-sm-4 col-md-4">                    
+                     <?= $form->field($model, 'departfct',['labelOptions'=>['style'=>'color:red']])->label('หน่วยงานที่เยี่ยม *')->dropdownList(
+                            ArrayHelper::map(\app\modules\fct\models\Fcthosin::find()->all(), 'id', 'name'), [
+                        'id' => 'ddl-colour',
+                        'prompt' => '<-- รพ.สต -->',
+                        'required' => ''
+                    ]);?>
                 </div>
             </div>
         </div>
@@ -93,13 +87,10 @@ use yii\widgets\ActiveForm;
 
 <?php //echo $form->field($model, 'fctname6')->textInput(['maxlength' => true])  ?>
 
-
-        <?= $form->field($model, 'status')->radioList([ 'เยี่ยมแล้ว' => 'เยี่ยมแล้ว', 'ยังไม่เยี่ยม' => 'ยังไม่เยี่ยม',], ['prompt' => '']) ?>    
-
-
-
+   <?= $form->field($model, 'status',['labelOptions'=>['style'=>'color:red']])->radioList([ 'เยี่ยมแล้ว' => 'เยี่ยมแล้ว', 'ยังไม่เยี่ยม' => 'ยังไม่เยี่ยม',], ['prompt' => '']) ?>    
 
 
     <div class="form-group">
 <?= Html::submitButton($model->isNewRecord ? 'บันทึก' : 'บันทึก', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
     </div>
+                       

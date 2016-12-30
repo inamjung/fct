@@ -66,7 +66,7 @@ use kartik\checkbox\CheckboxX;
                             ],
                             [
                                 'label' => 'อายุ',
-                                'attribute' => 'disease',
+                                'attribute' => 'age',
                             ],
                         ],
                     ])

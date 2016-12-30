@@ -66,11 +66,7 @@ use kartik\checkbox\CheckboxX;
                                 'attribute' => 'fctcolour_id',
                                 'value'=> $model->hhcfct->colourfct->name,
                             ],
-                            [
-                                'label' => 'การอนุญาต',
-                                'attribute' => 'cid',
-                                'value'=> $model->hhcfct->pass1->name,
-                            ],
+                            
                             
                         ],
                     ])
@@ -78,7 +74,7 @@ use kartik\checkbox\CheckboxX;
                 </div>
             </div>
         </div>
-        <div class="col-xs-4 col-sm-4 col-md-4">
+        <div class="col-xs-4 col-sm-4 col-md-4" style="display: none">
             <div class="panel panel-info">
                 <div class="panel-heading"> ข้อมูลการเยี่ยม</div>
                 <div class="panel-body">

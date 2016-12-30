@@ -156,14 +156,14 @@ class Fcthhcdetail extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['fcthhc_id', 'fct_id', 'fctnumber', 'home', 'fcttype_id', 'fctcolour_id'], 'integer'],
-            [['fctdate', 'datenext', 'datedc', 'birthday'], 'safe'],
+            [['fcthhc_id', 'fct_id', 'fctnumber', 'home', 'fcttype_id', 'fctcolour_id', 'fcthosin_id'], 'integer'],
+            [['fctdate', 'datenext', 'datedc', 'birthday','tool'], 'safe'],
             [['status'], 'string'],
-            [['homept', 'hearta', 'heartnote', 'sociala', 'socialnote', 'other2', 'deg04', 'deg15', 'deg14', 'deg13', 'deg12', 'deg11', 'deg09', 'deg08', 'deg07', 'deg06', 'deg05', 'deg03', 'deg02', 'deg01', 'fctname6', 'departfct', 'lr01', 'lr03', 'lr05', 'lrl08', 'lr', 'lrl09', 'fcthosin_id'], 'string', 'max' => 100],
+            [['homept', 'hearta', 'heartnote', 'sociala', 'socialnote', 'other2', 'deg04', 'deg15', 'deg14', 'deg13', 'deg12', 'deg11', 'deg09', 'deg08', 'deg07', 'deg06', 'deg05', 'deg03', 'deg02', 'deg01', 'fctname6', 'departfct', 'lr01', 'lr03', 'lr05', 'lrl08', 'lr', 'lrl09'], 'string', 'max' => 100],
             [['t', 'pr', 'rr'], 'string', 'max' => 5],
             [['bp'], 'string', 'max' => 7],
-            [['feel', 'self', 'sore', 'fctname1', 'fctname2', 'fctname3', 'fctname4', 'fctname5'], 'string', 'max' => 20],
-            [['eat'], 'string', 'max' => 50],
+            [['feel', 'self', 'sore', 'fctname1', 'fctname2', 'fctname3', 'fctname4', 'fctname5','dc'], 'string', 'max' => 20],
+            [['eat','child614_food'], 'string', 'max' => 50],
             [['stool', 'urin', 'commu', 'lesion', 'insulin'], 'string', 'max' => 15],
             [['mental', 'fall', 'heart', 'social', 'bored', 'depress', 'foley', 'ng', 'pcn', 'tra', 'wound', 'windpipe', 'phy', 'pra', 'diet', 'env', 'ser', 'comp', 'times', 'deg10', 'lr07', 'lr08', 'lr09', 'lr10', 'lrl02', 'lrl03', 'lrl04', 'lrl05', 'lrl06', 'lrl07', 'lrl10', 'lrl11'], 'string', 'max' => 10],
             [['borednote', 'depressnote', 'foleynote', 'ngnote', 'pcnnote', 'tranote', 'woundnote', 'insulinnote', 'windpipenote', 'phynote', 'pranote', 'dietnote', 'envnote', 'sernote', 'compnote', 'other', 'notefct', 'lr02', 'lr04', 'lr06', 'lrl01'], 'string', 'max' => 200],
@@ -171,6 +171,8 @@ class Fcthhcdetail extends \yii\db\ActiveRecord
             [['tr01', 'tr02', 'tr03', 'tr15', 'tr14', 'tr13', 'tr12', 'tr11', 'tr10', 'tr09', 'tr08', 'tr07', 'tr06', 'tr05', 'tr04', 'bloodgrp'], 'string', 'max' => 30],
             [['cid'], 'string', 'max' => 13],
             [['sex'], 'string', 'max' => 1],
+            [['chlid05_glow'], 'string', 'max' => 255],
+            [['chlid614_bw','chlid614_hg'],'number']
         ];
     }
 
@@ -319,5 +321,25 @@ class Fcthhcdetail extends \yii\db\ActiveRecord
     }
     public function getFctmain(){
         return $this->hasOne(Fct::className(), ['id'=>'fct_id']);
+    }
+    
+    public function getArray($value) {
+        return explode(',', $value);
+    }
+
+    public function setToArray($value) {
+        return is_array($value) ? implode(',', $value) : NULL;
+    }
+
+    public function beforeSave($insert) {
+        if (parent::beforeSave($insert)) {
+            if (!empty($this->fct_id)) {
+                $this->tool = $this->setToArray($this->tool);                
+            }
+            return true;
+        } else {
+            return false;
+        }
+                
     }
 }

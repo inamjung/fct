@@ -2,26 +2,22 @@
 
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
+//use yii\widgets\ActiveForm;
 use kartik\select2\Select2;
-use kartik\checkbox\CheckboxX;
 use yii\widgets\DetailView;
-
+use kartik\checkbox\CheckboxX;
 
 /* @var $this yii\web\View */
-/* @var $model app\modules\fct\models\Fct */
+/* @var $model app\modules\fct\models\Fcthhc */
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
-<div class="fct-form">
-    
-    <div class="fct-form">
-
-    <?php
-    $form = ActiveForm::begin(['id'=>'form1']);
+<div class="fcthhc-form">
+<?php
+    $form = ActiveForm::begin();
     ?>
-    
-        
- <ul class="nav nav-pills">
+
+    <ul class="nav nav-pills">
         <li class="active"><a href="#hhctab0" data-toggle="tab">ข้อมูลผู้ป่วย</a></li>
         <li><a href="#hhctab1" data-toggle="tab">อาการทั่วไป</a></li>
         <li><a href="#hhctab2" data-toggle="tab"> ประเมินความรู้สึก/จิตใจ</a></li>
@@ -134,14 +130,15 @@ use yii\widgets\DetailView;
             ?>
         </div>
     </div>
-        
+
+<?php //echo $form->field($model, 'lr')->textInput(['maxlength' => true])  ?>    
+ 
+    <?= $form->field($model, 'status',['labelOptions'=>['style'=>'color:red']])->radioList([ 'เยี่ยมแล้ว' => 'เยี่ยมแล้ว', 'ยังไม่เยี่ยม' => 'ยังไม่เยี่ยม',], ['prompt' => '']) ?>    
 
 
+    <div class="form-group">
+<?= Html::submitButton($model->isNewRecord ? 'บันทึก' : 'บันทึก', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+    </div>
 <?php ActiveForm::end(); ?>
 
-
-
 </div>
-
-
-
