@@ -28,8 +28,7 @@ use kartik\checkbox\CheckboxX;
 
     <?php
     echo $form->field($model, 'okcase', ['labelOptions' => ['style' => 'color:red;']])->widget(CheckboxX::classname(), [
-        'pluginOptions' => ['threeState' => false],
-    ])->label('รับเยี่ยมผู้ป่วย');
+        'pluginOptions' => ['threeState' => false]])->label('รับเยี่ยมผู้ป่วย *');
     ?>
 
     <div class="form-group">
@@ -65,7 +64,7 @@ use kartik\checkbox\CheckboxX;
                                 'attribute' => 'cid'
                             ],
                             [
-                                'label' => 'อายุ',
+                                'label' => 'อายุ(ปี)',
                                 'attribute' => 'age',
                             ],
                         ],

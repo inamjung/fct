@@ -23,10 +23,10 @@ use yii\widgets\DetailView;
         
  <ul class="nav nav-pills">
         <li class="active"><a href="#hhctab0" data-toggle="tab">ข้อมูลผู้ป่วย</a></li>
-        <li><a href="#hhctab1" data-toggle="tab">อาการทั่วไป</a></li>
+        <li><a href="#hhctab1" data-toggle="tab">VitalSign</a></li>
         <li><a href="#hhctab2" data-toggle="tab"> ประเมินความรู้สึก/จิตใจ</a></li>
         <li><a href="#hhctab3" data-toggle="tab"> ประเมินอุปกรณ์</a></li>
-        <li><a href="#hhctab4" data-toggle="tab"> ประเมินอวัยวะ</a></li>
+        <li><a href="#hhctab4" data-toggle="tab"> ประเมิน ADL</a></li>
         
         <li class="dropdown">
             <a class="dropdown-toggle" data-toggle="dropdown" href="#">

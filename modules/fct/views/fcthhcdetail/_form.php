@@ -23,7 +23,7 @@ use kartik\checkbox\CheckboxX;
   <li><a href="#detail1" data-toggle="tab">อาการทั่วไป</a></li>
   <li><a href="#detail2" data-toggle="tab">ความรู้สึก/จิตใจ</a></li>
   <li><a href="#detail3" data-toggle="tab">ประเมินอุปกรณ์</a></li>
-  <li><a href="#detail4" data-toggle="tab">ประเมินอวัยวะ</a></li>
+  <li><a href="#detail4" data-toggle="tab">ประเมิน ADL</a></li>
         <li class="dropdown">
             <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                 เยี่ยมหลังคลอด / ทารก <span class="caret"></span>
@@ -129,17 +129,9 @@ use kartik\checkbox\CheckboxX;
             ]);    
             ?>
     </div> 
-</div>    
-    
-    <hr>
-    <div class="box box-success">
-        <div class="box-header"></div>
-        <div class="box-body">
-    
-    
+</div>   
 
     <?php ActiveForm::end(); ?>
 
 </div>
-        </div>
-    </div>
+       

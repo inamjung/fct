@@ -17,16 +17,16 @@ use yii\helpers\ArrayHelper;
                 </div>
                 <div class="col-xs-4 col-sm-4 col-md-4">
                     <?= $form->field($model, 'datenext')->label('เยี่ยมครั้งถัดไป')->widget(\yii\jui\DatePicker::className(),[
-        'language'=>'th',
-        'dateFormat'=>'yyyy-MM-dd',
-        'clientOptions'=>[
-            'changeMonth'=>true,
-            'changeYear'=>true
-        ],
-        'options'=>[
-            'class'=>'form-control'
-        ]
-    ]) ?>
+                        'language'=>'th',
+                        'dateFormat'=>'yyyy-MM-dd',
+                        'clientOptions'=>[
+                            'changeMonth'=>true,
+                            'changeYear'=>true
+                        ],
+                        'options'=>[
+                            'class'=>'form-control'
+                        ]
+                    ]) ?>
                 </div>
                
         </div>
@@ -67,8 +67,14 @@ use yii\helpers\ArrayHelper;
                     ]);?>
                 </div>
             </div>
+            <div class="row">
+            
+                    <?= $form->field($model, 'fcthos')->label('ทีมร่วม')->inline()->checkboxList(ArrayHelper::map(\app\modules\fct\models\Fcthosin::find()
+                    ->all(), 'name', 'name'));?>
+                </div>
         </div>
     </div>
+</div>
 
 <?= $form->field($model, 'status')->label('สถานะ')->radioList([ 'เยี่ยมแล้ว' => 'เยี่ยมแล้ว', 'ยังไม่เยี่ยม' => 'ยังไม่เยี่ยม', ], ['prompt' => '']) ?>    
 

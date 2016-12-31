@@ -35,9 +35,8 @@ use yii\helpers\ArrayHelper;
             </div>
             <div class="row">
                 <div class="col-xs-8 col-sm-8 col-md-8">
-                    <?= $form->field($model, 'other',['labelOptions'=>['style'=>'color:red']])->label('สรุปการเยี่ยม *')->inline()->radioList([ 'ปกติ' => 'ปกติ', 'ทุเลา' => 'ทุเลา', 'ทรุด' => 'ทรุด', 'ตาย' => 'ตาย', 'ไม่สมัครใจให้เยี่ยม' => 'ไม่สมัครใจให้เยี่ยม', 'readmit' => 'ReAdmit', 'ไม่พบผู้ป่วย' => 'ไม่พบผู้ป่วย', 'ย้ายที่อยู่' => 'ย้ายที่อยู่', 'สิ้นสุดการเยี่ยม' => 'สิ้นสุดการเยี่ยม'],[
-                        'class'=>'form-control','required'=>true
-                    ]) ?>
+                     <?= $form->field($model, 'other',['labelOptions'=>['style'=>'color:red']])
+                ->label('สรุปการเยี่ยม *')->dropdownList([ 'ปกติ' => 'ปกติ','ทุเลา' => 'ทุเลา','ทรุด' => 'ทรุด','ตาย' => 'ตาย','ไม่สมัครใจให้เยี่ยม' => 'ไม่สมัครใจให้เยี่ยม','readmit' => 'ReAdmit','ไม่พบผู้ป่วย' => 'ไม่พบผู้ป่วย','ย้ายที่อยู่' => 'ย้ายที่อยู่'], ['prompt' => '<-- ระบุผลการเยี่ยม-->','required' => '']) ?>
                 </div>
                 <div class="col-xs-4 col-sm-4 col-md-4">
 <?= $form->field($model, 'other2')->label('ที่อยู่ใหม่ที่ย้ายไป')->textInput(['maxlength' => true]) ?>
@@ -64,14 +63,21 @@ use yii\helpers\ArrayHelper;
                 </div>
 
                 <div class="col-xs-4 col-sm-4 col-md-4">                    
-                     <?= $form->field($model, 'departfct',['labelOptions'=>['style'=>'color:red']])->label('หน่วยงานที่เยี่ยม *')->dropdownList(
+                    <?= $form->field($model, 'departfct',['labelOptions'=>['style'=>'color:red']])->label('หน่วยงานที่เยี่ยม *')->dropdownList(
                             ArrayHelper::map(\app\modules\fct\models\Fcthosin::find()->all(), 'id', 'name'), [
-                        'id' => 'ddl-colour',
-                        'prompt' => '<-- รพ.สต -->',
-                        'required' => ''
+                                'id' => 'ddl-departfct',
+                                'prompt' => '<-- รพ.สต -->',
+                                'required' => ''
                     ]);?>
                 </div>
             </div>
+                <div class="row">
+            
+                    <?= $form->field($model, 'fcthos')->label('ทีมร่วม')->inline()->checkboxList(ArrayHelper::map(\app\modules\fct\models\Fcthosin::find()
+                    ->all(), 'name', 'name'));?>
+                </div>
+            </div>
+            
         </div>
     </div>
 

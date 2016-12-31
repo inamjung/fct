@@ -88,7 +88,7 @@ class PatientController extends Controller
        $sql = "select p.hos_guid,v.vn,p.hn,concat(p.pname,p.fname,' ',p.lname)as ptname,p.cid
         ,v.age_y,max(v.vstdate) as vstdate,o.cc,o.hpi,o.bw,o.height,p.drugallergy
         ,p.birthday,p.addressid,p.moopart,p.tmbpart,p.clinic,p.pttype
-        ,v.vstdate,p.moopart,p.informaddr,p.informtel,p.tmbpart,p.sex,v.pdx,p.bloodgrp
+        ,v.vstdate,p.moopart,p.informaddr,p.hometel,p.tmbpart,p.sex,v.pdx,p.bloodgrp
 
         from patient p
         left outer join vn_stat v on v.hn=p.hn

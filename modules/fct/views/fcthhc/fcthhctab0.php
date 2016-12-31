@@ -28,14 +28,29 @@ use yii\widgets\DetailView;
                                     'value' => $model->hhcfct->ptname,
                                 ],
                                 [
-                                    'label' => 'อายุ',
+                                    'label' => 'อายุ/ปี',
                                     'attribute' => 'cid',
                                     'value' => $model->hhcfct->age,
+                                ],
+                                [
+                                    'label' => 'น้ำหนัก/กก.',
+                                    'attribute' => 'cid',
+                                    'value' => $model->hhcfct->bw,
+                                ],
+                                [
+                                    'label' => 'ส่วนสูง/ซม.',
+                                    'attribute' => 'cid',
+                                    'value' => $model->hhcfct->height,
                                 ],
                                 [
                                     'label' => 'ที่อยู่',
                                     'attribute' => 'fcttype_id',
                                     'value' => $model->hhcfct->address,
+                                ],
+                                [
+                                    'label' => 'เบอร์ติดต่อ',
+                                    'attribute' => 'fcttype_id',
+                                    'value' => $model->hhcfct->phone,
                                 ],
                             ],
                         ])
@@ -43,8 +58,6 @@ use yii\widgets\DetailView;
                     </div>
                 </div>
             </div>
-
-
             <div class="col-xs-4 col-sm-4 col-md-4">
                 <div class="panel panel-info">
                     <div class="panel-heading"> ข้อมูลการส่งเยี่ยม</div>
@@ -64,11 +77,16 @@ DetailView::widget([
             'attribute' => 'fctcolour_id',
             'value' => $model->hhcfct->colourfct->name,
         ],
-//        [
-//            'label' => 'การอนุญาต',
-//            'attribute' => 'cid',
-//            'value' => $model->hhcfct->pass1->name,
-//        ],
+        [
+            'label' => 'โรคประจำตัว',
+            'attribute' => 'cid',
+            'value' => $model->hhcfct->disease,
+        ],
+        [
+            'label' => 'ประวัติการแพ้ยา',
+            'attribute' => 'cid',
+            'value' => $model->hhcfct->drugallergy,
+        ],
     ],
 ])
 ?>

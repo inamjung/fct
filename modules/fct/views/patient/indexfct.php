@@ -77,7 +77,7 @@ if (count($datas) == 0) {
                         'moopart'=>$model['moopart'],
                         
                         'drugallergy'=>$model['drugallergy'],
-                        'phone'=>$model['informtel'],
+                        'phone'=>$model['hometel'],
                         'tmbpart'=>$model['tmbpart'],
                         'address'=>$model['informaddr'],
                         'pttype'=>$model['pttype'],

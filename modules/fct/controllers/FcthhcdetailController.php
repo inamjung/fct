@@ -84,6 +84,7 @@ class FcthhcdetailController extends Controller
     {
         $model = $this->findModel($id);
         $model->tool  = $model->getArray($model->tool);
+        $model->fcthos  = $model->getArray($model->fcthos);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['/fct/fcthhc/indexfctok']);

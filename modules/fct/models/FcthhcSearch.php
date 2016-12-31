@@ -19,7 +19,7 @@ class FcthhcSearch extends Fcthhc
     {
         return [
             [['id', 'fct_id', 'home', 'fcttype_id', 'fctcolour_id','hhclot', 'fcthosin_id'], 'integer'],
-            [['fctdate', 'homept', 't', 'pr', 'rr', 'bp', 'feel', 'eat', 'stool', 'urin', 'commu', 'mental', 'self', 'lesion', 'fall', 'sore', 'heart', 'hearta', 'heartnote', 'social', 'sociala', 'socialnote', 'bored', 'borednote', 'depress', 'depressnote', 'foley', 'foleynote', 'ng', 'ngnote', 'pcn', 'pcnnote', 'tra', 'tranote', 'wound', 'woundnote', 'insulin', 'insulinnote', 'windpipe', 'windpipenote', 'phy', 'phynote', 'pra', 'pranote', 'diet', 'dietnote', 'env', 'envnote', 'ser', 'sernote', 'comp', 'compnote', 'timeu', 'times', 'datenext', 'other', 'other2', 'datedc', 'notefct', 'tr01', 'tr02', 'tr03', 'deg04', 'deg15', 'deg14', 'deg13', 'deg12', 'deg11', 'deg10', 'deg09', 'deg08', 'deg07', 'deg06', 'deg05', 'deg03', 'deg02', 'deg01', 'tr15', 'tr14', 'tr13', 'tr12', 'tr11', 'tr10', 'tr09', 'tr08', 'tr07', 'tr06', 'tr05', 'tr04', 'fctname1', 'fctname2', 'fctname3', 'fctname4', 'fctname5', 'fctname6', 'departfct', 'lr01', 'lr02', 'lr03', 'lr04', 'lr05', 'lr06', 'lr07', 'lr08', 'lr09', 'lr10', 'lrl01', 'lrl02', 'lrl03', 'lrl04', 'lrl05', 'lrl06', 'lrl07', 'lrl08', 'lr', 'lrl10', 'lrl11', 'lrl09', 'cid', 'status', 'birthday', 'tmbpart', 'sex', 'bloodgrp','chlid05_glow','child614_food','dc','tool','cc','pi','moopart'], 'safe'],
+            [['fctdate', 'homept', 't', 'pr', 'rr', 'bp', 'feel', 'eat', 'stool', 'urin', 'commu', 'mental', 'self', 'lesion', 'fall', 'sore', 'heart', 'hearta', 'heartnote', 'social', 'sociala', 'socialnote', 'bored', 'borednote', 'depress', 'depressnote', 'foley', 'foleynote', 'ng', 'ngnote', 'pcn', 'pcnnote', 'tra', 'tranote', 'wound', 'woundnote', 'insulin', 'insulinnote', 'windpipe', 'windpipenote', 'phy', 'phynote', 'pra', 'pranote', 'diet', 'dietnote', 'env', 'envnote', 'ser', 'sernote', 'comp', 'compnote', 'timeu', 'times', 'datenext', 'other', 'other2', 'datedc', 'notefct', 'tr01', 'tr02', 'tr03', 'deg04', 'deg15', 'deg14', 'deg13', 'deg12', 'deg11', 'deg10', 'deg09', 'deg08', 'deg07', 'deg06', 'deg05', 'deg03', 'deg02', 'deg01', 'tr15', 'tr14', 'tr13', 'tr12', 'tr11', 'tr10', 'tr09', 'tr08', 'tr07', 'tr06', 'tr05', 'tr04', 'fctname1', 'fctname2', 'fctname3', 'fctname4', 'fctname5', 'fctname6', 'departfct', 'lr01', 'lr02', 'lr03', 'lr04', 'lr05', 'lr06', 'lr07', 'lr08', 'lr09', 'lr10', 'lrl01', 'lrl02', 'lrl03', 'lrl04', 'lrl05', 'lrl06', 'lrl07', 'lrl08', 'lr', 'lrl10', 'lrl11', 'lrl09', 'cid', 'status', 'birthday', 'tmbpart', 'sex', 'bloodgrp','chlid05_glow','child614_food','dc','tool','cc','pi','moopart','smoke','alcohol','fcthos'], 'safe'],
             [['chlid614_bw','chlid614_hg'],'number']
         ];
     }
@@ -200,6 +200,9 @@ class FcthhcSearch extends Fcthhc
             ->andFilterWhere(['like', 'cc', $this->cc])
             ->andFilterWhere(['like', 'pi', $this->pi])
             ->andFilterWhere(['like', 'tool', $this->tool])
+                ->andFilterWhere(['like', 'smoke', $this->smoke])
+                ->andFilterWhere(['like', 'alcohol', $this->alcohol])
+                ->andFilterWhere(['like', 'fcthos', $this->fcthos])
             ->andFilterWhere(['like', 'moopart', $this->moopart])
             ->andFilterWhere(['like', 'chlid05_glow', $this->chlid05_glow])
             ->andFilterWhere(['like', 'child614_food', $this->child614_food])    
