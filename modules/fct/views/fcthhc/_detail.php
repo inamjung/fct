@@ -31,6 +31,8 @@ GridView::widget([
         [
             'label' => 'ครั้งที่เยี่ยม',
             'attribute' =>  'fctnumber',
+             'headerOptions' => ['class' => 'text-center'],
+             'contentOptions' => ['class' => 'text-center'],
         ],
         [
             'label' => 'วันที่เข้าเยี่ยม',
