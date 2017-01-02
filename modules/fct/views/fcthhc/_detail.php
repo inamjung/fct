@@ -23,12 +23,15 @@ GridView::widget([
         }
     },
     'columns' => [
-        ['class' => 'yii\grid\SerialColumn'],
+        //['class' => 'yii\grid\SerialColumn'],
         //'id',
 //            'fcthhc_id',
 //            'fct_id',
-//            'fctnumber',
-
+          
+        [
+            'label' => 'ครั้งที่เยี่ยม',
+            'attribute' =>  'fctnumber',
+        ],
         [
             'label' => 'วันที่เข้าเยี่ยม',
             'attribute' => 'fctdate',

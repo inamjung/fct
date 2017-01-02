@@ -8,7 +8,7 @@ use app\modules\fct\models\FcthhcdetailSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-
+use yii\data\ArrayDataProvider;
 /**
  * FcthhcdetailController implements the CRUD actions for Fcthhcdetail model.
  */
@@ -82,6 +82,8 @@ class FcthhcdetailController extends Controller
      */
     public function actionUpdate($id)
     {
+           
+        
         $model = $this->findModel($id);
         $model->tool  = $model->getArray($model->tool);
         $model->fcthos  = $model->getArray($model->fcthos);
@@ -89,8 +91,11 @@ class FcthhcdetailController extends Controller
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['/fct/fcthhc/indexfctok']);
         } else {
-            return $this->render('update', [
+            return $this->render('update', [   
+                //'dataProvider'=>$dataProvider,
                 'model' => $model,
+              
+           
             ]);
         }
     }
@@ -123,4 +128,23 @@ class FcthhcdetailController extends Controller
             throw new NotFoundHttpException('The requested page does not exist.');
         }
     }
+    public function actionRr($fct=null,$rr=null){
+        
+        $connection = Yii::$app->db;
+        $data = $connection->createCommand("SELECT COUNT(d.id)+1 rr FROM fcthhcdetail d 
+                WHERE d.fct_id='$fct'")->queryAll();
+        
+        
+       
+        $dataProvider = new ArrayDataProvider([
+                'allModels'=>$data, 
+            ]);
+        
+//        return $this->render('report1',[
+//                'dataProvider'=>$dataProvider,
+//                'rr'=>$rr,
+//                'fct'=>$fct
+//            ]);
+    }
+    
 }

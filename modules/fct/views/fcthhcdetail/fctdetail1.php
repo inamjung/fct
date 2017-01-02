@@ -1,17 +1,25 @@
+<?php
+use yii\data\ArrayDataProvider;
+use yii\data\ActiveDataProvider;
+use app\modules\fct\models\Fcthhcdetail;
+
+//$datas = $dataProvider->getModels();
+?>
+
 <div class="box box-success">
     <div class="box-header"></div>
     <div class="box-body">
         <div class="row">
-            <?php
-             $rr = \app\modules\fct\models\Fcthhcdetail::find()
-                //->where(['status' => 0])
-                ->groupBy('fct_id')
-                ->count();
-            ?>
-            <?= $form->field($model, 'fctnumber')->label('ครั้งที่เยี่ยม')->textInput(['value'=>$rr+1]) ?>
+         <?php
+         $rr = Fcthhcdetail::find()->Where(['fct_id'=>$model->fct_id])->count()+1;
+         
+         ?>
+             
+   
+            
 
             <div class="col-sm-offset-3 col-sm-6">
-
+                <?= $form->field($model, 'fctnumber')->label('เยี่ยมครั้งที่')->textInput(['readonly'=>true,'value'=>$rr]) ?>
                 <?=
                 $form->field($model, 'fctdate', ['labelOptions' => ['style' => 'color:red']])->label('วันที่เข้าเยี่ยม *')->widget(\yii\jui\DatePicker::classname(), [
                     'language' => 'th',
